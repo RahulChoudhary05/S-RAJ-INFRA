@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import { NavBar } from './components/common/NavBar';
 
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-backgroundblack flex flex-col font-inter text-white">
-      Hello
+    <div className="w-screen min-h-screen bg-white flex flex-col font-inter">
+      <NavBar/>
     </div>
   );
 }
