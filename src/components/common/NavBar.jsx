@@ -22,12 +22,12 @@ export const NavBar = () => {
         </div>
 
         {/* Center: SlideTabs for larger screens */}
-        <div className="hidden lg:flex mx-auto">
+        <div className="hidden lg:flex mx-auto transparent">
           <SlideTabs />
         </div>
 
         {/* Right: Contact Us Button for larger screens */}
-        <div className="hidden lg:block bg-white">
+        <div className="hidden lg:block transparent">
           <ContactUsButton />
         </div>
       </div>
@@ -48,7 +48,7 @@ export const NavBar = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex flex-col items-start p-4">
+        <nav className="flex flex-col items-start p-4 transparent">
           <NavItem onClick={() => setIsOpen(false)}>Home</NavItem>
           <NavItem onClick={() => setIsOpen(false)}>About Us</NavItem>
           <NavItem onClick={() => setIsOpen(false)}>Projects</NavItem>
@@ -57,7 +57,7 @@ export const NavBar = () => {
         </nav>
 
         {/* Contact Us Button in Sidebar */}
-        <div className="flex justify-center mt-auto p-4 bg-white">
+        <div className="flex justify-center mt-auto p-4 transparent">
           <ContactUsButton />
         </div>
       </motion.div>
@@ -93,7 +93,7 @@ const SlideTabs = () => {
           opacity: 0,
         }));
       }}
-      className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04]  bg-white p-1"
+      className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04]  transparent p-1"
     >
       <Tab setPosition={setPosition}>Home</Tab>
       <Tab setPosition={setPosition}>About Us</Tab>

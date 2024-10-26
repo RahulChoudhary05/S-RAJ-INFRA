@@ -1,174 +1,123 @@
-import { useState, useEffect, useRef } from "react";
-import { Building2, Construction, Factory, Hammer, Ruler } from "lucide-react";
-import HighlightText from "../components/common/HighlightText";
+import { useState, useEffect, useRef } from 'react';
+import { infrastructureImages } from '../../src/components/data/ImageData'; // Adjust the path if necessary
 
-// Infrastructure Icons Data
-const infrastructureIcons = [
-  { icon: Building2, delay: 0 },
-  { icon: Construction, delay: 200 },
-  { icon: Factory, delay: 400 },
-  { icon: Hammer, delay: 600 },
-  { icon: Ruler, delay: 800 }
-];
+const BubbleText = ({ text, color }) => {
+  return (
+    <h2 className={`text-center text-6xl font-bold ${color} bg-clip-text text-transparent`}>
+      {text.split("").map((child, idx) => (
+        <span
+          key={idx}
+          className="inline-block hover:scale-150 transition-all duration-300 hover:-translate-y-2"
+          style={{ color: '#866A04' }} // Change the text color here if needed
+        >
+          {child}
+        </span>
+      ))}
+    </h2>
+  );
+};
 
-// Floating Icon Component
-const FloatingIcon = ({ Icon, x, y, delay }) => (
-  <div 
-    className="absolute animate-float"
-    style={{ 
-      left: `${x}%`, 
-      top: `${y}%`,
-      animation: `float 3s ease-in-out infinite`,
-      animationDelay: `${delay}ms`
-    }}
-  >
-    <Icon className="w-8 h-8 text-blue-500/30" />
-  </div>
-);
 
-// Grid Background Component
-const GridBackground = () => {
-  const [activeCell, setActiveCell] = useState(null);
-  const [ripples, setRipples] = useState([]);
-  const cells = Array(100).fill(0);
+const ImageTrail = ({ children }) => {
+  const [images, setImages] = useState([]);
+  const containerRef = useRef(null);
+  const lastMousePos = useRef({ x: 0, y: 0 });
+  const imageIndex = useRef(0);
+
+  const createImage = (x, y) => {
+    const img = infrastructureImages[imageIndex.current % infrastructureImages.length];
+    const rotation = Math.random() * 30 - 15;
+
+    const newImage = {
+      id: Date.now(),
+      src: img,
+      style: {
+        left: x,
+        top: y,
+        rotation,
+        opacity: 1
+      }
+    };
+
+    imageIndex.current += 1;
+    return newImage;
+  };
+
+  const handleMouseMove = (e) => {
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const distance = Math.hypot(x - lastMousePos.current.x, y - lastMousePos.current.y);
+
+    if (distance > 50) {
+      setImages(prev => {
+        const newImages = [...prev, createImage(x, y)];
+        if (newImages.length > 10) {
+          return newImages.slice(-10);
+        }
+        return newImages;
+      });
+
+      lastMousePos.current = { x, y };
+    }
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const randomCell = Math.floor(Math.random() * 100);
-      setActiveCell(randomCell);
-      
-      setRipples(prev => [...prev, {
-        id: Date.now(),
-        cell: randomCell,
-        timestamp: Date.now()
-      }].slice(-5));
-    }, 2000);
+    const timer = setInterval(() => {
+      setImages(prev => prev.filter(img => Date.now() - img.id < 2000));
+    }, 50);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, []);
 
-  const getCellClassName = (index) => {
-    const isActive = activeCell === index;
-    const isRipple = ripples.some(r => r.cell === index);
-    const baseClasses = "border border-yellow-100/10 transition-all duration-500 relative overflow-hidden";
-    
-    if (isActive) {
-      return `${baseClasses} bg-gray-400/20 shadow-lg shadow-gray-500/50`;
-    }
-    
-    if (isRipple) {
-      return `${baseClasses} animate-pulse-light`;
-    }
-    
-    return `${baseClasses} hover:bg-gray-50/30`;
-  };
-
-  const getCellStyles = (index) => {
-    const ripple = ripples.find(r => r.cell === index);
-    if (!ripple) return {};
-
-    const timeSinceRipple = Date.now() - ripple.timestamp;
-    const opacity = Math.max(0, 1 - timeSinceRipple / 2000);
-
-    return {
-      background: `radial-gradient(circle at center, rgba(59, 130, 246, ${opacity * 0.2}) 0%, transparent 70%)`
-    };
-  };
-
   return (
-    <div className="absolute inset-0">
-      {/* Ambient Light Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pure-greys-50/5 to-transparent" />
-      
-      {/* Dynamic Grid */}
-      <div className="absolute inset-0 grid grid-cols-10 grid-rows-10">
-        {cells.map((_, i) => (
-          <div
-            key={i}
-            className={getCellClassName(i)}
-            style={getCellStyles(i)}
-          >
-            {/* Light Trail Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/10 to-transparent -translate-x-full animate-light-trail" />
-            
-            {/* Corner Dots */}
-            <div className="absolute w-1 h-1 bg-pure-greys-200/30 rounded-full top-0 left-0" />
-            <div className="absolute w-1 h-1 bg-pure-greys-200/30 rounded-full top-0 right-0" />
-            <div className="absolute w-1 h-1 bg-pure-greys-200/30 rounded-full bottom-0 left-0" />
-            <div className="absolute w-1 h-1 bg-pure-greys-200/30 rounded-full bottom-0 right-0" />
-          </div>
-        ))}
-      </div>
+    <div
+      ref={containerRef}
+      className="relative w-full h-screen overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      {children}
 
-      {/* Overlay Grid Lines */}
-      <div className="absolute inset-0" 
-        style={{
-          backgroundImage: `
-            linear-gradient(0deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px)
-          `,
-          backgroundSize: '10% 10%'
-        }} 
-      />
+      {images.map((image) => (
+        <img
+          key={image.id}
+          src={image.src}
+          alt="Infrastructure"
+          className="absolute w-48 h-32 object-cover rounded-lg shadow-lg pointer-events-none transition-all duration-500"
+          style={{
+            left: image.style.left - 96,
+            top: image.style.top - 64,
+            transform: `rotate(${image.style.rotation}deg)`,
+            opacity: image.style.opacity,
+          }}
+        />
+      ))}
     </div>
   );
 };
 
-// Main Infrastructure Hero Section
 export default function InfrastructureHero() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    setIsVisible(true);
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
-    <div className="relative h-screen bg-white overflow-hidden">
-      <GridBackground />
-
-      {/* Floating Icons */}
-      {infrastructureIcons.map((item, index) => (
-        <FloatingIcon
-          key={index}
-          Icon={item.icon}
-          x={(mousePosition.x + index * 15) % 90}
-          y={(mousePosition.y + index * 10) % 80}
-          delay={item.delay}
-        />
-      ))}
-
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
-        <div 
-          className={`transform transition-all duration-1000 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}
-        >
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-6">
-            <span className="bg-clip-text text-transparent font-body">
-             <HighlightText text={"S RAJ INFRA PROJECTS PRIVATE LIMITED"}/>
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 text-center max-w-2xl mx-auto mb-8">
-            Welcome
-          </p>
-          <div className="flex gap-4 justify-center">
-            <button className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 bg-white hover:scale-105 transition-all duration-300">
-              Read More
-            </button>
-          </div>
+    <ImageTrail>
+      <div className="relative flex flex-col items-center justify-center px-12 pb-48 pt-24 md:pt-52">
+        <div className="mb-4 rounded-full bg-zinc-600">
+          <a href="#" target="_blank" rel="nofollow" className="flex origin-top-left items-center rounded-full border border-zinc-900 bg-white p-0.5 text-sm transition-transform hover:-rotate-2">
+            <span className="rounded-full bg-pure-greys-600 px-2 py-0.5 font-medium text-white">WELCOME!</span>
+            <span className="ml-1.5 mr-1 inline-block">We're excited to have you here!</span>
+          </a>
+        </div>
+        <BubbleText text="S RAJ INFRA PROJECTS PRIVATE LIMITED" color="text-[#866A04]" />
+        <p className="mx-auto my-4 max-w-3xl text-center text-base leading-relaxed md:my-6 md:text-xl md:leading-relaxed">
+          Your trusted partner in innovative infrastructure solutions.
+        </p>
+        <button className="rounded-lg bg-indigo-600 p-3 uppercase text-white transition-colors hover:bg-indigo-700">
+          <span className="font-bold">Get started - </span> no CC required
+        </button>
+        <div className="absolute bottom-0 left-1/2 h-36 w-[calc(100vw_-_56px)] max-w-[1100px] -translate-x-1/2 overflow-hidden rounded-t-xl bg-zinc-900 p-0.5">
+          {/* <div className="absolute bottom-0 left-0 right-0 top-0 z-10 bg-gradient-to-b from-white/0 to-white" /> */}
         </div>
       </div>
-    </div>
+    </ImageTrail>
   );
 }
