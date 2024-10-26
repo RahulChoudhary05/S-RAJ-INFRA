@@ -7,7 +7,7 @@ export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to control sidebar visibility
 
   return (
-    <div className="bg-neutral-100 shadow-md py-2">
+    <div className="bg-transparent fixed top-0 left-0 right-0 z-50 shadow-none py-2"> {/* Changed to transparent */}
       <div className="flex items-center justify-between mx-auto w-11/12 lg:w-10/12">
         {/* Left: Logo */}
         <img
@@ -27,7 +27,7 @@ export const NavBar = () => {
         </div>
 
         {/* Right: Contact Us Button for larger screens */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block bg-white">
           <ContactUsButton />
         </div>
       </div>
@@ -57,13 +57,14 @@ export const NavBar = () => {
         </nav>
 
         {/* Contact Us Button in Sidebar */}
-        <div className="flex justify-center mt-auto p-4">
+        <div className="flex justify-center mt-auto p-4 bg-white">
           <ContactUsButton />
         </div>
       </motion.div>
     </div>
   );
 };
+
 
 // NavItem Component
 const NavItem = ({ children, onClick }) => {
@@ -92,7 +93,7 @@ const SlideTabs = () => {
           opacity: 0,
         }));
       }}
-      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
+      className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04]  bg-white p-1"
     >
       <Tab setPosition={setPosition}>Home</Tab>
       <Tab setPosition={setPosition}>About Us</Tab>
@@ -107,6 +108,7 @@ const SlideTabs = () => {
 
 const Tab = ({ children, setPosition }) => {
   const ref = useRef(null);
+  const [isHovered, setIsHovered] = useState(false); // New state to manage hover status
 
   return (
     <li
@@ -121,13 +123,20 @@ const Tab = ({ children, setPosition }) => {
           width,
           opacity: 1,
         });
+
+        setIsHovered(true); // Set hover state to true
       }}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-black md:px-5 md:py-3 md:text-base"
+      onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase md:px-5 md:py-3 md:text-base"
     >
-      <span className="text-black hover:text-white">{children}</span> {/* Changed text color */}
+      {/* Conditionally applying text color based on hover state */}
+      <p className={`font-bold ${isHovered ? 'text-white' : 'text-black'}`}>
+        {children}
+      </p>
     </li>
   );
 };
+
 
 const Cursor = ({ position }) => {
   return (
@@ -190,11 +199,11 @@ const ContactUsButton = () => {
       }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="group relative overflow-hidden rounded-lg border-[1px] border-neutral-500 bg-neutral-700 px-6 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300"
+      className="group relative overflow-hidden rounded-lg border-[2px] border-[#866A04] bg-neutral-700 px-6 py-2 font-mono font-medium uppercase transition-colors hover:bg-black hover:text-white"
     >
       <div className="relative z-10 flex items-center gap-2">
-        <FiLock /> {/* Lock icon from react-icons */}
-        <span>{text}</span>
+        <FiLock />
+        <span className="font-bold">{text}</span>
       </div>
       <motion.span
         initial={{
@@ -214,5 +223,6 @@ const ContactUsButton = () => {
     </motion.button>
   );
 };
+
 
 export default NavBar;

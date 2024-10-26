@@ -27,6 +27,7 @@ module.exports = {
         700: "#553F02",
         800: "#3D2A01",
         900: "#251400",
+        1:"#D4AF37",
       },
       richblack: {
         5: "#F1F2FF",
@@ -126,6 +127,11 @@ module.exports = {
         800: "#171717",
         900: "#141414",
       },
+      // Additional Colors
+      primaryYellow: '#F1C40F', // Yellow
+      primaryGray: '#7F8C8D',   // Gray
+      lightGray: '#ECF0F1',     // Light Gray
+      darkGray: '#2C3E50',      // Dark Gray
     },
     extend: {
       maxWidth: {
