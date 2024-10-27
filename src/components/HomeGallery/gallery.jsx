@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import about1 from '../../assets/Bridge.jpeg';
-import about2 from '../../assets/Machine.jpeg';
-import img3 from '../../assets/Bridge.jpeg';
-import img4 from '../../assets/Machine.jpeg';
-import img5 from '../../assets/Bridge.jpeg';
+import img1 from '../../Assests/Base_1.jpg';
+import img2 from '../../Assests/Base_2.jpg';
+import img3 from '../../Assests/Base_3.jpg';
+import img4 from '../../Assests/Bridge_2.jpg';
+import img5 from '../../Assests/Bridge_4.jpg';
+import img6 from '../../Assests/Bridge_7.jpg';
+import img7 from '../../Assests/Machine_1.jpg';
+import img8 from '../../Assests/Machine_5.jpg';
+import img9 from '../../Assests/Machine_7.jpg';
 
 const images = [
-    { id: 1, src: about1, name: 'Image 1', description: 'Description for Image 1' },
-    { id: 2, src: about2, name: 'Image 2', description: 'Description for Image 2' },
+    { id: 1, src: img1, name: 'Image 1', description: 'Description for Image 1' },
+    { id: 2, src: img2, name: 'Image 2', description: 'Description for Image 2' },
     { id: 3, src: img3, name: 'Image 3', description: 'Description for Image 3' },
     { id: 4, src: img4, name: 'Image 4', description: 'Description for Image 4' },
     { id: 5, src: img5, name: 'Image 5', description: 'Description for Image 5' },
+    { id: 6, src: img6, name: 'Image 6', description: 'Description for Image 6' },
+    { id: 7, src: img7, name: 'Image 7', description: 'Description for Image 7' },
+    { id: 8, src: img8, name: 'Image 8', description: 'Description for Image 8' },
+    { id: 9, src: img9, name: 'Image 9', description: 'Description for Image 9' },
 ];
 
 export default function ImageSlider() {
@@ -31,7 +39,7 @@ export default function ImageSlider() {
     }, [currentIndex]); 
 
     return (
-        <div className="relative w-screen h-screen bg-richblack-25 overflow-hidden shadow-xl">
+        <div className="relative w-screen h-screen bg-white overflow-hidden shadow-xl">
             <div className="absolute w-[90%] h-full flex items-center overflow-hidden">
                 {images.map((image, index) => {
                     let positionClass = '';
@@ -51,7 +59,7 @@ export default function ImageSlider() {
                             <img
                                 src={image.src}
                                 alt={image.name}
-                                className="w-[750px] h-[400px] object-cover rounded-lg shadow-lg"
+                                className="w-[750px] h-[400px] object-fill rounded-lg shadow-lg"
                             />
                             {index === currentIndex && (
                                 <div className="absolute top-[18px] left-[198px] ">

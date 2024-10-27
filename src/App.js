@@ -3,6 +3,7 @@ import './App.css';
 import { NavBar } from './components/common/NavBar';
 import AnimatedFooter from './components/common/Footer';
 import InfrastructureHero from './pages/Home';
+import ImageSlider from './components/HomeGallery/gallery';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="flex-grow">
         <InfrastructureHero/>
       </div>
+      <ImageSlider/>
       <AnimatedFooter />
     </div>
   );

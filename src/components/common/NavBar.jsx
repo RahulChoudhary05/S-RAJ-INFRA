@@ -1,13 +1,34 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiLock, FiMenu, FiX } from "react-icons/fi"; // Importing icons
 import logo from "../../assets/Logo/logo.svg";
 
 export const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to control sidebar visibility
+  const [isOpen, setIsOpen] = useState(false); // Sidebar visibility
+  const [isScrolled, setIsScrolled] = useState(false); // Navbar background change on scroll
+
+  useEffect(() => {
+    // Listen for scroll events
+    const handleScroll = () => {
+      if (window.scrollY > 150) { // Adjust scroll value for when the navbar should change
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Cleanup event listener on unmount
+    };
+  }, []);
 
   return (
-    <div className="bg-transparent fixed top-0 left-0 right-0 z-50 shadow-none py-2"> {/* Changed to transparent */}
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 py-2 transition-colors duration-300 ${
+        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      }`}
+    >
       <div className="flex items-center justify-between mx-auto w-11/12 lg:w-10/12">
         {/* Left: Logo */}
         <img
@@ -22,12 +43,12 @@ export const NavBar = () => {
         </div>
 
         {/* Center: SlideTabs for larger screens */}
-        <div className="hidden lg:flex mx-auto transparent">
+        <div className="hidden lg:flex mx-auto">
           <SlideTabs />
         </div>
 
         {/* Right: Contact Us Button for larger screens */}
-        <div className="hidden lg:block transparent">
+        <div className="hidden lg:block">
           <ContactUsButton />
         </div>
       </div>
@@ -35,7 +56,7 @@ export const NavBar = () => {
       {/* Sidebar for mobile navigation */}
       <motion.div
         className={`fixed inset-0 bg-white z-50 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="flex items-center justify-between p-4">
@@ -48,23 +69,21 @@ export const NavBar = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex flex-col items-start p-4 transparent">
+        <nav className="flex flex-col items-start p-4">
           <NavItem onClick={() => setIsOpen(false)}>Home</NavItem>
           <NavItem onClick={() => setIsOpen(false)}>About Us</NavItem>
           <NavItem onClick={() => setIsOpen(false)}>Projects</NavItem>
           <NavItem onClick={() => setIsOpen(false)}>Career</NavItem>
-          {/* <NavItem onClick={() => setIsOpen(false)}>Blog</NavItem> */}
         </nav>
 
         {/* Contact Us Button in Sidebar */}
-        <div className="flex justify-center mt-auto p-4 transparent">
+        <div className="flex justify-center mt-auto p-4">
           <ContactUsButton />
         </div>
       </motion.div>
     </div>
   );
 };
-
 
 // NavItem Component
 const NavItem = ({ children, onClick }) => {
