@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { NavBar } from './components/common/NavBar';
 import AnimatedFooter from './components/common/Footer';
-import InfrastructureHero from './pages/Home';
+import FuzzyOverlayExample from './pages/Home';
 
 function App() {
   return (
@@ -11,7 +11,6 @@ function App() {
       <div className="flex-grow">
         <FuzzyOverlayExample />
       </div>
-      <ImageSlider/>
       <AnimatedFooter />
     </div>
   );
