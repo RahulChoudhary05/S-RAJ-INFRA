@@ -99,19 +99,18 @@ module.exports = {
         800: "#41260B",
         900: "#291100",
       },
-      pink: {
-        5: "#FFF1F1",
-        25: "#FBC7D1",
-        50: "#F79CB0",
-        100: "#F37290",
-        200: "#EF476F",
-        300: "#D43D63",
-        400: "#BA3356",
-        500: "#9F294A",
-        600: "#841E3E",
-        700: "#691432",
-        800: "#4F0A25",
-        900: "#340019",
+      neutral: {
+        20: "#F3F4F6",
+        50: "#F9FAFB",
+        100: "#F0F4F8",
+        200: "#E5E7EB",
+        300: "#CDD7E1",
+        400: "#9FA6AD",
+        500: "#636B74",
+        600: "#555E68",
+        700: "#374151",
+        800: "#1F2937",
+        950: "#111827",
       },
       "pure-greys": {
         5: "#F9F9F9",
@@ -128,10 +127,11 @@ module.exports = {
         900: "#141414",
       },
       // Additional Colors
-      primaryYellow: '#F1C40F', // Yellow
-      primaryGray: '#7F8C8D',   // Gray
-      lightGray: '#ECF0F1',     // Light Gray
-      darkGray: '#2C3E50',      // Dark Gray
+      primaryYellow: '#F1C40F',
+      primaryGray: '#7F8C8D',
+      lightGray: '#ECF0F1',
+      darkGray: '#2C3E50',
+      'neutral-950': '#111827',  // Dark background
     },
     extend: {
       maxWidth: {
