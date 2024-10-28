@@ -26,7 +26,7 @@ export const NavBar = () => {
   return (
     <div
       className={`fixed top-0 left-0 right-0 z-50 py-2 transition-colors duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-white/90 shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="flex items-center justify-between mx-auto w-11/12 lg:w-10/12">
@@ -112,13 +112,12 @@ const SlideTabs = () => {
           opacity: 0,
         }));
       }}
-      className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04]  transparent p-1"
+      className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04] transparent p-1"
     >
       <Tab setPosition={setPosition}>Home</Tab>
       <Tab setPosition={setPosition}>About Us</Tab>
       <Tab setPosition={setPosition}>Projects</Tab>
       <Tab setPosition={setPosition}>Career</Tab>
-      {/* <Tab setPosition={setPosition}>Blog</Tab> */}
 
       <Cursor position={position} />
     </ul>
@@ -149,7 +148,7 @@ const Tab = ({ children, setPosition }) => {
       className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase md:px-5 md:py-3 md:text-base"
     >
       {/* Conditionally applying text color based on hover state */}
-      <p className={`font-bold ${isHovered ? 'text-white' : 'text-black'}`}>
+      <p className={`font-bold ${isHovered ? 'text-white' : 'text-neutral-600'}`}>
         {children}
       </p>
     </li>
@@ -218,7 +217,7 @@ const ContactUsButton = () => {
       }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="group relative overflow-hidden rounded-lg border-[2px] border-[#866A04] bg-neutral-700 px-6 py-2 font-mono font-medium uppercase transition-colors hover:bg-black hover:text-white"
+      className="group relative overflow-hidden rounded-lg border-[2px] border-[#866A04] text-neutral-600 transparent px-6 py-2 font-mono font-medium uppercase transition-colors hover:bg-black hover:text-white"
     >
       <div className="relative z-10 flex items-center gap-2">
         <FiLock />
@@ -242,6 +241,5 @@ const ContactUsButton = () => {
     </motion.button>
   );
 };
-
 
 export default NavBar;

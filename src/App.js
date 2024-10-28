@@ -7,7 +7,7 @@ import FuzzyOverlayExample from './pages/Home';
 function App() {
   return (
     <div className="w-screen min-h-screen flex flex-col font-inter">
-      <NavBar />
+      <NavBar/>
       <div className="flex-grow">
         <FuzzyOverlayExample />
       </div>
