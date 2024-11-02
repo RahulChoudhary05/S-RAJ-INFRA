@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiLock, FiMenu, FiX } from "react-icons/fi"; // Importing icons
+import { Link } from 'react-router-dom'
 import logo from "../../assets/Logo/logo.svg";
 
 export const NavBar = () => {
@@ -25,9 +26,7 @@ export const NavBar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 py-2 transition-colors duration-300 ${
-        isScrolled ? 'bg-white/90 shadow-md' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 py-2 transition-colors duration-300 bg-white shadow-md`}
     >
       <div className="flex items-center justify-between mx-auto w-11/12 lg:w-10/12">
         {/* Left: Logo */}
@@ -49,7 +48,7 @@ export const NavBar = () => {
 
         {/* Right: Contact Us Button for larger screens */}
         <div className="hidden lg:block">
-          <ContactUsButton />
+          <Link to="/contact"><ContactUsButton /></Link>
         </div>
       </div>
 
@@ -114,10 +113,10 @@ const SlideTabs = () => {
       }}
       className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04] transparent p-1"
     >
-      <Tab setPosition={setPosition}>Home</Tab>
-      <Tab setPosition={setPosition}>About Us</Tab>
-      <Tab setPosition={setPosition}>Projects</Tab>
-      <Tab setPosition={setPosition}>Career</Tab>
+      <Tab setPosition={setPosition}><Link to="/">Home</Link></Tab>
+      <Tab setPosition={setPosition}><Link to="/about">About Us</Link></Tab>
+      <Tab setPosition={setPosition}><Link to="/projects">Projects</Link></Tab>
+      <Tab setPosition={setPosition}><Link to="/career">Career</Link></Tab>
 
       <Cursor position={position} />
     </ul>

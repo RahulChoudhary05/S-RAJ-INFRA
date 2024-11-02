@@ -1,18 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import { NavBar } from './components/common/NavBar';
-import AnimatedFooter from './components/common/Footer';
+import { Route, Routes } from "react-router-dom";
 import FuzzyOverlayExample from './pages/Home';
+import ContactUsForm from './components/ContactPage/ContactUsForm';
+import ScrollTop from './components/scrollTop/ScrollTop';
 
 function App() {
   return (
-    <div className="w-screen min-h-screen flex flex-col font-inter">
-      <NavBar/>
-      <div className="flex-grow">
-        <FuzzyOverlayExample />
-      </div>
-      <AnimatedFooter />
-    </div>
+    <ScrollTop>
+      <Routes>
+        <Route path="/" element={<FuzzyOverlayExample />} /> {/* Main Route for Home */}
+        <Route path="contact" element={<ContactUsForm />} /> {/* Route for Contact Us */}
+      </Routes>
+    </ScrollTop>
   );
 }
 

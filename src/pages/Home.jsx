@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import Layout from '../components/layout/layout';
 
 const FuzzyOverlayExample = () => {
   return (
-    <div className="relative overflow-hidden">
+    <Layout>
+      <div className="relative overflow-hidden">
       <ExampleContent />
       <FuzzyOverlay />
     </div>
+    </Layout>
   );
 };
 
