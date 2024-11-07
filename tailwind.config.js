@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Specify the paths to all of the template files in your project
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+  
   theme: {
+    // Custom font families
     fontFamily: {
       body: ['Bodoni Moda', 'serif'],
       playfair: ['Playfair Display', 'serif'],
@@ -9,11 +12,14 @@ module.exports = {
       "edu-sa": ["Edu SA Beginner", "cursive"],
       mono: ["Roboto Mono", "monospace"],
     },
+    
+    // Custom color palette
     colors: {
       black: '#000',
       backgroundblack: "#0C0C0C",
       white: '#fff',
       transparent: "#ffffff00",
+      
       yellow: {
         5: "#FFF970",
         25: "#FFE83D",
@@ -27,8 +33,9 @@ module.exports = {
         700: "#553F02",
         800: "#3D2A01",
         900: "#251400",
-        1:"#D4AF37",
+        1: "#D4AF37",
       },
+      
       richblack: {
         5: "#F1F2FF",
         25: "#DBDDEA",
@@ -43,6 +50,7 @@ module.exports = {
         800: "#161D29",
         900: "#000814",
       },
+      
       richblue: {
         5: "#ECF5FF",
         25: "#C6D6E1",
@@ -57,6 +65,7 @@ module.exports = {
         800: "#01212A",
         900: "#001B22",
       },
+      
       blue: {
         5: "#EAF5FF",
         25: "#B4DAEC",
@@ -71,6 +80,7 @@ module.exports = {
         800: "#022B32",
         900: "#001B1D",
       },
+      
       caribbeangreen: {
         5: "#C1FFFD",
         25: "#83F1DE",
@@ -85,6 +95,7 @@ module.exports = {
         800: "#01321F",
         900: "#001B0D",
       },
+      
       brown: {
         5: "#FFF4C4",
         25: "#FFE395",
@@ -99,20 +110,21 @@ module.exports = {
         800: "#41260B",
         900: "#291100",
       },
-      pink: {
-        5: "#FFF1F1",
-        25: "#FBC7D1",
-        50: "#F79CB0",
-        100: "#F37290",
-        200: "#EF476F",
-        300: "#D43D63",
-        400: "#BA3356",
-        500: "#9F294A",
-        600: "#841E3E",
-        700: "#691432",
-        800: "#4F0A25",
-        900: "#340019",
+      
+      neutral: {
+        20: "#F3F4F6",
+        50: "#F9FAFB",
+        100: "#F0F4F8",
+        200: "#E5E7EB",
+        300: "#CDD7E1",
+        400: "#9FA6AD",
+        500: "#636B74",
+        600: "#555E68",
+        700: "#374151",
+        800: "#1F2937",
+        950: "#111827",
       },
+      
       "pure-greys": {
         5: "#F9F9F9",
         25: "#E2E2E2",
@@ -127,18 +139,24 @@ module.exports = {
         800: "#171717",
         900: "#141414",
       },
+      
       // Additional Colors
-      primaryYellow: '#F1C40F', // Yellow
-      primaryGray: '#7F8C8D',   // Gray
-      lightGray: '#ECF0F1',     // Light Gray
-      darkGray: '#2C3E50',      // Dark Gray
+      primaryYellow: '#F1C40F',
+      primaryGray: '#7F8C8D',
+      lightGray: '#ECF0F1',
+      darkGray: '#2C3E50',
+      'neutral-950': '#111827',  // Dark background
     },
+    
     extend: {
+      // Define custom max-width sizes
       maxWidth: {
         maxContent: "1260px",
         maxContentTab: "650px",
       },
     },
   },
+  
+  // Additional plugins (add as needed)
   plugins: [],
 };
