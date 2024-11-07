@@ -1,70 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Layout from '../components/layout/layout';
+import { Hero } from './HeroSection';
+import { images } from "../components/data/HeroBg";
 import ImageSlider from '../components/HomeGallery/gallery';
+import { Link } from 'react-router-dom';
 
 const FuzzyOverlayExample = () => {
   return (
     <Layout>
-      <div className="relative overflow-hidden">
-      <ExampleContent />
-      <FuzzyOverlay />
-      <ImageSlider/>
-    </div>
-    </Layout>
-  );
-};
-
-const FuzzyOverlay = () => {
-  const [position, setPosition] = useState(-10);
-  const [direction, setDirection] = useState(1);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPosition(prev => {
-        if (prev >= 10) {
-          setDirection(-1);
-          return 10;
-        }
-        if (prev <= -10) {
-          setDirection(1);
-          return -10;
-        }
-        return prev + direction;
-      });
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [direction]);
-
-  return (
-    <div
-      style={{
-        transform: `translateX(${position}%) translateY(${position}%)`,
-        transition: 'transform 0.05s linear'
-      }}
-      className="pointer-events-none absolute -inset-[100%] bg-[#101725] opacity-[0.15]"
-    />
-  );
-};
-
-const ExampleContent = () => {
-  return (
-    <div 
-      className="relative grid h-screen place-content-center space-y-6 p-8"
-      style={{ backgroundColor: '#101725' }}  // Using the specific color
-    >
-      <p className="text-center text-5xl font-black text-neutral-50">
-      S RAJ INFRA PROJECTS PRIVATE LIMITED
-      </p>
-      <p className="text-center text-neutral-400">
-        This is a basic example of using a lo-fi fuzzy overlay 📺
-      </p>
-      <div className="flex items-center justify-center gap-3">
-        <button className="w-fit bg-neutral-200 px-4 py-2 font-semibold text-neutral-700 transition-colors hover:bg-neutral-50">
-          Try it free
+      <Hero images={images} className="h-screen w-full">
+        <div className="z-50 relative grid h-screen place-content-center space-y-6 p-8">
+          <h1 className="text-5xl md:text-6xl text-center text-neutral-50 font-bold">
+            S RAJ INFRA PROJECTS PRIVATE LIMITED
+          </h1>
+          <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 mx-auto text-center rounded-full relative mt-4 text-neutral-400 font-bold hover:bg-neutral-800 hover:text-white">
+          <span><Link to="carrer">Apply Now →</Link></span>
+          <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
         </button>
-      </div>
-    </div>
+        </div>
+      </Hero>
+      <ImageSlider/>
+    </Layout>
   );
 };
 
