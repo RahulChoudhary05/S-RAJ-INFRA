@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { fireDB } from "../../firebase/FirebaseConfig"; // Import fireDB to interact with Firestore
+import { collection, addDoc } from "firebase/firestore"; // Firestore methods to add data
 import Layout from "../layout/layout";
 import CountryCode from "../data/countrycode.json";
 
@@ -13,13 +15,31 @@ const ContactUsForm = () => {
   } = useForm();
 
   const submitContactForm = async (data) => {
-    // Add form submission logic here
-    setLoading(true);
-    // Mock API request
-    setTimeout(() => {
-      alert("Form submitted!");
+    try {
+      setLoading(true);
+      // Add the form data to Firestore
+      const docRef = await addDoc(collection(fireDB, "contactUs"), {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phoneNo: `${data.countrycode} ${data.phoneNo}`, // Combine country code and phone number
+        message: data.message,
+        timestamp: new Date(),
+      });
+      alert("Form submitted successfully!");
+      reset({
+        email: "",
+        firstName: "",
+        lastName: "",
+        message: "",
+        phoneNo: "",
+      });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Error submitting form. Please try again.");
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   useEffect(() => {
