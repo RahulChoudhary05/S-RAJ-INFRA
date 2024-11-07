@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout/layout';
+import ImageSlider from '../components/HomeGallery/gallery';
 
 const FuzzyOverlayExample = () => {
   return (
@@ -7,6 +8,7 @@ const FuzzyOverlayExample = () => {
       <div className="relative overflow-hidden">
       <ExampleContent />
       <FuzzyOverlay />
+      <ImageSlider/>
     </div>
     </Layout>
   );
