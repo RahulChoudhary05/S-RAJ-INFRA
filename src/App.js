@@ -3,13 +3,15 @@ import { Route, Routes } from "react-router-dom";
 import FuzzyOverlayExample from './pages/Home';
 import ContactUsForm from './components/ContactPage/ContactUsForm';
 import ScrollTop from './components/scrollTop/ScrollTop';
+// import { ImagesSliderDemo } from './pages/ImageSlider';
 
 function App() {
   return (
     <ScrollTop>
       <Routes>
-        <Route path="/" element={<FuzzyOverlayExample />} /> {/* Main Route for Home */}
-        <Route path="contact" element={<ContactUsForm />} /> {/* Route for Contact Us */}
+        <Route path="/" element={<FuzzyOverlayExample />} />
+        <Route path="contact" element={<ContactUsForm />} />
+        {/* <Route path="career" element={<ImagesSliderDemo />} /> Enable this for demo */}
       </Routes>
     </ScrollTop>
   );
