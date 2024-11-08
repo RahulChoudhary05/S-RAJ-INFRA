@@ -19,7 +19,6 @@ module.exports = {
       backgroundblack: "#0C0C0C",
       white: '#fff',
       transparent: "#ffffff00",
-      
       yellow: {
         5: "#FFF970",
         25: "#FFE83D",

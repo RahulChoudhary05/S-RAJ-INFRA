@@ -2,17 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  overflow-x: hidden;
-}
-
-/* Scrollbar Styling */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #afb2bf;
-}
-
-*::-webkit-scrollbar {
-  width: 4px;
-}
