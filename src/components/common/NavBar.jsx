@@ -48,7 +48,7 @@ export const NavBar = () => {
 
         {/* Right: Contact Us Button for larger screens */}
         <div className="hidden lg:block">
-          <Link to="/contact"><ContactUsButton /></Link>
+          <Link to="/contactus"><ContactUsButton /></Link>
         </div>
       </div>
 

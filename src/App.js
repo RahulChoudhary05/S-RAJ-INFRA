@@ -1,9 +1,9 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 import FuzzyOverlayExample from './pages/Home';
-import ContactUsForm from './components/ContactPage/ContactUsForm';
 import ScrollTop from './components/scrollTop/ScrollTop';
 import { About } from './pages/About';
+import { ContactUsInputField } from './components/ContactPage/ContactUsInputField';
 // import { ImagesSliderDemo } from './pages/ImageSlider';
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
     <ScrollTop>
       <Routes>
         <Route path="/" element={<FuzzyOverlayExample />} />
-        <Route path="contact" element={<ContactUsForm />} />
-        <Route path="about" element={<About/>} />
+        <Route path="about" element={<About />} />
+        <Route path="contactus" element={<ContactUsInputField />} />
         {/* <Route path="career" element={<ImagesSliderDemo />} /> Enable this for demo */}
       </Routes>
     </ScrollTop>
