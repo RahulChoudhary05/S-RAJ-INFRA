@@ -48,7 +48,7 @@ export const NavBar = () => {
 
         {/* Right: Contact Us Button for larger screens */}
         <div className="hidden lg:block">
-          <Link to="/contact"><ContactUsButton /></Link>
+          <Link to="/contactus"><ContactUsButton /></Link>
         </div>
       </div>
 
@@ -114,7 +114,7 @@ const SlideTabs = () => {
       className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04] transparent p-1"
     >
       <Tab setPosition={setPosition}><Link to="/">Home</Link></Tab>
-      <Tab setPosition={setPosition}><Link to="/about">About Us</Link></Tab>
+      <Tab setPosition={setPosition}><Link to="about">About Us</Link></Tab>
       <Tab setPosition={setPosition}><Link to="/projects">Projects</Link></Tab>
       <Tab setPosition={setPosition}><Link to="/career">Career</Link></Tab>
 

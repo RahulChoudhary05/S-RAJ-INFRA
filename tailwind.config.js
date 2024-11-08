@@ -1,7 +1,12 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // Specify the paths to all of the template files in your project
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+  darkMode: "class",
   
   theme: {
     // Custom font families
@@ -19,7 +24,6 @@ module.exports = {
       backgroundblack: "#0C0C0C",
       white: '#fff',
       transparent: "#ffffff00",
-      
       yellow: {
         5: "#FFF970",
         25: "#FFE83D",
@@ -35,7 +39,6 @@ module.exports = {
         900: "#251400",
         1: "#D4AF37",
       },
-      
       richblack: {
         5: "#F1F2FF",
         25: "#DBDDEA",
@@ -50,7 +53,6 @@ module.exports = {
         800: "#161D29",
         900: "#000814",
       },
-      
       richblue: {
         5: "#ECF5FF",
         25: "#C6D6E1",
@@ -65,7 +67,6 @@ module.exports = {
         800: "#01212A",
         900: "#001B22",
       },
-      
       blue: {
         5: "#EAF5FF",
         25: "#B4DAEC",
@@ -80,7 +81,6 @@ module.exports = {
         800: "#022B32",
         900: "#001B1D",
       },
-      
       caribbeangreen: {
         5: "#C1FFFD",
         25: "#83F1DE",
@@ -95,7 +95,6 @@ module.exports = {
         800: "#01321F",
         900: "#001B0D",
       },
-      
       brown: {
         5: "#FFF4C4",
         25: "#FFE395",
@@ -110,7 +109,6 @@ module.exports = {
         800: "#41260B",
         900: "#291100",
       },
-      
       neutral: {
         20: "#F3F4F6",
         50: "#F9FAFB",
@@ -124,7 +122,6 @@ module.exports = {
         800: "#1F2937",
         950: "#111827",
       },
-      
       "pure-greys": {
         5: "#F9F9F9",
         25: "#E2E2E2",
@@ -139,24 +136,34 @@ module.exports = {
         800: "#171717",
         900: "#141414",
       },
-      
-      // Additional Colors
       primaryYellow: '#F1C40F',
       primaryGray: '#7F8C8D',
       lightGray: '#ECF0F1',
       darkGray: '#2C3E50',
       'neutral-950': '#111827',  // Dark background
     },
-    
+
     extend: {
       // Define custom max-width sizes
       maxWidth: {
         maxContent: "1260px",
         maxContentTab: "650px",
       },
+      boxShadow: {
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+      },
     },
   },
-  
-  // Additional plugins (add as needed)
-  plugins: [],
+
+  plugins: [addVariablesForColors],
 };
+
+// Function to add custom color variables to CSS root
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]));
+
+  addBase({
+    ":root": newVars,
+  });
+}
