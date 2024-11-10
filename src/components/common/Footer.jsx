@@ -26,8 +26,8 @@ export default function AnimatedFooter() {
                 <li><a href="/" className="hover:text-caribbeangreen-500 transition-colors">Home</a></li>
                 <li><a href="/about" className="hover:text-caribbeangreen-500 transition-colors">About Us</a></li>
                 <li><a href="/projects" className="hover:text-caribbeangreen-500 transition-colors">Projects</a></li>
-                <li><a href="/careers" className="hover:text-caribbeangreen-500 transition-colors">Career Desk</a></li>
-                <li><a href="/contact" className="hover:text-caribbeangreen-500 transition-colors">Contact Us</a></li>
+                <li><a href="/career" className="hover:text-caribbeangreen-500 transition-colors">Career Desk</a></li>
+                <li><a href="/contactus" className="hover:text-caribbeangreen-500 transition-colors">Contact Us</a></li>
               </ul>
             </div>
             <div>
