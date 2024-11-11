@@ -5,6 +5,7 @@ import ScrollTop from './components/scrollTop/ScrollTop';
 import { About } from './pages/About';
 import { ContactUsInputField } from './components/ContactPage/ContactUsInputField';
 import ApplyForm from './components/ApplyNow/ApplyForm';
+import { ProjectHero } from './pages/ProjectHero';
 // import { ImagesSliderDemo } from './pages/ImageSlider';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="contactus" element={<ContactUsInputField />} />
         <Route path="career" element={<ApplyForm/>} />
+        <Route path="projects" element={<ProjectHero/>} />
         
         {/* <Route path="career" element={<ImagesSliderDemo />} /> Enable this for demo */}
       </Routes>
