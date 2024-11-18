@@ -16,7 +16,6 @@ import Base_1 from "../Assests/Base_1.jpg";
 
 export const ProjectHero = () => {
   return (
-    <Layout>
     <div className="bg-zinc">
       <ReactLenis
         root
@@ -29,7 +28,6 @@ export const ProjectHero = () => {
         <Hero />
       </ReactLenis>
     </div>
-    </Layout>
   );
 };
 
