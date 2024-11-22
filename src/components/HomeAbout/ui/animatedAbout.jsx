@@ -1,50 +1,67 @@
-import React from 'react';
-import { StickyScroll } from '../../HomeAbout/ui/sticky-scroll-reveal'; // Adjust the import path
+"use client";
+import React from "react";
+import { StickyScroll } from "../ui/sticky-scroll-reveal";
 
 const content = [
   {
-    title: 'Collaborative Editing',
+    title: "Welcome!",
     description:
-      'Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.',
+      "To S Raj Infra Projects Pvt Ltd, the company dedicated to provide the world class Engineering to innovate, design and construct Bridges and other Engineering marvels utilizing the most modern construction equipment and technology and cost efficient.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Collaborative Editing
+      <div className="h-full w-full bg-[#0BB8AF] flex items-center justify-center text-white text-5xl font-inter font-bold">
+        Welcome!
       </div>
     ),
   },
   {
-    title: 'Real-time Changes',
-    description:
-      'See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.',
+    title: "Our Vision",
+    description: (
+      <>
+        <p>
+          To innovate and construct world-class bridges and engineering marvels
+          using cutting-edge technology and cost-efficient practices, aiming to
+          become a leader in construction engineering.
+        </p>
+        <p>
+          To remain a profitable, creative, and compliant leader in the
+          industry, while ensuring care and concern for all stakeholders.
+        </p>
+      </>
+    ),
     content: (
-      <div className="h-full w-full flex items-center justify-center text-white">
-        <img
-          src="/linear.webp"
-          width={300}
-          height={300}
-          className="h-full w-full object-cover bg-black"
-          alt="linear board demo"
-        />
+      <div className="h-full w-full bg-[#293695] flex items-center justify-center text-white text-4xl font-inter font-bold">
+        Our Vision
       </div>
     ),
   },
   {
-    title: 'Version Control',
-    description:
-      'Experience real-time updates and never stress about version control again. Our platform ensures that you\'re always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.',
+    title: "Our Mission",
+    description: (
+      <>
+        <p>
+          To be a premier engineering organization, delivering signature bridges
+          and engineering marvels both domestically and internationally.
+        </p>
+        <p>
+          To foster innovation, create value, and set global benchmarks while
+          ensuring total customer satisfaction and continuous growth through
+          skill enhancement.
+        </p>
+      </>
+    ),
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-        Version Control
+      <div className="h-full w-full bg-[#F1950F] flex items-center justify-center text-white text-4xl font-inter font-bold">
+        Our Mission
       </div>
     ),
   },
   {
-    title: 'Running out of Content',
+    title: "Investor Corner",
     description:
-      'Experience real-time updates and never stress about version control again. Our platform ensures that you\'re always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.',
+      "Utilizing the most modern construction equipment and technology, with high degree of expertise and substantial in-house resources, employing 50 peoples in its permanent cadre, while at any time engaging more than 150 locally employed staff and workers at various project sites.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Running out of Content
+      <div className="h-full w-full bg-[#07B6C5] flex items-center justify-center text-white text-4xl font-inter font-bold">
+        Investor Corner
       </div>
     ),
   },
