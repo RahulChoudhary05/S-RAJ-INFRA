@@ -30,11 +30,11 @@ export const NavBar = () => {
     >
       <div className="flex items-center justify-between mx-auto w-11/12 lg:w-10/12">
         {/* Left: Logo */}
-        <img
+        <Link to="/"><img
           src={logo}
           alt="Logo"
           className="h-14 md:h-16 cursor-pointer transition-transform duration-300 hover:scale-105"
-        />
+        /></Link>
 
         {/* Right: Hamburger Menu Icon for Mobile */}
         <div className="block lg:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
