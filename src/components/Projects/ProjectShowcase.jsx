@@ -1,5 +1,8 @@
 import React, { useState, createContext, useContext } from 'react';
 import { ChevronLeft } from 'lucide-react';
+import { projects } from '../data/Projects';
+import Layout from '../layout/layout';
+import { ProjectHero } from './ProjectHero';
 // UI Components
 const TabsContext = createContext();
 
@@ -80,82 +83,6 @@ function Button({ variant = 'default', className, children, ...props }) {
     </button>
   );
 }
-
-// Projects data
-const projects = {
-  ongoing: [
-    {
-      id: 1,
-      title: "Project Alpha",
-      subtitle: "Web Development",
-      description: "A modern web application built with React and TypeScript. Features include user authentication, real-time updates, and responsive design.",
-      image: "https://via.placeholder.com/600x400",
-      tags: ["React", "TypeScript", "Redux"],
-      progress: "6/12",
-      year: "2024",
-      status: "In Progress",
-      subProjects: [
-        {
-          id: 101,
-          title: "User Authentication Module",
-          description: "Implementing secure user authentication and authorization system.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "3/4",
-        },
-        {
-          id: 102,
-          title: "Real-time Chat Feature",
-          description: "Developing a real-time chat functionality using WebSockets.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "2/5",
-        },
-        {
-          id: 103,
-          title: "Responsive Dashboard",
-          description: "Creating a responsive dashboard for data visualization.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "1/3",
-        },
-      ],
-    },
-  ],
-  completed: [
-    {
-      id: 3,
-      title: "Project Gamma",
-      subtitle: "Desktop Application",
-      description: "A powerful desktop application built with Electron. Features include file system integration, real-time collaboration, and cross-platform compatibility.",
-      image: "https://via.placeholder.com/600x400",
-      tags: ["Electron", "Node.js", "SQLite"],
-      progress: "12/12",
-      year: "2023",
-      status: "Completed",
-      subProjects: [
-        {
-          id: 301,
-          title: "File System Integration",
-          description: "Implemented robust file system integration for document management.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "4/4",
-        },
-        {
-          id: 302,
-          title: "Real-time Collaboration Tools",
-          description: "Developed real-time collaboration features for multi-user editing.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "5/5",
-        },
-        {
-          id: 303,
-          title: "Cross-platform Compatibility",
-          description: "Ensured seamless operation across Windows, macOS, and Linux.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "3/3",
-        },
-      ],
-    },
-  ],
-};
 
 // Main Component
 export default function ProjectShowcase() {
@@ -302,6 +229,8 @@ export default function ProjectShowcase() {
   }
 
   return (
+    <Layout>
+      <ProjectHero/>
     <div className="w-full max-w-6xl mx-auto p-4 space-y-6">
       <Tabs defaultValue="ongoing" className="w-full" onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-2 mb-8">
@@ -316,5 +245,6 @@ export default function ProjectShowcase() {
         </TabsContent>
       </Tabs>
     </div>
+    </Layout>
   );
 }

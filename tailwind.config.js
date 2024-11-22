@@ -24,7 +24,15 @@ module.exports = {
       backgroundblack: "#0C0C0C",
       white: '#fff',
       transparent: "#ffffff00",
-      zinc:"#09090B",
+      zinc: {
+        300: "#d4d4d8",
+        500: "#71717a",
+        700: "#3f3f46",
+        800: "#27272a",
+      },
+      emerald: {
+        500: "#10b981",
+      },
       yellow: {
         5: "#FFF970",
         25: "#FFE83D",
@@ -168,3 +176,4 @@ function addVariablesForColors({ addBase, theme }) {
     ":root": newVars,
   });
 }
+
