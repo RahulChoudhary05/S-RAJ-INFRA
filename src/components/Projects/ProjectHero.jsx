@@ -15,7 +15,7 @@ import Base_1 from "../../Assests/Base_1.jpg";
 
 export const ProjectHero = () => {
   return (
-    <div className="bg-zinc">
+    <div className="bg-zinc-800">
       <ReactLenis
         root
         options={{
@@ -75,7 +75,7 @@ const CenterImage = () => {
         backgroundSize,
         opacity,
         backgroundImage:
-          "url(https://srajinfra.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-16-at-5.54.34-PM.jpeg)",
+          "url(https://srajinfra.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-29-at-8.10.02-PM.jpeg)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
