@@ -5,7 +5,6 @@ import ScrollTop from './components/scrollTop/ScrollTop';
 import { About } from './pages/About';
 import { ContactUsInputField } from './components/ContactPage/ContactUsInputField';
 import ApplyForm from './components/ApplyNow/ApplyForm';
-import { ProjectHero } from './pages/ProjectHero';
 import ProjectShowcase from './components/Projects/ProjectShowcase';
 import { AnimatedPinDemo } from './components/Bibliography/ui/Cardinfo';
 import { StickyScrollRevealDemo } from './components/HomeAbout/ui/animatedAbout';
@@ -19,7 +18,6 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="contactus" element={<ContactUsInputField />} />
         <Route path="career" element={<ApplyForm/>} />
-        {/* <Route path="projects" element={<ProjectHero/>} /> */}
         <Route path="projects" element={<ProjectShowcase/>} />
         <Route path="biblio" element={<AnimatedPinDemo/>} />
         <Route path="aniabout" element={<StickyScrollRevealDemo/>} />

@@ -9,11 +9,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Info Column */}
           <div className="space-y-6 text-center md:text-left md:items-start">
-          <img
-           src={logo}
-           alt="Logo"
-           className="h-14 md:h-16 mx-auto md:mx-0 cursor-pointer transition-transform duration-300 hover:scale-105"
-           />
+          <Link to="/"><img
+          src={logo}
+          alt="Logo"
+          className="h-14 md:h-16 cursor-pointer transition-transform duration-300 hover:scale-105"
+        /></Link>
           <div className="flex justify-center md:justify-start gap-4 pt-4">
             <Link to="#" className="hover:text-white">
               <Facebook className="h-5 w-5" />
