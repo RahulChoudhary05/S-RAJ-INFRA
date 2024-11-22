@@ -69,10 +69,10 @@ export const NavBar = () => {
 
         {/* Navigation Links */}
         <nav className="flex flex-col items-start p-4">
-          <NavItem onClick={() => setIsOpen(false)}>Home</NavItem>
-          <NavItem onClick={() => setIsOpen(false)}>About Us</NavItem>
-          <NavItem onClick={() => setIsOpen(false)}>Projects</NavItem>
-          <NavItem onClick={() => setIsOpen(false)}>Career</NavItem>
+          <NavItem onClick={() => setIsOpen(false)}><Link to="/">Home</Link></NavItem>
+          <NavItem onClick={() => setIsOpen(false)}><Link to="/about">About Us</Link></NavItem>
+          <NavItem onClick={() => setIsOpen(false)}><Link to="/projects">Projects</Link></NavItem>
+          <NavItem onClick={() => setIsOpen(false)}><Link to="/career">Career</Link></NavItem>
         </nav>
 
         {/* Contact Us Button in Sidebar */}
@@ -89,7 +89,7 @@ const NavItem = ({ children, onClick }) => {
   return (
     <li
       onClick={onClick} // Close the sidebar on item click
-      className="cursor-pointer py-2 px-4 text-black hover:bg-indigo-100 w-full text-left"
+      className="cursor-pointer py-2 px-4 text-black hover:bg-zinc-800 w-full text-left"
     >
       {children}
     </li>
@@ -114,7 +114,7 @@ const SlideTabs = () => {
       className="relative mx-auto flex w-fit rounded-full border-[2px] border-[#866A04] transparent p-1"
     >
       <Tab setPosition={setPosition}><Link to="/">Home</Link></Tab>
-      <Tab setPosition={setPosition}><Link to="about">About Us</Link></Tab>
+      <Tab setPosition={setPosition}><Link to="/about">About Us</Link></Tab>
       <Tab setPosition={setPosition}><Link to="/projects">Projects</Link></Tab>
       <Tab setPosition={setPosition}><Link to="/career">Career</Link></Tab>
 
@@ -216,7 +216,7 @@ const ContactUsButton = () => {
       }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="group relative overflow-hidden rounded-lg border-[2px] border-[#866A04] text-neutral-600 transparent px-6 py-2 font-mono font-medium uppercase transition-colors hover:bg-black hover:text-white"
+      className="group relative overflow-hidden rounded-lg border-[2px] border-[#866A04] text-neutral-600 transparent px-6 py-2 font-mono font-medium uppercase transition-colors hover:bg-zinc-800 hover:text-white"
     >
       <div className="relative z-10 flex items-center gap-2">
         <FiLock />

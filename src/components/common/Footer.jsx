@@ -1,69 +1,137 @@
-import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
-import logo from "../../assets/Logo/logo.svg"; 
+import { Link } from "react-router-dom";
+import { Facebook, Twitter, Instagram, Youtube, Github, Phone, Mail } from 'lucide-react';
+import logo from "../../assets/Logo/logo.svg";
 
-export default function AnimatedFooter() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
+export default function Footer() {
   return (
-    <footer className="bg-richblack-800 text-white">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between">
-          <div className="mb-8 md:mb-0 transition-opacity duration-1000 ease-in-out" style={{ opacity: isVisible ? 1 : 0 }}>
-            <a href="/" className="flex items-center">
-              <span className="sr-only">S RAJ INFRA PROJECTS PRIVATE LIMITED</span>
-              <img src={logo} alt="S RAJ INFRA PROJECTS PRIVATE LIMITED Logo" className="w-20 h-20 block md:hidden" /> {/* Visible on smaller screens only */}
-            </a>
+    <footer className="bg-zinc-800 text-zinc-300 py-12 px-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Logo and Info Column */}
+          <div className="space-y-6 text-center md:text-left md:items-start">
+          <img
+           src={logo}
+           alt="Logo"
+           className="h-14 md:h-16 mx-auto md:mx-0 cursor-pointer transition-transform duration-300 hover:scale-105"
+           />
+          <div className="flex justify-center md:justify-start gap-4 pt-4">
+            <Link to="#" className="hover:text-white">
+              <Facebook className="h-5 w-5" />
+            </Link>
+            <Link to="#" className="hover:text-white">
+              <Twitter className="h-5 w-5" />
+            </Link>
+            <Link to="#" className="hover:text-white">
+              <Youtube className="h-5 w-5" />
+            </Link>
+            <Link to="#" className="hover:text-white">
+              <Instagram className="h-5 w-5" />
+            </Link>
+            <Link to="#" className="hover:text-white">
+              <Github className="h-5 w-5" />
+            </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center font-playfair font-bold text-lg md:text-left">
+          </div>
+
+          {/* Quick Links Column - Hidden on mobile */}
+          <div className="hidden md:block">
+            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/" className="hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-white">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects" className="hover:text-white">
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link to="/career" className="hover:text-white">
+                  Career Desk
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-white">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Information and Address Column - Hidden on mobile */}
+          <div className="space-y-6 hidden md:block">
             <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-white font-semibold text-lg mb-4">
+                Contact Information
+              </h3>
               <ul className="space-y-2">
-                <li><a href="/" className="hover:text-caribbeangreen-500 transition-colors">Home</a></li>
-                <li><a href="/about" className="hover:text-caribbeangreen-500 transition-colors">About Us</a></li>
-                <li><a href="/projects" className="hover:text-caribbeangreen-500 transition-colors">Projects</a></li>
-                <li><a href="/career" className="hover:text-caribbeangreen-500 transition-colors">Career Desk</a></li>
-                <li><a href="/contactus" className="hover:text-caribbeangreen-500 transition-colors">Contact Us</a></li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:03340649358" className="hover:text-white">
+                    033 4064 9358
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+918777806040" className="hover:text-white">
+                    +91-8777806040
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+918910929747" className="hover:text-white">
+                    +91-8910929747
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <a
+                    href="mailto:headoffice@srajinfra.com"
+                    className="hover:text-white"
+                  >
+                    headoffice@srajinfra.com
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
-              <ul className="space-y-2">
-                <li className="flex items-center justify-center md:justify-start">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span>033 4064 9358</span>
-                </li>
-                <li className="flex items-center justify-center md:justify-start">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span>+91-8777806040</span>
-                </li>
-                <li className="flex items-center justify-center md:justify-start">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span>+91-8910929747</span>
-                </li>
-                <li className="flex items-center justify-center md:justify-start">
-                  <Mail className="w-4 h-4 mr-2" />
-                  <a href="mailto:headoffice@srajinfra.com" className="hover:text-caribbeangreen-500 transition-colors">headoffice@srajinfra.com</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Address</h3>
-              <p className="flex items-center justify-center md:justify-start">
-                <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
-                <span>34A, Metcalfe Street, P.O. Box: 700013, Kolkata, West Bengal 700013, India</span>
+              <h3 className="text-white font-semibold text-lg mb-4">Address</h3>
+              <p className="text-sm">
+                34A, Metcalfe Street, P.O. Box: 700013, Kolkata, West Bengal
+                700013, India
               </p>
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p>&copy; {new Date().getFullYear()} S RAJ INFRA PROJECTS PRIVATE LIMITED. All Rights Reserved.</p>
+
+        {/* Bottom Navigation */}
+        <div className="mt-12 pt-8 border-t border-zinc-700">
+          <div className="flex flex-col items-center gap-4">
+            <nav className="flex flex-wrap justify-center gap-4 text-sm md:hidden">
+              <Link to="/" className="hover:text-white">Home</Link>
+              <span className="text-zinc-500">|</span>
+              <Link to="/about" className="hover:text-white">About Us</Link>
+              <span className="text-zinc-500">|</span>
+              <Link to="/projects" className="hover:text-white">Projects</Link>
+              <span className="text-zinc-500">|</span>
+              <Link to="/career" className="hover:text-white">Career</Link>
+              <span className="text-zinc-500">|</span>
+              <Link to="/contactus" className="hover:text-white">Contact Us</Link>
+            </nav>
+            <div className="text-sm text-zinc-500 text-center">
+              2022 S RAJ INFRA PROJECTS PRIVATE LIMITED. All Rights Reserved.
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
+
