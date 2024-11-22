@@ -155,6 +155,7 @@ export default function ProjectShowcase() {
 
   if (selectedProject) {
     return (
+      <Layout>
       <div className="w-full max-w-7xl mx-auto p-4">
         <Button
           variant="ghost"
@@ -217,7 +218,7 @@ export default function ProjectShowcase() {
                       <p className="text-sm text-gray-500 line-clamp-2">
                         {subProject.description}
                       </p>
-                      <div className="mt-2 text-sm font-mono">{subProject.progress}</div>
+                      {/* <div className="mt-2 text-sm font-mono">{subProject.progress}</div> */}
                     </div>
                   ))}
               </div>
@@ -225,6 +226,7 @@ export default function ProjectShowcase() {
           </div>
         </div>
       </div>
+      </Layout>
     );
   }
 
