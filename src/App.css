@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Scrollbar Styling */
 * {
   scrollbar-width: auto;
