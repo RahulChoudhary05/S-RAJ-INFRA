@@ -4,6 +4,7 @@ import { Hero } from './HeroSection';
 import { images } from "../components/data/HeroBg";
 import ImageSlider from '../components/HomeGallery/gallery';
 import { Link } from 'react-router-dom';
+import { HomeAbout } from '../components/HomeAbout/ui/animatedAbout';
 
 const FuzzyOverlayExample = () => {
   return (
@@ -19,6 +20,7 @@ const FuzzyOverlayExample = () => {
         </button>
         </div>
       </Hero>
+      <HomeAbout/>
       <ImageSlider/>
     </Layout>
   );

@@ -4,6 +4,8 @@ import { WavyBackground } from "../ContactPage/WavyBackground/wavy-background";
 import { Label } from "../ContactPage/label";
 import { Input } from "../ContactPage/input";
 import { cn } from "../../lib/utils";
+import { collection, addDoc } from "firebase/firestore";
+import { fireDB } from "../../firebase/FirebaseConfig";
 
 const BottomGradient = () => (
   <>
@@ -13,6 +15,29 @@ const BottomGradient = () => (
 );
 
 function ApplyForm() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      firstName: e.target.firstname.value,
+      lastName: e.target.lastname.value,
+      email: e.target.email.value,
+      contactNo: e.target.number.value,
+      message: e.target.message.value,
+      function0alArea: e.target.functionalArea.value,
+      careerLevel: e.target.careerLevel.value,
+    };
+
+    try {
+      // Save to Firestore
+      await addDoc(collection(fireDB, "applyFormSubmissions"), formData);
+      console.log("Data saved to Firestore successfully");
+
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error during form submission: ", error);
+    }
+  };
   return (
     <Layout>
       <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-indigo-600">
@@ -24,7 +49,7 @@ function ApplyForm() {
         <div className="relative z-10 max-w-3xl w-full mx-auto rounded-2xl p-8 md:p-12 shadow-lg bg-white bg-opacity-80 backdrop-blur-lg dark:bg-black dark:bg-opacity-90">
           <h2 className="text-3xl font-extrabold text-neutral-800 text-center mb-8 animate-pulse">Apply Now</h2>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <LabelInputContainer>
                 <Label htmlFor="firstname">First name</Label>
@@ -71,6 +96,7 @@ function ApplyForm() {
               <LabelInputContainer>
                 <Label className="block text-gray-700 font-semibold">Functional Area</Label>
                 <select
+                  id="functionalArea"
                   name="functionalArea"
                   className="w-full p-3 rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:[#FF6347] transition duration-300 ease-in-out"
                   required
@@ -88,6 +114,7 @@ function ApplyForm() {
               <LabelInputContainer>
                 <Label className="block text-gray-700 font-semibold">Career Level</Label>
                 <select
+                  id="careerLevel"
                   name="careerLevel"
                   className="w-full p-3 rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:[#FF6347] transition duration-300 ease-in-out"
                   required
