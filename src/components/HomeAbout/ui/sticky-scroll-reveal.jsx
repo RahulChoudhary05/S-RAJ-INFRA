@@ -1,22 +1,19 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
-import { useMotionValueEvent, useScroll } from "framer-motion";
-import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { useMotionValueEvent, useScroll, motion, AnimatePresence, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { cn } from "../../../lib/utils";
 
 export const StickyScroll = ({ content, contentClassName }) => {
-  const [activeCard, setActiveCard] = React.useState(0);
+  const [activeCard, setActiveCard] = useState(0);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
     container: ref,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"], // Changed to end end to fix last section spacing
   });
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = content.map((_, index) => index / cardLength);
+    const cardsBreakpoints = content.map((_, index) => index / (cardLength - 1)); // Adjusted calculation
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
         const distance = Math.abs(latest - breakpoint);
@@ -31,73 +28,73 @@ export const StickyScroll = ({ content, contentClassName }) => {
   });
 
   const backgroundColors = [
-    "#0F172A",
-    "#000000",
-    "#171717",
-    "#0F172A",
+    "bg-[url('https://c4.wallpaperflare.com/wallpaper/246/45/172/road-highway-sky-nature-wallpaper-preview.jpg')]",
+    "bg-[url('https://srajinfra.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-08-19-at-5.06.41-PM.jpeg')]",
+    "bg-[url('https://srajinfra.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-29-at-8.10.02-PM.jpeg')]",
+    "bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9aG9Y-VTjgipQWvhoq6rJfNPjOojzo9XKYQ&s')]",
   ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-    "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
-    "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
-  ];
-
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0]
-  );
-
-  useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  }, [activeCard]);
 
   return (
     <motion.div
-      animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
-      }}
-      className="h-[35rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
       ref={ref}
+      className="h-[25rem] overflow-y-auto flex justify-center relative space-x-10 rounded-lg shadow-2xl"
     >
-      <div className="div relative flex items-start px-4">
+      <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="mt-[100px] mb-24 ">
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-3xl font-playfair font-bold text-[#bcd7f3]"
+            <motion.div
+              key={item.title + index}
+              className={cn(
+                "min-h-[50vh] flex flex-col justify-center m-auto",
+                index !== content.length - 1 ? "mb-[2rem]" : "mb-[17rem]" // Reduced margin for last item
+              )}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ 
+                opacity: activeCard === index ? 1 : 0.3,
+                y: activeCard === index ? 0 : 50,
+                scale: activeCard === index ? 1 : 0.95,
+              }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <motion.h2 
+                className="text-4xl font-bold text-gray-800 mb-4"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
               >
                 {item.title}
               </motion.h2>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0,
-                }}
-                className="text-kg text-[#F1F5F9] font-playfair text-lg font-semibold max-w-sm mt-10"
+              <motion.div 
+                className="text-lg text-gray-600 font-medium max-w-sm"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
               >
                 {item.description}
-              </motion.p>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-          <div className="h-40" />
         </div>
       </div>
-      <div
-        style={{ background: backgroundGradient }}
-        className={cn(
-          "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
-          contentClassName
-        )}
-      >
-        {content[activeCard].content ?? null}
+      <div className="hidden lg:block w-1/2 sticky top-14 h-[calc(100vh-10rem)] overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCard}
+            initial={{ opacity: 0, x: 100, rotateY: -30 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            exit={{ opacity: 0, x: -100, rotateY: 30 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={cn(
+              "h-[50%] w-[70%] rounded-lg shadow-lg overflow-hidden bg-cover bg-center",
+              backgroundColors[activeCard % backgroundColors.length],
+              contentClassName
+            )}
+          >
+            {content[activeCard].content}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </motion.div>
   );
 };
+
