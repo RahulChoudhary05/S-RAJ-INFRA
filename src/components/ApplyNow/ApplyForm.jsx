@@ -46,7 +46,7 @@ function ApplyForm() {
           <WavyBackground />
         </div>
 
-        <div className="relative z-10 max-w-3xl w-full mx-auto rounded-2xl p-8 md:p-12 shadow-lg bg-white bg-opacity-80 backdrop-blur-lg dark:bg-black dark:bg-opacity-90">
+        <div className="relative z-10 max-w-3xl w-full mx-auto  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white bg-opacity-80 backdrop-blur-lg dark:bg-black">
           <h2 className="text-3xl font-extrabold text-neutral-800 text-center mb-8 animate-pulse">Apply Now</h2>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
