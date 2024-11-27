@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { Label } from "./label";
 import { Input } from "./input";
 import { cn } from "../../lib/utils";
@@ -9,9 +9,13 @@ import { fireDB } from "../../firebase/FirebaseConfig";
 import { WavyBackground } from "./WavyBackground/wavy-background";
 import video from "../../assets/Video/S_RAJ_INFRA_VIDEO.mp4"
 import { HeroVideo } from "../common/HeroVideo";
+import Loader from "../Loader/Loader"
 
 
 export function ContactUsInputField() {
+  const [loading, setLoading] = useState(false);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,6 +40,7 @@ export function ContactUsInputField() {
 
   return (
     <Layout>
+      {loading && <Loader />}
       <HeroVideo/>
       <div className="relative flex items-center justify-center h-screen">
         {/* Background */}

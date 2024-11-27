@@ -1,13 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Layout from "../components/layout/layout";
 import Bridge5 from "../Assests/Bridge_5.jpg";
 import OverVision from "../assets/OverVision.webp";
 import OverMission from "../assets/OverMission.jpg";
+import Loader from "../components/Loader/Loader";
 
 export const About = () => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <Layout>
+      {loading && <Loader />}
       <div className="bg-white">
         <TextParallaxContent
           id="history"
