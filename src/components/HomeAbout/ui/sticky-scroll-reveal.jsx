@@ -1,5 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useMotionValueEvent, useScroll, motion, AnimatePresence, useAnimation } from "framer-motion";
+import {
+  useMotionValueEvent,
+  useScroll,
+  motion,
+  AnimatePresence,
+  useAnimation,
+} from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { cn } from "../../../lib/utils";
 
@@ -13,7 +19,9 @@ export const StickyScroll = ({ content, contentClassName }) => {
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = content.map((_, index) => index / (cardLength - 1)); // Adjusted calculation
+    const cardsBreakpoints = content.map(
+      (_, index) => index / (cardLength - 1)
+    ); // Adjusted calculation
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
         const distance = Math.abs(latest - breakpoint);
@@ -37,7 +45,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
   return (
     <motion.div
       ref={ref}
-      className="h-[25rem] overflow-y-auto flex justify-center relative space-x-10 rounded-lg shadow-2xl"
+      className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-lg shadow-2xl"
     >
       <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
@@ -49,23 +57,23 @@ export const StickyScroll = ({ content, contentClassName }) => {
                 index !== content.length - 1 ? "mb-[2rem]" : "mb-[17rem]" // Reduced margin for last item
               )}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ 
+              animate={{
                 opacity: activeCard === index ? 1 : 0.3,
                 y: activeCard === index ? 0 : 50,
-                scale: activeCard === index ? 1 : 0.95,
+                scale: activeCard === index ? 1.02 : 0.90,
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <motion.h2 
-                className="text-4xl font-bold text-gray-800 mb-4"
+              <motion.h2
+                className="text-5xl font-bold font-playfair text-richblack-900 mb-4"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
                 {item.title}
               </motion.h2>
-              <motion.div 
-                className="text-lg text-gray-600 font-medium max-w-sm"
+              <motion.div
+                className="text-xl text-richblack-800 font-semibold font-playfair max-w-sm"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
@@ -85,7 +93,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
             exit={{ opacity: 0, x: -100, rotateY: 30 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className={cn(
-              "h-[50%] w-[70%] rounded-lg shadow-lg overflow-hidden bg-cover bg-center",
+              "h-[58%] w-[78%] rounded-lg shadow-xl overflow-hidden bg-cover bg-center",
               backgroundColors[activeCard % backgroundColors.length],
               contentClassName
             )}
@@ -97,4 +105,3 @@ export const StickyScroll = ({ content, contentClassName }) => {
     </motion.div>
   );
 };
-

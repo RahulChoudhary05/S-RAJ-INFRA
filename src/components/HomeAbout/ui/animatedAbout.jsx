@@ -21,7 +21,7 @@ const content = [
           transition={{ duration: 1, type: "spring", stiffness: 260, damping: 20 }}
         />
         <motion.h3 
-          className="text-3xl font-bold mb-2"
+          className="text-4xl font-playfair  font-bold mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -29,7 +29,7 @@ const content = [
           Welcome!
         </motion.h3>
         <motion.p 
-          className="text-xl text-center"
+          className="text-xl font-inter text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -71,7 +71,7 @@ const content = [
           <path d="M12 8h.01" />
         </motion.svg>
         <motion.h3 
-          className="text-3xl font-bold mb-2"
+          className="text-4xl font-playfair font-bold mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -79,7 +79,7 @@ const content = [
           Our Vision
         </motion.h3>
         <motion.p 
-          className="text-xl text-center"
+          className="text-xl font-inter text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -127,7 +127,7 @@ const content = [
           <path d="m16.24 7.76 2.83-2.83" />
         </motion.svg>
         <motion.h3 
-          className="text-3xl font-bold mb-2"
+          className="text-4xl font-playfair  font-bold mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -135,7 +135,7 @@ const content = [
           Our Mission
         </motion.h3>
         <motion.p 
-          className="text-xl text-center"
+          className="text-xl font-inter text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -168,7 +168,7 @@ const content = [
           <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
         </motion.svg>
         <motion.h3 
-          className="text-3xl font-bold mb-2"
+          className="text-4xl font-playfair font-bold mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -176,7 +176,7 @@ const content = [
           Investor Corner
         </motion.h3>
         <motion.p 
-          className="text-xl text-center"
+          className="text-xl font-inter text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -218,7 +218,7 @@ const AnimatedTitle = ({ text }) => {
           },
         },
       }}
-      className="text-5xl font-bold text-center mb-12 text-gray-800"
+      className="text-6xl font-bold text-center mb-14 text-gray-800"
     >
       {text.split("").map((char, index) => (
         <motion.span
@@ -238,7 +238,7 @@ const AnimatedTitle = ({ text }) => {
 export function HomeAbout() {
   return (
     <section className="py-5 bg-gray-100">
-      <div className="container mx-auto px-1">
+      <div className="container mt-5 mx-auto px-1">
         <AnimatedTitle text="About S Raj Infra Projects" />
         <StickyScroll content={content} />
       </div>
