@@ -7,9 +7,8 @@ import Layout from "../layout/layout";
 import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { WavyBackground } from "./WavyBackground/wavy-background";
-import video from "../../assets/Video/S_RAJ_INFRA_VIDEO.mp4"
-import { HeroVideo } from "../common/HeroVideo";
 import Loader from "../Loader/Loader"
+import AnimatedHeader from "../Header/AnimatedHeader";
 
 
 export function ContactUsInputField() {
@@ -41,7 +40,7 @@ export function ContactUsInputField() {
   return (
     <Layout>
       {loading && <Loader />}
-      <HeroVideo/>
+      <AnimatedHeader/>
       <div className="relative flex items-center justify-center h-screen">
         {/* Background */}
         <div className="absolute inset-0 -z-10">
