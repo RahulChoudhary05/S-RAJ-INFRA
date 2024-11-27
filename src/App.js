@@ -7,6 +7,7 @@ import { ContactUsInputField } from './components/ContactPage/ContactUsInputFiel
 import ApplyForm from './components/ApplyNow/ApplyForm';
 import ProjectShowcase from './components/Projects/ProjectShowcase';
 import { AnimatedPinDemo } from './components/Bibliography/ui/Cardinfo';
+import AnimatedHeader from './components/Header/AnimatedHeader';
 // import { ImagesSliderDemo } from './pages/ImageSlider';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="career" element={<ApplyForm/>} />
         <Route path="projects" element={<ProjectShowcase/>} />
         <Route path="biblio" element={<AnimatedPinDemo/>} />
+        <Route path="header" element={<AnimatedHeader/>} />
 
         
         {/* <Route path="career" element={<ImagesSliderDemo />} /> Enable this for demo */}
