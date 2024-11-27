@@ -6,6 +6,7 @@ import { Input } from "../ContactPage/input";
 import { cn } from "../../lib/utils";
 import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
+import { HeroVideo } from '../common/HeroVideo';
 
 const BottomGradient = () => (
   <>
@@ -40,6 +41,7 @@ function ApplyForm() {
   };
   return (
     <Layout>
+      <HeroVideo/>
       <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-indigo-600">
         {/* Full-screen background */}
         <div className="absolute inset-0 h-screen -z-5">
