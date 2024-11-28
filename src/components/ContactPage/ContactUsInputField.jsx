@@ -8,7 +8,8 @@ import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { WavyBackground } from "./WavyBackground/wavy-background";
 import Loader from "../Loader/Loader"
-import AnimatedHeader from "../Header/AnimatedHeader";
+// import AnimatedHeader from "../Header/AnimatedHeader";
+// import ContactInfo from "./ContactInfo";
 
 
 export function ContactUsInputField() {
@@ -38,15 +39,12 @@ export function ContactUsInputField() {
   };
 
   return (
-    <Layout>
-      {loading && <Loader />}
-      <AnimatedHeader/>
       <div className="relative flex items-center justify-center h-screen">
         {/* Background */}
         <div className="absolute inset-0 -z-10">
           <WavyBackground/>
         </div>
-
+        {loading && <Loader />}
         {/* Contact Form */}
         <div className="relative z-10 max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white bg-opacity-85 backdrop-blur-lg dark:bg-black">
           <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
@@ -93,7 +91,6 @@ export function ContactUsInputField() {
           </form>
         </div>
       </div>
-    </Layout>
   );
 }
 
