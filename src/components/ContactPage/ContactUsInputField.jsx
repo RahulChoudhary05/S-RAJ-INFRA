@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { Label } from "./label";
 import { Input } from "./input";
 import { cn } from "../../lib/utils";
@@ -7,11 +7,15 @@ import Layout from "../layout/layout";
 import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { WavyBackground } from "./WavyBackground/wavy-background";
-import video from "../../assets/Video/S_RAJ_INFRA_VIDEO.mp4"
-import { HeroVideo } from "../common/HeroVideo";
+import Loader from "../Loader/Loader"
+// import AnimatedHeader from "../Header/AnimatedHeader";
+// import ContactInfo from "./ContactInfo";
 
 
 export function ContactUsInputField() {
+  const [loading, setLoading] = useState(false);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -35,14 +39,12 @@ export function ContactUsInputField() {
   };
 
   return (
-    <Layout>
-      <HeroVideo/>
       <div className="relative flex items-center justify-center h-screen">
         {/* Background */}
         <div className="absolute inset-0 -z-10">
           <WavyBackground/>
         </div>
-
+        {loading && <Loader />}
         {/* Contact Form */}
         <div className="relative z-10 max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white bg-opacity-85 backdrop-blur-lg dark:bg-black">
           <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
@@ -89,7 +91,6 @@ export function ContactUsInputField() {
           </form>
         </div>
       </div>
-    </Layout>
   );
 }
 
