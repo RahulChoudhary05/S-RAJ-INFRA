@@ -48,7 +48,7 @@ export function ContactUsInputField() {
         {/* Contact Form */}
         <div className="relative z-10 max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white bg-opacity-85 backdrop-blur-lg dark:bg-black">
           <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-            Welcome to S RAJ INFRA PROJECTS PRIVATE LIMITED
+            WELCOME TO S RAJ INFRA PROJECTS PRIVATE LIMITED
           </h2>
           <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
             Have a question or just want to say hello? Get in touch
