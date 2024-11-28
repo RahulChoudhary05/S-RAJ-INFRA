@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Layout from '../layout/layout';
 import { WavyBackground } from "../ContactPage/WavyBackground/wavy-background";
 import { Label } from "../ContactPage/label";
@@ -7,6 +7,7 @@ import { cn } from "../../lib/utils";
 import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { HeroVideo } from '../common/HeroVideo';
+import Loader from '../Loader/Loader';
 
 const BottomGradient = () => (
   <>
@@ -16,6 +17,8 @@ const BottomGradient = () => (
 );
 
 function ApplyForm() {
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,6 +44,7 @@ function ApplyForm() {
   };
   return (
     <Layout>
+      {loading && <Loader />}
       <HeroVideo/>
       <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-indigo-600">
         {/* Full-screen background */}

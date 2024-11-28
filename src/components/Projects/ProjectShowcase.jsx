@@ -3,6 +3,7 @@ import { ChevronLeft } from 'lucide-react';
 import { projects } from '../data/Projects';
 import Layout from '../layout/layout';
 import { ProjectHero } from './ProjectHero';
+import Loader from '../Loader/Loader';
 // UI Components
 const TabsContext = createContext();
 
@@ -89,6 +90,7 @@ export default function ProjectShowcase() {
   const [activeTab, setActiveTab] = useState("ongoing");
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedSubProject, setSelectedSubProject] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -156,6 +158,7 @@ export default function ProjectShowcase() {
   if (selectedProject) {
     return (
       <Layout>
+        {loading && <Loader />}
       <div className="w-full max-w-7xl mx-auto p-4">
         <Button
           variant="ghost"
@@ -232,6 +235,7 @@ export default function ProjectShowcase() {
 
   return (
     <Layout>
+      {loading && <Loader />}
       <ProjectHero/>
     <div className="w-full max-w-6xl mx-auto p-4 space-y-6">
       <Tabs defaultValue="ongoing" className="w-full" onValueChange={setActiveTab}>
