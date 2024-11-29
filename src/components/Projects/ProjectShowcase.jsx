@@ -165,7 +165,7 @@ export default function ProjectShowcase() {
           className="mb-6"
           onClick={handleBackClick}
         >
-          <ChevronLeft className="mr-2 h-4 w-4" />
+          <ChevronLeft className="mr-2 h-4 w-5" />
           {selectedSubProject ? `Back to ${selectedProject.title}` : 'Back to Projects'}
         </Button>
         <div className="grid lg:grid-cols-[1fr_400px] gap-6">
@@ -179,14 +179,14 @@ export default function ProjectShowcase() {
             </div>
             <div className="space-y-4">
               <div>
-                <h2 className="text-2xl font-bold">{selectedSubProject ? selectedSubProject.title : selectedProject.title}</h2>
-                {!selectedSubProject && <p className="text-sm text-gray-500">{selectedProject.subtitle}</p>}
+                <h2 className="text-2xl font-bold font-playfair text-richblack-900">{selectedSubProject ? selectedSubProject.title : selectedProject.title}</h2>
+                {!selectedSubProject && <p className="text-sm font-mono font-semibold text-zinc-800">{selectedProject.subtitle}</p>}
               </div>
               <div className="flex items-center gap-4">
                 <div className="font-mono text-sm">{selectedSubProject ? selectedSubProject.progress : selectedProject.progress}</div>
-                {!selectedSubProject && <div className="text-sm text-gray-500">{selectedProject.year}</div>}
+                {!selectedSubProject && <div className="text-sm font-mono text-zinc-800">{selectedProject.year}</div>}
               </div>
-              <p className="text-gray-600">{selectedSubProject ? selectedSubProject.description : selectedProject.description}</p>
+              <p className="text-zinc-800">{selectedSubProject ? selectedSubProject.description : selectedProject.description}</p>
               {!selectedSubProject && (
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.tags.map(tag => (
@@ -199,7 +199,7 @@ export default function ProjectShowcase() {
             </div>
           </div>
           <div className="lg:border-l lg:pl-6">
-            <h3 className="text-lg font-semibold mb-4">{selectedSubProject ? `Other Sub-Projects of ${selectedProject.title}` : `Sub-Projects of ${selectedProject.title}`}</h3>
+            <h3 className="text-lg font-semibold font-inter mb-4">{selectedSubProject ? `Other Sub-Projects of ${selectedProject.title}` : `Sub-Projects of ${selectedProject.title}`}</h3>
             <ScrollArea className="h-[calc(100vh-200px)]">
               <div className="space-y-4 pr-4">
                 {selectedProject.subProjects && selectedProject.subProjects
@@ -217,11 +217,11 @@ export default function ProjectShowcase() {
                           className="object-cover w-full h-full"
                         />
                       </div>
-                      <h4 className="font-semibold mb-1">{subProject.title}</h4>
-                      <p className="text-sm text-gray-500 line-clamp-2">
+                      <h4 className="font-semibold font-inter text-richblue-900 mb-1">{subProject.title}</h4>
+                      <p className="text-sm text-richblack-800 line-clamp-2">
                         {subProject.description}
                       </p>
-                      {/* <div className="mt-2 text-sm font-mono">{subProject.progress}</div> */}
+                      <div className="mt-2 text-sm font-mono font-semibold">{subProject.progress}</div>
                     </div>
                   ))}
               </div>
