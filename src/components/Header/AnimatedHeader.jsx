@@ -54,12 +54,12 @@ const AnimatedHeader = () => {
           Building Tomorrow's Infrastructure Today
         </motion.p>
         <div
-          className="mt-4 sm:mt-6 px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-opacity-90 transition-colors"
+          className="mt-4 sm:mt-6 px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-opacity-90 cursor-pointer transition-colors"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          Contact Us
+          Career
         </div>
       </div>
     </header>
