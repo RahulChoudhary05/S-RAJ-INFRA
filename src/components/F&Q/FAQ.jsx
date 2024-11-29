@@ -9,7 +9,7 @@ import { Card, CardContent } from "./ui/card";
 
 export default function ModernFAQ() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-richblack-5 to-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[50%] bg-gradient-to-b from-richblack-5 to-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header Section */}
         <div className="text-center space-y-4">

@@ -8,6 +8,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { HeroVideo } from '../common/HeroVideo';
 import Loader from '../Loader/Loader';
+import ModernFAQ from '../F&Q/FAQ';
 
 const BottomGradient = () => (
   <>
@@ -46,6 +47,7 @@ function ApplyForm() {
     <Layout>
       {loading && <Loader />}
       <HeroVideo/>
+      <ModernFAQ/>
       <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-indigo-600">
         {/* Full-screen background */}
         <div className="absolute inset-0 h-screen -z-5">
