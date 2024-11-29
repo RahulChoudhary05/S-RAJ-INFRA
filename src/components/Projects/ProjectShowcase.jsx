@@ -32,7 +32,7 @@ function TabsTrigger({ value, children }) {
 
   return (
     <button
-      className={`px-4 py-2 ${isActive ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'} rounded-md`}
+      className={`px-4 py-2 ${isActive ? 'bg-blue-500 text-white' : 'bg-transparent text-richblack-800'} rounded-md`}
       onClick={handleClick}
     >
       {children}
@@ -121,7 +121,7 @@ export default function ProjectShowcase() {
         onClick={() => handleProjectClick(project)}
       >
         <div className="p-0">
-          <div className="grid md:grid-cols-[300px_1fr] gap-6">
+          <div className="grid md:grid-cols-[300px_1fr] gap-6 mb-3">
             <div className="relative aspect-[16/9] md:aspect-auto">
               <img
                 src={project.image}
@@ -132,15 +132,15 @@ export default function ProjectShowcase() {
             <div className="p-6">
               <div className="flex items-start justify-between mb-2">
                 <div>
-                  <h3 className="text-2xl font-bold">{project.title}</h3>
-                  <p className="text-sm text-gray-500">{project.subtitle}</p>
+                  <h3 className="text-2xl font-bold font-playfair text-richblack-900">{project.title}</h3>
+                  <p className="text-base text-zinc-800 font-mono font-semibold">{project.subtitle}</p>
                 </div>
                 <div className="text-right">
-                  <div className="font-mono text-sm">{project.progress}</div>
-                  <div className="text-sm text-gray-500">{project.year}</div>
+                  <div className="font-mono font-bold text-sm">{project.progress}</div>
+                  <div className="text-sm font-bold text-gray-500">{project.year}</div>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 mb-4">{project.description}</p>
+              <p className="text-sm font-mono font-medium text-richblue-900 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map(tag => (
                   <Badge key={tag} variant="secondary">
@@ -237,7 +237,7 @@ export default function ProjectShowcase() {
     <Layout>
       {loading && <Loader />}
       <ProjectHero/>
-    <div className="w-full max-w-6xl mx-auto p-4 space-y-6">
+    <div className="w-full max-w-6xl mx-auto mt-5 p-4 space-y-6">
       <Tabs defaultValue="ongoing" className="w-full" onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-2 mb-8">
           <TabsTrigger value="ongoing">Ongoing Projects</TabsTrigger>
