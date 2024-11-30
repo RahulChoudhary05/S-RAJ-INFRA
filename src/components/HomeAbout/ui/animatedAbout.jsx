@@ -238,7 +238,7 @@ const AnimatedTitle = ({ text }) => {
 export function HomeAbout() {
   return (
     <section className="py-5 bg-gray-100">
-      <div className="container mt-5 mx-auto px-1">
+      <div className="container mt-5 mx-auto px-1 bg-gradient-to-b from-richblack-5 to-white">
         <AnimatedTitle text="About S Raj Infra Projects" />
         <StickyScroll content={content} />
       </div>
