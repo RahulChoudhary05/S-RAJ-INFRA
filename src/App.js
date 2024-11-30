@@ -21,10 +21,6 @@ function App() {
         <Route path="projects" element={<ProjectShowcase/>} />
         <Route path="biblio" element={<AnimatedPinDemo/>} />
         <Route path="header" element={<AnimatedHeader/>} />
-        <Route path="faq" element={<ModernFAQ/>} />
-
-        
-        {/* <Route path="career" element={<ImagesSliderDemo />} /> Enable this for demo */}
         <Route path="contactus" element={<ContactUs/>} />
       </Routes>
     </ScrollTop>
