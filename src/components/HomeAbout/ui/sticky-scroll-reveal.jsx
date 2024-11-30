@@ -45,7 +45,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
   return (
     <motion.div
       ref={ref}
-      className="h-[27rem] overflow-y-auto flex justify-center relative bg-gradient-to-b from-richblack-5 to-white space-x-10 rounded-lg shadow-2xl"
+      className="h-[27rem] overflow-y-auto flex justify-center relative bg-gradient-to-b from-richblack-5 to-white space-x-10 rounded-lg shadow-xl mb-5"
     >
       <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
