@@ -6,6 +6,7 @@ import ImageSlider from '../components/HomeGallery/gallery';
 import { Link } from 'react-router-dom';
 import { HomeAbout } from '../components/HomeAbout/ui/animatedAbout';
 import slides from '../components/data/HomeGallery';
+import { AnimatedPinDemo } from '../components/Bibliography/ui/Cardinfo';
 
 const FuzzyOverlayExample = () => {
   return (
@@ -24,6 +25,7 @@ const FuzzyOverlayExample = () => {
       <HomeAbout/>
       {/* <ImageSlider/> */}
       <ImageSlider slides={slides} />
+      <AnimatedPinDemo/>
     </Layout>
   );
 };
