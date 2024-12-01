@@ -38,12 +38,13 @@
     margin-bottom: 1rem;
     text-align: center;
   }
-  
+
   .short-bio {
     font-size: 1rem;
     color: #444;
     line-height: 1.6;
     margin-bottom: 1rem;
+    text-align: justify;
   }
   
   .read-more-btn {
@@ -67,6 +68,7 @@
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid #ddd;
+    text-align: justify;
   }
   
   .full-bio h3 {
