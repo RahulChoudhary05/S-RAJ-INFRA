@@ -71,7 +71,7 @@ const TextParallaxContent = ({ id, imgUrl, subheading, heading, headingText, des
       </div>
       <div className="mx-auto grid md:grid-cols-12 max-w-5xl py-7 px-4 gap-6">
         <h2 className="col-span-1 text-5xl font-bold md:col-span-4 mb-4">{headingText}</h2>
-        <div className="col-span-1 md:col-span-8 text-xl text-neutral-600 mb-14">
+        <div className="col-span-1 md:col-span-8 text-xl text-neutral-600 text-justify mb-14">
           {Array.isArray(descriptionText)
             ? descriptionText.map((paragraph, index) => (
                 <p key={index} className="mb-4">{paragraph}</p>
