@@ -258,11 +258,20 @@ export const projects = {
       subProjects: [
         {
           id: 201,
+          title:
+            "Construction of Station Building and Boundary Wall at Barapalasi Station",
+          description:
+            "The project focuses on the construction of a modern station building and a robust boundary wall at Barapalasi Station. This initiative aims to enhance the overall infrastructure, ensuring better facilities for passengers and providing security and safety for the station premises. The new station building will feature improved amenities, waiting areas, and ticketing services, while the boundary wall will safeguard the station's assets and prevent unauthorized access.",
+          image: completedB1,
+          progress: "01/02",
+        },
+        {
+          id: 202,
           title: "Landscaping and Surrounding Infrastructure",
           description:
             "It includes the landscaping of the surrounding area of Barapalasi Station to improve aesthetics and functionality. It will feature greenspaces, parking areas, and pathways for easy access to the station. The aim is to create a welcoming environment for passengers and visitors alike.",
           image: completedB2,
-          progress: "4/4",
+          progress: "01/02",
         },
       ],
     },
@@ -276,25 +285,33 @@ export const projects = {
         "The Andul-Baltikuri Doubling Project involves comprehensive civil engineering works over a stretch of 1.4 kilometers. This project focuses on the execution of essential earthworks, construction of a major bridge with a span of three 30.48-meter sections, minor bridges, retention walls, and the development of station buildings. These infrastructure improvements are designed to enhance the efficiency and capacity of the railway line, accommodating increased train frequency and ensuring passenger safety and comfort.",
       image: completedC1,
       tags: ["South Eastern Railway", "Garden Reach", "Railway Infrastructure"],
-      progress: "30/03",
+      progress: "01/03",
       year: "2018",
       status: "Completed",
       subProjects: [
         {
           id: 301,
+          title: "Andul-Baltikuri Doubling Project",
+          description:
+            "The Andul-Baltikuri Doubling Project involves comprehensive civil engineering works over a stretch of 1.4 kilometers. This project focuses on the execution of essential earthworks, construction of a major bridge with a span of three 30.48-meter sections, minor bridges, retention walls, and the development of station buildings. These infrastructure improvements are designed to enhance the efficiency and capacity of the railway line, accommodating increased train frequency and ensuring passenger safety and comfort.",
+          image: completedC1,
+          progress: "01/03",
+        },
+        {
+          id: 302,
           title: "Major Bridge Construction",
           description:
             "The major bridge construction encompasses a span of three sections, each measuring 30.48 meters. This structure is a critical component of the Andul-Baltikuri Doubling Project, providing essential support for the increased load and improving overall railway safety and functionality. The bridge will feature advanced engineering techniques to ensure durability and reliability in challenging weather conditions.",
           image: completedC2,
-          progress: "4/4",
+          progress: "02/03",
         },
         {
-          id: 302,
+          id: 303,
           title: "Minor Bridges Development",
           description:
             "It involves the construction of several minor bridges that will facilitate drainage and ensure the seamless flow of rail traffic. Each bridge is designed to integrate with the surrounding landscape while fulfilling necessary structural and environmental standards. The minor bridges play a vital role in maintaining track integrity and preventing flooding in adjacent areas.",
           image: completedC3,
-          progress: "5/5",
+          progress: "03/03",
         },
       ],
     },
@@ -313,12 +330,21 @@ export const projects = {
         "Garden Reach",
         "Infrastructure Development",
       ],
-      progress: "31/08",
+      progress: "01/04",
       year: "2019",
       status: "Completed",
       subProjects: [
         {
           id: 401,
+          title:
+            "Rehabilitation Work for Doubling of Andul - Baltikuri Section at Mourigram - Bankra Nayabaz Station",
+          description:
+            "This project focuses on the rehabilitation work at Mourigram - Bankra Nayabaz Station as part of the overarching initiative to double the Andul - Baltikuri railway section. The objective is to upgrade the existing infrastructure to accommodate increased train traffic, enhance operational safety, and improve passenger services. This project will utilize modern techniques and materials to ensure longevity and sustainability, thereby contributing to the efficiency of the railway network in the region.",
+          image: completedD1,
+          progress: "01/04",
+        },
+        {
+          id: 402,
           title: "Track Realignment and Strengthening",
           description:
             "It involves the realignment of existing tracks to improve the geometry and strengthen the trackbed to handle heavier loads and increased traffic. It includes replacing outdated ballast and ties, installing modern signaling systems, and ensuring compliance with safety standards.",
@@ -326,7 +352,7 @@ export const projects = {
           progress: "4/4",
         },
         {
-          id: 402,
+          id: 403,
           title: "Platform and Station Facilities Enhancement",
           description:
             "Enhancing the platforms and station facilities to provide better services to passengers is a key focus. This includes widening platforms, adding shelter, improving accessibility features, and upgrading lighting and signage to ensure a safe and comfortable experience for travelers.",
@@ -334,7 +360,7 @@ export const projects = {
           progress: "5/5",
         },
         {
-          id: 403,
+          id: 404,
           title: "Drainage and Environmental Management",
           description:
             "To enhance the drainage systems around the station to prevent flooding and manage stormwater effectively. It includes the installation of sustainable drainage solutions and measures to mitigate environmental impact during and after construction, promoting ecological balance in the region.",
@@ -352,33 +378,41 @@ export const projects = {
         "The project involves the execution of a road over bridge (ROB) comprising spans of 24.00 meters, 36.00 meters, and 18.00 meters, strategically located between Nilgiri and Balasore on the Kharagpur-Bhadrak railway section. This infrastructure is designed to enhance transportation efficiency, reduce traffic congestion, and improve safety for both vehicular and pedestrian traffic in the region. The ROB will serve as a crucial link, facilitating the smooth flow of goods and passengers while ensuring uninterrupted rail services.",
       image: completedE1,
       tags: ["South Eastern Railway", "Garden Reach", "Road Over Bridge"],
-      progress: "31/03",
+      progress: "01/04",
       year: "2021",
       status: "Completed",
       subProjects: [
         {
           id: 501,
+          title: "Construction of Road Over Bridge at Nilgiri-Balasore",
+          description:
+            "The project involves the execution of a road over bridge (ROB) comprising spans of 24.00 meters, 36.00 meters, and 18.00 meters, strategically located between Nilgiri and Balasore on the Kharagpur-Bhadrak railway section. This infrastructure is designed to enhance transportation efficiency, reduce traffic congestion, and improve safety for both vehicular and pedestrian traffic in the region. The ROB will serve as a crucial link, facilitating the smooth flow of goods and passengers while ensuring uninterrupted rail services.",
+          image: completedE1,
+          progress: "01/04",
+        },
+        {
+          id: 502,
           title: "Engineering and Design of Road Over Bridge",
           description:
             "It focuses on the comprehensive engineering design and planning of the road over bridge, ensuring it meets safety standards and structural integrity requirements. All design elements will consider load capacities, environmental impacts, and local regulations to create an efficient and reliable bridge.",
           image: completedE2,
-          progress: "4/4",
+          progress: "02/04",
         },
         {
-          id: 502,
+          id: 503,
           title: "Construction and Material Procurement for ROB",
           description:
             "The construction phase of the project entails the procurement of high-quality materials, equipment, and skilled labor necessary for the effective execution of the road over bridge. This sub-project will detail the processes of site preparation, foundation work, span construction, and final finishing processes, ensuring adherence to timelines and budget constraints.",
           image: completedE3,
-          progress: "5/5",
+          progress: "03/04",
         },
         {
-          id: 503,
+          id: 504,
           title: "Safety and Quality Assurance in ROB Development",
           description:
             "It emphasizes the implementation of rigorous safety protocols and quality assurance measures throughout the construction of the road over bridge. It involves regular inspections, compliance checks, and testing of materials to ensure the structure's longevity and adherence to national safety standards. Training sessions for workers on safety practices will also be conducted to further minimize risks on the construction site.",
           image: completedE4,
-          progress: "5/5",
+          progress: "04/04",
         },
       ],
     },
@@ -399,25 +433,34 @@ export const projects = {
         "Sheet Piling",
         "Water Treatment Plant",
       ],
-      progress: "31/03",
+      progress: "01/03",
       year: "2021",
       status: "Completed",
       subProjects: [
         {
           id: 601,
+          title:
+            "Sheet Piling and Ancillary Works for Restoration of 2.5 MGD Water Treatment Plant at Howrah",
+          description:
+            "This project involves the implementation of sheet piling and associated ancillary works necessary for the restoration of a 2.5 Million Gallons per Day (MGD) water treatment plant located in Howrah. The primary goal is to support the structural integrity of the plant, enhance its operational capacity, and ensure compliance with environmental and safety standards. The project will focus on the installation of sheet piles to create a reliable barrier against water ingress, protect existing structures, and facilitate necessary rehabilitation works.",
+          image: completedF1,
+          progress: "01/03",
+        },
+        {
+          id: 602,
           title: "Site Preparation and Assessment",
           description:
             "It involves comprehensive site preparation and assessment activities prior to the commencement of sheet piling operations. It includes surveying the site, identifying existing utilities, and conducting geotechnical investigations to ensure the suitability of the location for piling. Necessary permits and environmental assessments will also be obtained during this phase.",
           image: completedF2,
-          progress: "4/4",
+          progress: "02/03",
         },
         {
-          id: 602,
+          id: 603,
           title: "Sheet Piling Installation",
           description:
             "The main focus of this subproject is the installation of sheet piles around the water treatment facility. This includes the selection of appropriate materials, transportation to the site, and the application of advanced techniques for driving the piles into the ground. The objective is to create a secure barrier that will prevent water intrusion and provide support for the restoration efforts.",
           image: completedF3,
-          progress: "5/5",
+          progress: "03/03",
         },
       ],
     },
@@ -432,49 +475,58 @@ export const projects = {
         "This project involves the construction of a state-of-the-art Road Over Bridge (ROB) featuring a Bowstring Girder design with a span of 48.0 meters. Located strategically between Balasore and Nilgiri along the Kharagpur - Bhadrak railway section, this infrastructure aims to enhance transportation efficiency, reduce traffic congestion, and ensure safer crossings for vehicles and pedestrians. The new ROB is expected to significantly improve connectivity in the region, facilitating better access and promoting economic growth.",
       image: completedG1,
       tags: ["South Eastern Railway", "Garden Reach", "Nilgiri"],
-      progress: "30/06",
+      progress: "01/06",
       year: "2021",
       status: "Completed",
       subProjects: [
         {
           id: 701,
+          title:
+            "Execution of Bowstring Girder Road Over Bridge on Balasore - Nilgiri Road",
+          description:
+            "This project involves the construction of a state-of-the-art Road Over Bridge (ROB) featuring a Bowstring Girder design with a span of 48.0 meters. Located strategically between Balasore and Nilgiri along the Kharagpur - Bhadrak railway section, this infrastructure aims to enhance transportation efficiency, reduce traffic congestion, and ensure safer crossings for vehicles and pedestrians. The new ROB is expected to significantly improve connectivity in the region, facilitating better access and promoting economic growth.",
+          image: completedG1,
+          progress: "01/06",
+        },
+        {
+          id: 702,
           title: "Site Preparation and Foundation Work",
           description:
             "It focuses on the initial groundwork necessary for the ROB, including land clearing, excavation, and the setup of foundations to support the Bowstring Girder. Proper soil testing and stabilization will be conducted to ensure long-term durability and safety.",
           image: completedG2,
-          progress: "4/4",
+          progress: "02/06",
         },
         {
-          id: 702,
+          id: 703,
           title: "Fabrication of Bowstring Girder",
           description:
             "Dedicated to the engineering and fabrication of the Bowstring Girder, this subproject includes the design specifications, material selection, and manufacturing processes. Quality control measures will be implemented to guarantee that the girders meet all structural integrity standards.",
           image: completedG3,
-          progress: "5/5",
+          progress: "03/06",
         },
         {
-          id: 703,
+          id: 704,
           title: "Erection of the Bridge Structure",
           description:
             "This phase involves the transportation and installation of the Bowstring Girder onto the pre-built foundations. This subproject encompasses the use of cranes, safety protocols, and alignment checks to ensure the precise placement of the girder.",
           image: completedG4,
-          progress: "5/5",
+          progress: "04/06",
         },
         {
-          id: 704,
+          id: 705,
           title: "Deck Construction and Roadway Integration",
           description:
             "Following the erection of the girder, this subproject will focus on constructing the bridge deck and integrating it with the existing roadways. It includes laying down the surface materials, drainage systems, and completing necessary road signage and markings.",
           image: completedG5,
-          progress: "5/5",
+          progress: "05/06",
         },
         {
-          id: 705,
+          id: 706,
           title: "Safety Features and Environmental Management",
           description:
             "It is dedicated to implementing safety features such as guardrails, warning signals, and pedestrian crossings, ensuring the well-being of users. Additionally, it encompasses environmental management practices to mitigate the project's impact on the surrounding ecosystem during and after construction.",
           image: completedG6,
-          progress: "5/5",
+          progress: "06/06",
         },
       ],
     },
@@ -488,17 +540,26 @@ export const projects = {
         "This project involves the construction of the substructure and the erection of composite girders for Major Bridge No. 188A, featuring 11 spans, each with a clear span of 18.3 meters. The bridge will serve as a vital connection between Rasulpur and Shaktigarh, enhancing transportation and infrastructure in the area. The project emphasizes durable construction techniques and adherence to safety standards to facilitate long-term usage and reliability.",
       image: completedH1,
       tags: ["Eastern Railway", "HQ"],
-      progress: "08/03",
+      progress: "01/02",
       year: "2022",
       status: "Completed",
       subProjects: [
         {
           id: 801,
+          title:
+            "Construction of Major Bridge No. 188A: Substructure and Girder Erection",
+          description:
+            "This project involves the construction of the substructure and the erection of composite girders for Major Bridge No. 188A, featuring 11 spans, each with a clear span of 18.3 meters. The bridge will serve as a vital connection between Rasulpur and Shaktigarh, enhancing transportation and infrastructure in the area. The project emphasizes durable construction techniques and adherence to safety standards to facilitate long-term usage and reliability.",
+          image: completedH1,
+          progress: "01/02",
+        },
+        {
+          id: 802,
           title: "Substructure Construction for Major Bridge No. 188A",
           description:
             "It focuses on the construction of the bridge's substructure, including footings, piers, and abutments, ensuring a stable foundation for the composite girders. The work will comply with engineering standards and environmental regulations to support the bridge's structural integrity and longevity.",
           image: completedH2,
-          progress: "4/4",
+          progress: "02/02",
         },
       ],
     },
