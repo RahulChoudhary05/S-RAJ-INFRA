@@ -60,7 +60,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
               animate={{
                 opacity: activeCard === index ? 1 : 0.3,
                 y: activeCard === index ? 0 : 50,
-                scale: activeCard === index ? 1.02 : 0.90,
+                scale: activeCard === index ? 1.02 : 0.9,
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
@@ -73,7 +73,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
                 {item.title}
               </motion.h2>
               <motion.div
-                className="text-xl text-richblack-800 font-semibold font-playfair max-w-sm"
+                className="text-xl text-richblack-800  text-justify font-semibold font-playfair max-w-sm"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}

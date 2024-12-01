@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,36 +36,50 @@ const ImageSlider = ({ slides }) => {
   const handleMouseLeave = () => setIsPaused(false);
 
   return (
-    <div 
-      className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] max-w-[1600px] max-h-[1000px] m-auto py-4 px-2 md:py-8 md:px-4 group mb-5"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="w-full bg-gray-100 bg-gradient-to-b from-richblack-5 to-white py-8 text-center">
+      <h2 className="text-7xl font-bold font-inter text-richblack-900 mb-5">
+        Our Projects
+      </h2>
       <div
-        className="w-full h-full rounded-2xl bg-center bg-cover duration-500 relative overflow-hidden"
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+        className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] max-w-[1600px] max-h-[1000px] m-auto py-4 px-2 md:py-8 md:px-4 group mb-5 bg-gradient-to-b from-richblack-5 to-white"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-300"></div>
-        <div className="absolute bottom-0 left-0 p-4 md:p-6 lg:p-8 text-white">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">{slides[currentIndex].title}</h2>
-          <p className="text-sm md:text-base lg:text-lg">{slides[currentIndex].subtitle}</p>
+        <div
+          className="w-full h-full rounded-2xl bg-center bg-cover duration-500 relative overflow-hidden"
+          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-300"></div>
+          <div className="absolute bottom-0 left-0 p-4 md:p-6 lg:p-8 text-white">
+            <h2 className="text-3xl md:text-3xl lg:text-4xl font-playfair font-bold mb-1">
+              {slides[currentIndex].title}
+            </h2>
+            <p className="text-base md:text-base lg:text-lg">
+              {slides[currentIndex].subtitle}
+            </p>
+          </div>
         </div>
-      </div>
-      <div 
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 md:left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/50 transition-colors"
-        onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
-      >
-        <ChevronLeft size={30} className="md:w-10 md:h-10" />
-      </div>
-      <div 
-        className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 md:right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/50 transition-colors"
-        onClick={(e) => { e.stopPropagation(); goToNext(); }}
-      >
-        <ChevronRight size={30} className="md:w-10 md:h-10" />
+        <div
+          className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 md:left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={(e) => {
+            e.stopPropagation();
+            goToPrevious();
+          }}
+        >
+          <ChevronLeft size={30} className="md:w-10 md:h-10" />
+        </div>
+        <div
+          className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 md:right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/50 transition-colors"
+          onClick={(e) => {
+            e.stopPropagation();
+            goToNext();
+          }}
+        >
+          <ChevronRight size={30} className="md:w-10 md:h-10" />
+        </div>
       </div>
     </div>
   );
 };
 
 export default ImageSlider;
-
