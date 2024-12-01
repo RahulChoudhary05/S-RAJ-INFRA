@@ -37,7 +37,7 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <div 
-      className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] max-w-[1600px] max-h-[1000px] m-auto py-4 px-2 md:py-8 md:px-4 group"
+      className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] max-w-[1600px] max-h-[1000px] m-auto py-4 px-2 md:py-8 md:px-4 group mb-5"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
