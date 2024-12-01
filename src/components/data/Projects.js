@@ -79,9 +79,9 @@ export const projects = {
       title: "Construction of Boundary Wall at Railway Stations JSME and BDME",
       subtitle: "Strengthening Security Measures at JSME and BDME Stations",
       description: "This component of the project entails the construction of a boundary wall at the railway stations of JSME and BDME. The primary aim is to enhance safety by preventing unauthorized access to railway premises. The construction will include the necessary excavation and masonry work and the development of approaches that ensure safe and efficient access to the wall for maintenance and emergency services.",
-      image: "https://via.placeholder.com/600x400",
+      image: "https://via.placeholder.com/300x200",
       tags: ["Eastern Railway", "Asansol"],
-      progress: "01/09",
+      progress: "01/11",
       year: "2024",
       status: "In Progress",
       subProjects: [
@@ -90,45 +90,10 @@ export const projects = {
           title: "Boundary Wall Construction at STL and LHB Stations",
           description: "This phase focuses on the construction of a boundary wall at the STL and LHB railway stations. The initiative aims to bolster security and safety by creating a physical barrier against unauthorized intrusion. The project will involve careful planning of excavation and masonry processes, along with the establishment of access roads leading to the boundary wall. Compliance with railway safety standards is critical to this project, ensuring that train operations remain unaffected while maintaining accessibility for emergency response teams. Selection of high-quality materials will emphasize longevity and resilience against environmental factors.",
           image: "https://via.placeholder.com/300x200",
-          progress: "1/3",
-        },
-        {
-          id: 202,
-          title: "Comprehensive Project Plan for Boundary Wall Construction Detailed Strategy for Enhanced Railway Security Across JSME, BDME, STL, and LHB",
-          description: "This overarching project plan outlines the strategic approach for constructing boundary walls and approach roads at stations JSME, BDME, STL, and LHB. The plan addresses key aspects such as compliance with railway safety regulations, minimizing operational disruptions, and ensuring efficient access for emergency services. Logistics and timelines will be meticulously detailed to facilitate a smooth construction process.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "2/3",
-        },
-        {
-          id: 203,
-          title: "Construction of Boundary Wall at Railway Stations JSME and BDME",
-          description: "This component of the project entails the construction of a boundary wall at the railway stations of JSME and BDME. The primary aim is to enhance safety by preventing unauthorized access to railway premises. The construction will include the necessary excavation and masonry work and the development of approaches that ensure safe and efficient access to the wall for maintenance and emergency services.",
-          image: "https://via.placeholder.com/300x200",
-          progress: "3/3",
-        },
-      ],
-    },
-
-    {
-      id: 3,
-      title: "Construction of Boundary Wall at Railway Stations JSME and BDME",
-      subtitle: "Strengthening Security Measures at JSME and BDME Stations",
-      description: "This component of the project entails the construction of a boundary wall at the railway stations of JSME and BDME. The primary aim is to enhance safety by preventing unauthorized access to railway premises. The construction will include the necessary excavation and masonry work and the development of approaches that ensure safe and efficient access to the wall for maintenance and emergency services.",
-      image: "https://via.placeholder.com/300x200",
-      tags: ["Eastern Railway", "Asansol"],
-      progress: "01/11",
-      year: "2024",
-      status: "In Progress",
-      subProjects: [
-        {
-          id: 301,
-          title: "Boundary Wall Construction at STL and LHB Stations",
-          description: "This phase focuses on the construction of a boundary wall at the STL and LHB railway stations. The initiative aims to bolster security and safety by creating a physical barrier against unauthorized intrusion. The project will involve careful planning of excavation and masonry processes, along with the establishment of access roads leading to the boundary wall. Compliance with railway safety standards is critical to this project, ensuring that train operations remain unaffected while maintaining accessibility for emergency response teams. Selection of high-quality materials will emphasize longevity and resilience against environmental factors.",
-          image: "https://via.placeholder.com/300x200",
           progress: "3/4",
         },
         {
-          id: 302,
+          id: 202,
           title: "Comprehensive Project Plan for Boundary Wall Construction Detailed Strategy for Enhanced Railway Security Across JSME, BDME, STL, and LHB",
           description: "This overarching project plan outlines the strategic approach for constructing boundary walls and approach roads at stations JSME, BDME, STL, and LHB. The plan addresses key aspects such as compliance with railway safety regulations, minimizing operational disruptions, and ensuring efficient access for emergency services. Logistics and timelines will be meticulously detailed to facilitate a smooth construction process.",
           image: "https://via.placeholder.com/300x200",
@@ -138,7 +103,7 @@ export const projects = {
     },
 
     {
-      id: 4,
+      id: 3,
       title: "Protection Work Project from Rasulpur to Saktigarh",
       subtitle: "RCC, Brick Work, and Ancillary Works for Infrastructure Stability",
       description: "This project aims to enhance the structural integrity and safety of the area between Rasulpur (including the yard) and Saktigarh. The scope of work includes specialized protection measures, reinforced cement concrete (RCC) construction, brick work, and other ancillary services required to ensure durability and resilience against environmental challenges. By executing these crucial infrastructure improvements, we anticipate fostering better transportation, reducing erosion, and guaranteeing the longevity of existing structures.",
@@ -149,14 +114,14 @@ export const projects = {
       status: "In Progress",
       subProjects: [
         {
-          id: 401,
+          id: 301,
           title: "RCC Structures Construction",
           description: "It focuses on the construction of reinforced cement concrete (RCC) structures along the Rasulpur to Saktigarh route. The RCC works will include foundational support, retaining walls, and structural reinforcements designed to withstand environmental stresses and enhance long-term stability. The goal is to provide a solid foundation for various upcoming infrastructural developments in the area.",
           image: "https://via.placeholder.com/300x200",
           progress: "3/4",
         },
         {
-          id: 402,
+          id: 302,
           title: "Brick Work and Ancillary Activities",
           description: "This subproject involves comprehensive brick work essential for the overall infrastructure enhancement between Rasulpur and Saktigarh. This includes the construction of walls, pavements, and landscaping features using durable brick materials. Ancillary activities will encompass site preparation, drainage systems, and other essential utilities to support the newly built structures and ensure their functionality within the community.",
           image: "https://via.placeholder.com/300x200",
@@ -166,7 +131,7 @@ export const projects = {
     },
 
     {
-      id: 5,
+      id: 4,
       title: "Construction of New Broad Gauge Rail Line from Tarakeswar to Bishnupur",
       subtitle: "Comprehensive Infrastructure Development for Enhanced Rail Connectivity",
       description: "This project involves the construction of a new Broad Gauge (B.G.) railway line connecting Tarakeswar to Bishnupur. The scope of work includes significant earthwork in filling for the railway embankment, blanketing over the formation, and turfing to ensure durability and safety. The construction will also encompass retaining walls, major and minor bridges, Railway Under Bridges (RUBs), drainage systems, and approach roads. Additionally, the project will feature the development of station platforms and buildings at Baragopinathpur, Jayrambati, and Kamarpukur stations, along with the linking of permanent way (P.W.) tracks between Maynapur and Goghat.",
@@ -177,14 +142,14 @@ export const projects = {
       status: "In Progress",
       subProjects: [
         {
-          id: 501,
+          id: 401,
           title: "Earthwork and Embankment Construction",
           description: "It focuses on the earthwork required for filling and forming the railway embankment. This involves excavation, transportation, and placement of materials to create a stable and durable base for the railway tracks. Emphasis will be placed on soil compaction and proper drainage to enhance the longevity of the embankment structure.",
           image: "https://via.placeholder.com/300x200",
           progress: "3/4",
         },
         {
-          id: 502,
+          id: 402,
           title: "Station Development and Platform Construction",
           description: "It encompasses the complete development of railway stations at Baragopinathpur, Jayrambati, and Kamarpukur. It includes the construction of station platforms, waiting areas, ticket counters, and station buildings. The design aims to facilitate efficient passenger movement and provide necessary amenities, thereby improving overall user experience at these stations.",
           image: "https://via.placeholder.com/300x200",
