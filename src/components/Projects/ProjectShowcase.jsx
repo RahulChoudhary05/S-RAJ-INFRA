@@ -87,7 +87,7 @@ function Button({ variant = 'default', className, children, ...props }) {
 
 // Main Component
 export default function ProjectShowcase() {
-  const [activeTab, setActiveTab] = useState("ongoing");
+  const [activeTab, setActiveTab] = useState("completed");
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedSubProject, setSelectedSubProject] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -238,7 +238,7 @@ export default function ProjectShowcase() {
       {loading && <Loader />}
       <ProjectHero/>
     <div className="w-full max-w-6xl mx-auto mt-5 p-4 space-y-6">
-      <Tabs defaultValue="ongoing" className="w-full" onValueChange={setActiveTab}>
+      <Tabs defaultValue="completed" className="w-full" onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-2 mb-8">
           <TabsTrigger value="ongoing">Ongoing Projects</TabsTrigger>
           <TabsTrigger value="completed">Completed Projects</TabsTrigger>
