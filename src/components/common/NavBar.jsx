@@ -77,7 +77,7 @@ export const NavBar = () => {
 
         {/* Contact Us Button in Sidebar */}
         <div className="flex justify-center mt-auto p-4">
-          <ContactUsButton />
+        <Link to="/contactus"><ContactUsButton /></Link>
         </div>
       </motion.div>
     </div>
