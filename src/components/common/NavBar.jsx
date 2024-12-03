@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiLock, FiMenu, FiX } from "react-icons/fi"; // Importing icons
 import { Link } from 'react-router-dom'
 import logo from "../../assets/Logo/logo.svg";
+import { HoverImageLinks } from "./MobileNavBar";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false); // Sidebar visibility
@@ -67,18 +68,29 @@ export const NavBar = () => {
           </button>
         </div>
 
-        {/* Navigation Links */}
-        <nav className="flex flex-col items-start p-4">
-          <NavItem onClick={() => setIsOpen(false)}><Link to="/">Home</Link></NavItem>
-          <NavItem onClick={() => setIsOpen(false)}><Link to="/about">About Us</Link></NavItem>
-          <NavItem onClick={() => setIsOpen(false)}><Link to="/projects">Projects</Link></NavItem>
-          <NavItem onClick={() => setIsOpen(false)}><Link to="/career">Career</Link></NavItem>
-        </nav>
-
-        {/* Contact Us Button in Sidebar */}
-        <div className="flex justify-center mt-auto p-4">
-        <Link to="/contactus"><ContactUsButton /></Link>
-        </div>
+        <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed inset-y-0 right-0 w-full sm:w-85 bg-zinc-800 shadow-xl z-50 overflow-y-auto"
+          >
+            <div className="flex justify-between items-center p-4 border-b border-zinc-800">
+              <img src={logo} alt="Logo" className="h-8 w-auto" />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-neutral-400 hover:text-white focus:outline-none"
+                aria-label="Close menu"
+              >
+                <FiX className="w-6 h-6" />
+              </button>
+            </div>
+            <HoverImageLinks onLinkClick={() => setIsOpen(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
       </motion.div>
     </div>
   );
