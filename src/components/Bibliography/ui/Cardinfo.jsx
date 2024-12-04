@@ -37,7 +37,7 @@ export function AnimatedPinDemo() {
         <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
           {teamMembers.map((member, index) => (
             <PinContainer key={index} title={member.title} href="/">
-              <div className="flex flex-col p-4 tracking-tight text-slate-100/50 w-full md:w-[20rem] h-[20rem]">
+              <div className="flex flex-col p-4 tracking-tight text-slate-100/50 w-full md:w-[20rem] h-[20rem] sm:h-[17rem] sm:w-[17rem] ">
                 <h3 className="max-w-xs !pb-2 !m-0 font-bold font-playfair text-xl text-white">
                   {member.name}
                 </h3>
