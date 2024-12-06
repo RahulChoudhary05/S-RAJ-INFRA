@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./AnimatedBibliography.css";
+import logo from "../../assets/Logo/logo.svg"
 
-const AnimatedBibliography = () => {
+const Bibliography = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="bibliography-container">
       <motion.img
-        src="/path-to-sathyendra-singh-image.jpg"
+        src={logo}
         alt="Sathyendra Singh"
         className="profile-image"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -122,4 +123,4 @@ const AnimatedBibliography = () => {
   );
 };
 
-export default AnimatedBibliography;
+export default Bibliography;

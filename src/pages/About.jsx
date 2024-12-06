@@ -5,6 +5,7 @@ import Bridge5 from "../Assests/Bridge_5.jpg";
 import OverVision from "../assets/OverVision.webp";
 import OverMission from "../assets/OverMission.jpg";
 import Loader from "../components/Loader/Loader";
+import Bibliography from "../components/Bibliography/Bibliography";
 
 export const About = () => {
   const [loading, setLoading] = useState(false);
@@ -50,6 +51,7 @@ export const About = () => {
           ]}
         />
       </div>
+      <Bibliography/>
     </Layout>
   );
 };
