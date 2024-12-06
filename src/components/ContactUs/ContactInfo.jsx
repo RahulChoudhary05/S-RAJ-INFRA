@@ -16,7 +16,7 @@ export const ContactInfo = () => {
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header Section */}
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight text-backgroundblack sm:text-5xl md:text-6xl">
+          <h1 className="text-5xl font-bold tracking-tight font-playfair text-backgroundblack sm:text-5xl md:text-6xl">
             Contact Us
           </h1>
           <div className="prose prose-lg mx-auto text-zinc-800 font-playfair font-semibold">
@@ -68,7 +68,7 @@ export const ContactInfo = () => {
               </AccordionItem>
 
               {/* Department Contacts Section */}
-              <AccordionItem value="department-contacts" className="border-none">
+              <AccordionItem value="department-contacts" className="border-spacing-6">
                 <AccordionTrigger className="bg-gradient-to-r from-blue-25 to-richblack-5 text-black px-6 py-4 hover:no-underline data-[state=open]:bg-gradient-to-r data-[state=open]:from-richblack-5 data-[state=open]:to-blue-25">
                   <span className="text-xl font-semibold font-inter">Department Contacts</span>
                 </AccordionTrigger>
