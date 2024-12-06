@@ -13,8 +13,8 @@ const teamMembers = [
   },
   {
     id: 2,
-    title: "Director",
-    name: "Kumar Deepak",
+    title: "Kumar Deepak",
+    name: "Director",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEu6ZsR0VBPv4ei51SbzDQmsdkq_vxQgwiUw&s",
     post: "Driving innovation in technology",
@@ -22,8 +22,8 @@ const teamMembers = [
   },
   {
     id: 3,
-    title: "Chief Technology Officer",
-    name: "Sourav Singh",
+    title: "Sourav Singh",
+    name: "Chief Technology Officer",
     image:
       "https://media.istockphoto.com/id/149452771/photo/man-with-gray-hair-and-beard-wearing-shirt-and-blue-suit.jpg?s=612x612&w=0&k=20&c=XZiyF-Y2DNnYcCA-KFWoDPnBOzr-OAcp4SUdom956Vo=",
     post: "Driving innovation in technology",
@@ -31,8 +31,8 @@ const teamMembers = [
   },
   {
     id: 4,
-    title: "Managing Director",
-    name: "Uma Nand Singh",
+    title: "Uma Nand Singh",
+    name: "Managing Director",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG7pyhyHsQya4178TCw8BgkFoG31Bo8RLmHQ&s",
     post: "Optimizing business operations",
