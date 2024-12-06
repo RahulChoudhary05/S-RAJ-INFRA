@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import Layout from '../layout/layout';
-import { WavyBackground } from "../ContactPage/WavyBackground/wavy-background";
-import { Label } from "../ContactPage/label";
-import { Input } from "../ContactPage/input";
+import { WavyBackground } from "../common/WavyBackground/wavy-background";
+import { Label } from "../ContactUs/label";
+import { Input } from "../ContactUs/input";
 import { cn } from "../../lib/utils";
 import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
-import { HeroVideo } from '../common/HeroVideo';
+import { HeroVideo } from './HeroVideo';
 import Loader from '../Loader/Loader';
 import ModernFAQ from '../F&Q/FAQ';
 
