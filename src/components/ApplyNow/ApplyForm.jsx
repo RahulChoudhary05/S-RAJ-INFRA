@@ -6,7 +6,7 @@ import { Input } from "../ContactPage/input";
 import { cn } from "../../lib/utils";
 import { collection, addDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
-import { HeroVideo } from '../common/HeroVideo';
+import { HeroVideo } from './HeroVideo';
 import Loader from '../Loader/Loader';
 import ModernFAQ from '../F&Q/FAQ';
 
