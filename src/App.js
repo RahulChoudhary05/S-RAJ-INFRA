@@ -7,7 +7,6 @@ import ApplyForm from './components/ApplyNow/ApplyForm';
 import ProjectShowcase from './components/Projects/ProjectShowcase';
 import { AnimatedPinDemo } from './components/Bibliography/ui/Cardinfo';
 import AnimatedHeader from './components/Header/AnimatedHeader';
-import AnimatedBibliography from './components/Bibliography/Bibliography';
 import { ContactForm } from './components/ContactUs/ContactForm';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
         <Route path="biblio" element={<AnimatedPinDemo/>} />
         <Route path="header" element={<AnimatedHeader/>} />
         <Route path="contactus" element={<ContactForm/>} />
-        <Route path="bib" element={<AnimatedBibliography/>} />
       </Routes>
     </ScrollTop>
   );
