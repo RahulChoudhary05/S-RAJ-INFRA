@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import { Card, CardContent } from "../F&Q/ui/card";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export const ContactInfo = () => {
   return (
@@ -98,36 +98,6 @@ export const ContactInfo = () => {
                       <p className="text-richblack-900 font-medium">+1 (123) 456-7894</p>
                     </div>
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-
-              {/* Social Media Section */}
-              <AccordionItem value="social-media" className="border-none">
-                <AccordionTrigger className="bg-gradient-to-r from-blue-25 to-richblack-5 text-black px-6 py-4 hover:no-underline data-[state=open]:bg-gradient-to-r data-[state=open]:from-richblack-5 data-[state=open]:to-blue-25">
-                  <span className="text-xl font-semibold font-inter">Connect With Us</span>
-                </AccordionTrigger>
-                <AccordionContent className="bg-transparent px-6 py-4 space-y-6 rounded-b-lg">
-                  <div className="flex justify-center space-x-6">
-                    <a href="#" className="text-richblue-800 hover:text-richblue-600">
-                      <span className="sr-only">Facebook</span>
-                      <Facebook className="h-6 w-6" />
-                    </a>
-                    <a href="#" className="text-richblue-800 hover:text-richblue-600">
-                      <span className="sr-only">Twitter</span>
-                      <Twitter className="h-6 w-6" />
-                    </a>
-                    <a href="#" className="text-richblue-800 hover:text-richblue-600">
-                      <span className="sr-only">LinkedIn</span>
-                      <Linkedin className="h-6 w-6" />
-                    </a>
-                    <a href="#" className="text-richblue-800 hover:text-richblue-600">
-                      <span className="sr-only">Instagram</span>
-                      <Instagram className="h-6 w-6" />
-                    </a>
-                  </div>
-                  <p className="text-center text-richblack-900 font-medium">
-                    Follow us on social media for the latest updates and news.
-                  </p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

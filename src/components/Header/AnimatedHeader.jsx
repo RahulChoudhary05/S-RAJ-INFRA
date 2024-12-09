@@ -38,7 +38,7 @@ const AnimatedHeader = () => {
       
       <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center p-4">
         <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 text-white text-center"
+          className="text-4xl sm:text-4xl md:text-5xl font-bold font-playfair mb-2 sm:mb-4 text-white text-center"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -46,21 +46,13 @@ const AnimatedHeader = () => {
           S RAJ INFRA PROJECTS
         </motion.h1>
         <motion.p 
-          className="text-lg sm:text-xl md:text-2xl text-white text-center"
+          className="text-xl sm:text-xl md:text-2xl font-inter font-semibold text-white text-center"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           Building Tomorrow's Infrastructure Today
         </motion.p>
-        <div
-          className="mt-4 sm:mt-6 px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-opacity-90 cursor-pointer transition-colors"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          Career
-        </div>
       </div>
     </header>
   );
