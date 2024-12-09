@@ -1,5 +1,4 @@
-"use client";
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import { Label } from "./label";
 import { Input } from "./input";
 import { cn } from "../../lib/utils";
@@ -14,6 +13,8 @@ import { ContactInfo } from "./ContactInfo";
 
 export function ContactForm() {
   const [loading, setLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const formRef = useRef(null);
 
 
   const handleSubmit = async (e) => {
@@ -32,9 +33,16 @@ export function ContactForm() {
       await addDoc(collection(fireDB, "contactFormSubmissions"), formData);
       console.log("Data saved to Firestore successfully");
 
-      alert("Form submitted successfully!");
+      // Show popup and reset form
+      setShowPopup(true);
+      formRef.current.reset();
+
+      // Hide popup after 5 seconds
+      setTimeout(() => setShowPopup(false), 5000)
     } catch (error) {
       console.error("Error during form submission: ", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,7 +64,7 @@ export function ContactForm() {
           <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
             Have a question or just want to say hello? Get in touch
           </p>
-          <form className="my-8" onSubmit={handleSubmit}>
+          <form className="my-8" ref={formRef} onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
               <LabelInputContainer>
                 <Label htmlFor="firstname">First name</Label>
@@ -94,6 +102,34 @@ export function ContactForm() {
           </form>
         </div>
       </div>
+
+      {/* Popup Message */}
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-2xl transform transition-all ease-in-out duration-300 scale-100 opacity-100">
+            <div className="text-center">
+              <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <h3 className="mt-2 text-xl font-medium text-gray-900 dark:text-white">Submitted!</h3>
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                Thank you. We will review it and get back to you soon.
+              </p>
+              <div className="mt-4">
+                <button
+                  type="button"
+                  className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                  onClick={() => setShowPopup(false)}
+                >
+                  Got it, thanks!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       </Layout>
   );
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useRef } from 'react';
 import Layout from '../layout/layout';
 import { WavyBackground } from "../common/WavyBackground/wavy-background";
 import { Label } from "../ContactUs/label";
@@ -19,9 +19,12 @@ const BottomGradient = () => (
 
 function ApplyForm() {
   const [loading, setLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const formRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = {
       firstName: e.target.firstname.value,
@@ -29,7 +32,7 @@ function ApplyForm() {
       email: e.target.email.value,
       contactNo: e.target.number.value,
       message: e.target.message.value,
-      function0alArea: e.target.functionalArea.value,
+      functionalArea: e.target.functionalArea.value,
       careerLevel: e.target.careerLevel.value,
     };
 
@@ -38,11 +41,20 @@ function ApplyForm() {
       await addDoc(collection(fireDB, "applyFormSubmissions"), formData);
       console.log("Data saved to Firestore successfully");
 
-      alert("Form submitted successfully!");
+      // Show popup and reset form
+      setShowPopup(true);
+      formRef.current.reset();
+
+      // Hide popup after 5 seconds
+      setTimeout(() => setShowPopup(false), 5000);
     } catch (error) {
       console.error("Error during form submission: ", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <Layout>
       {loading && <Loader />}
@@ -54,10 +66,10 @@ function ApplyForm() {
           <WavyBackground />
         </div>
 
-        <div className="relative z-10 max-w-3xl w-full mx-auto  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white bg-opacity-80 backdrop-blur-lg dark:bg-black">
+        <div className="relative z-10 max-w-3xl w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white bg-opacity-80 backdrop-blur-lg dark:bg-black">
           <h2 className="text-3xl font-extrabold text-neutral-800 text-center mb-8 animate-pulse">Apply Now</h2>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <LabelInputContainer>
                 <Label htmlFor="firstname">First name</Label>
@@ -66,6 +78,7 @@ function ApplyForm() {
                   placeholder="John" 
                   type="text" 
                   className="transition duration-300 ease-in-out focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  required
                 />
               </LabelInputContainer>
               <LabelInputContainer>
@@ -75,6 +88,7 @@ function ApplyForm() {
                   placeholder="Doe" 
                   type="text" 
                   className="transition duration-300 ease-in-out focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  required
                 />
               </LabelInputContainer>
             </div>
@@ -86,6 +100,7 @@ function ApplyForm() {
                 placeholder="you@example.com" 
                 type="email" 
                 className="transition duration-300 ease-in-out focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
               />
             </LabelInputContainer>
 
@@ -96,6 +111,7 @@ function ApplyForm() {
                 placeholder="••••••••" 
                 type="tel" 
                 className="transition duration-300 ease-in-out focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
               />
             </LabelInputContainer>
 
@@ -158,6 +174,34 @@ function ApplyForm() {
           </form>
         </div>
       </div>
+
+      {/* Popup Message */}
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-2xl transform transition-all ease-in-out duration-300 scale-100 opacity-100">
+            <div className="text-center">
+              <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <h3 className="mt-2 text-xl font-medium text-gray-900 dark:text-white">Application Submitted!</h3>
+              <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                Thank you for your application. We will review it and get back to you soon.
+              </p>
+              <div className="mt-4">
+                <button
+                  type="button"
+                  className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                  onClick={() => setShowPopup(false)}
+                >
+                  Got it, thanks!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
@@ -169,3 +213,4 @@ const LabelInputContainer = ({ children, className }) => (
 );
 
 export default ApplyForm;
+
