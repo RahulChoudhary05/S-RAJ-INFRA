@@ -38,7 +38,7 @@ function TabsTrigger({ value, children }) {
     <button
       className={`px-4 py-2 ${
         isActive
-          ? "bg-blue-500 text-white"
+          ? "bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 text-white"
           : "bg-transparent text-richblack-800"
       } rounded-md`}
       onClick={handleClick}

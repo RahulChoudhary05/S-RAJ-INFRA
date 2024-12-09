@@ -70,7 +70,7 @@ const Bibliography = () => {
         </p>
       </motion.div>
       <motion.button
-        className="read-more-btn font-inter font-semibold"
+        className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 read-more-btn font-inter font-semibold"
         onClick={() => setIsExpanded(!isExpanded)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
