@@ -195,8 +195,9 @@ function ApplyForm() {
             <button
               className="w-full bg-gradient-to-br from-black dark:from-zinc-900 to-neutral-600 text-white rounded-md py-3 px-6 font-medium shadow-md hover:opacity-90 transition duration-300 relative group/btn"
               type="submit"
+              disabled={loading}
             >
-              Submit &rarr;
+              {loading ? "Submitting..." : "Submit →"}
               <BottomGradient />
             </button>
           </form>
