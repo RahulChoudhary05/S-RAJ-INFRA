@@ -44,7 +44,7 @@ export const ContactInfo = () => {
                       <Mail className="h-6 w-6 text-richblue-800" />
                       <div>
                         <h3 className="text-lg font-semibold text-richblue-800 font-playfair">Email</h3>
-                        <p className="text-richblack-900 font-medium">info@example.com</p>
+                        <p className="text-richblack-900 font-medium">headoffice@srajinfra.com</p>
                       </div>
                     </div>
 
@@ -52,7 +52,8 @@ export const ContactInfo = () => {
                       <Phone className="h-6 w-6 text-richblue-800" />
                       <div>
                         <h3 className="text-lg font-semibold text-richblue-800 font-playfair">Phone</h3>
-                        <p className="text-richblack-900 font-medium">+1 (123) 456-7890</p>
+                        <p className="text-richblack-900 font-medium">033 4064 9358</p>
+                        <p className="text-richblack-900 font-medium">+91-8777806040</p><p className="text-richblack-900 font-medium">+91-8910929747</p>
                       </div>
                     </div>
 
@@ -60,7 +61,7 @@ export const ContactInfo = () => {
                       <MapPin className="h-6 w-6 text-richblue-800" />
                       <div>
                         <h3 className="text-lg font-semibold text-richblue-800 font-playfair">Address</h3>
-                        <p className="text-richblack-900 font-medium">123 Business Street, Suite 100, City, State 12345</p>
+                        <p className="text-richblack-900 font-medium">34A, Metcalfe Street, P.O. Box: 700013, Kolkata, West Bengal 700013, India</p>
                       </div>
                     </div>
                   </div>

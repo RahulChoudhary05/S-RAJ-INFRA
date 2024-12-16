@@ -20,6 +20,10 @@ const BottomGradient = () => (
 function ApplyForm() {
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({
+    message: '',
+    isError: false
+  });
   const formRef = useRef(null);
 
   const handleSubmit = async (e) => {
@@ -34,24 +38,51 @@ function ApplyForm() {
       message: e.target.message.value,
       functionalArea: e.target.functionalArea.value,
       careerLevel: e.target.careerLevel.value,
+      access_key: "41c2fe69-d194-46d4-a07a-ee02634de180",
+      // Custom email subject and notification settings
+      subject: "New Job Application - S RAJ INFRA PROJECTS",
+      from_name: "S RAJ INFRA Careers",
+      notification_recipient: "Career Application Submission",
+      submission_type: "career",
+      company_name: "S RAJ INFRA PROJECTS PRIVATE LIMITED"
     };
 
     try {
-      // Save to Firestore
-      await addDoc(collection(fireDB, "applyFormSubmissions"), formData);
-      console.log("Data saved to Firestore successfully");
+      // Send to Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
-      // Show popup and reset form
-      setShowPopup(true);
-      formRef.current.reset();
+      const responseData = await response.json();
 
-      // Hide popup after 5 seconds
-      setTimeout(() => setShowPopup(false), 5000);
+      if (response.status === 200) {
+        // Save to Firestore
+        await addDoc(collection(fireDB, "applyFormSubmissions"), formData);
+        
+        setSubmitStatus({
+          message: "Thank you for your application. We will review it and get back to you soon",
+          isError: false
+        });
+        setShowPopup(true);
+        formRef.current.reset();
+      } else {
+        throw new Error(responseData.message || "Something went wrong!");
+      }
     } catch (error) {
       console.error("Error during form submission: ", error);
-      alert("An error occurred. Please try again.");
+      setSubmitStatus({
+        message: error.message || "An error occurred. Please try again.",
+        isError: true
+      });
+      setShowPopup(true);
     } finally {
       setLoading(false);
+      setTimeout(() => setShowPopup(false), 5000);
     }
   };
 
@@ -115,7 +146,6 @@ function ApplyForm() {
               />
             </LabelInputContainer>
 
-            {/* Select Functional Area and Career Level */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <LabelInputContainer>
                 <Label className="block text-gray-700 font-semibold">Functional Area</Label>
@@ -152,7 +182,6 @@ function ApplyForm() {
               </LabelInputContainer>
             </div>
 
-            {/* Message Section */}
             <LabelInputContainer>
               <Label htmlFor="message">Your message</Label>
               <Input
@@ -163,39 +192,57 @@ function ApplyForm() {
               />
             </LabelInputContainer>
 
-            {/* Submit Button */}
             <button
               className="w-full bg-gradient-to-br from-black dark:from-zinc-900 to-neutral-600 text-white rounded-md py-3 px-6 font-medium shadow-md hover:opacity-90 transition duration-300 relative group/btn"
               type="submit"
+              disabled={loading}
             >
-              Submit &rarr;
+              {loading ? "Submitting..." : "Submit →"}
               <BottomGradient />
             </button>
           </form>
         </div>
       </div>
 
-      {/* Popup Message */}
+      {/* Status Popup */}
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-2xl transform transition-all ease-in-out duration-300 scale-100 opacity-100">
             <div className="text-center">
-              <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
+              <div className={`mx-auto flex items-center justify-center h-12 w-12 rounded-full ${
+                submitStatus.isError ? 'bg-red-100' : 'bg-green-100'
+              }`}>
+                {submitStatus.isError ? (
+                  <svg className="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                ) : (
+                  <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                )}
               </div>
-              <h3 className="mt-2 text-xl font-medium text-gray-900 dark:text-white">Application Submitted!</h3>
+              <h3 className={`mt-2 text-xl font-medium ${
+                submitStatus.isError ? 'text-red-900' : 'text-gray-900'
+              } dark:text-white`}>
+                {submitStatus.isError ? 'Submission Failed' : 'Application Submitted!'}
+              </h3>
               <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                Thank you for your application. We will review it and get back to you soon.
+                {submitStatus.message}
               </p>
               <div className="mt-4">
                 <button
                   type="button"
-                  className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                  className={`inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium ${
+                    submitStatus.isError 
+                      ? 'bg-red-100 text-red-900 hover:bg-red-200' 
+                      : 'bg-green-100 text-green-900 hover:bg-green-200'
+                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                    submitStatus.isError ? 'focus-visible:ring-red-500' : 'focus-visible:ring-green-500'
+                  }`}
                   onClick={() => setShowPopup(false)}
                 >
-                  Got it, thanks!
+                  {submitStatus.isError ? 'Try Again' : 'Got it, thanks!'}
                 </button>
               </div>
             </div>
@@ -213,4 +260,3 @@ const LabelInputContainer = ({ children, className }) => (
 );
 
 export default ApplyForm;
-
