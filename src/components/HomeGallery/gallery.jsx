@@ -36,12 +36,12 @@ const ImageSlider = ({ slides }) => {
   const handleMouseLeave = () => setIsPaused(false);
 
   return (
-    <div className="w-full bg-gray-100 bg-gradient-to-b from-richblack-5 to-white py-8 text-center">
-      <h2 className="text-7xl font-bold font-inter text-richblack-900 mb-5">
-        Our Projects
+    <div className="w-full bg-gray-100 bg-gradient-to-b from-[#e7e5e4] to-[#d6d3d1] py-8 text-center">
+      <h2 className="lg:text-7xl sm:text-4xl font-extrabold font-playfair text-richblack-900 mb-5">
+        Explore projects that deliver tangible results.
       </h2>
       <div
-        className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] max-w-[1600px] max-h-[1000px] m-auto py-4 px-2 md:py-8 md:px-4 group mb-5 bg-gradient-to-b from-richblack-5 to-white"
+        className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] max-w-[1600px] max-h-[1000px] m-auto py-4 px-2 md:py-8 md:px-4 group "
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

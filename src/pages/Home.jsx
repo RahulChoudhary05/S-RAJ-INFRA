@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { HomeAbout } from '../components/HomeAbout/ui/animatedAbout';
 import slides from '../components/data/HomeGallery';
 import Home from '../components/Team/how';
+import HomeAboutUs from './HomeAbout';
 
 const FuzzyOverlayExample = () => {
   return (
@@ -22,7 +23,8 @@ const FuzzyOverlayExample = () => {
         </button>
         </div>
       </Hero>
-      <HomeAbout/>
+      {/* <HomeAbout/> */}
+      <HomeAboutUs/>
       <ImageSlider slides={slides} />
       <Home/>
     </Layout>

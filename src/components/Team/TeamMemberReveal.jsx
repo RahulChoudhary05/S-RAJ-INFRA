@@ -48,8 +48,8 @@ const TeamMemberCard = ({ member, isFlipped, onFlip, onLeave }) => {
       onMouseLeave={onLeave}
       onClick={() => (window.location.href = member.link)}
     >
-      <div className={`${styles.cardInner} pt-3 pl-2 bg-richblack-25 shadow-lg rounded-lg`}>
-      <div className={`${styles.cardFront} flex items-center justify-center bg-richblack-5 text-richblack-900`}>
+      <div className={`${styles.cardInner} pt-3 pl-2 bg-[#d6d3d1] shadow-lg rounded-lg`}>
+      <div className={`${styles.cardFront} flex items-center justify-center bg-[#e7e5e4] text-richblack-900`}>
           <div className={styles.imageWrapper}>
             <img src={member.image} alt={member.name} />
           </div>
@@ -57,7 +57,7 @@ const TeamMemberCard = ({ member, isFlipped, onFlip, onLeave }) => {
           <p className={`${styles.title} text-lg font-playfair italic font-medium`}>{member.title}</p>
         </div>
         <div className={styles.cardBack}>
-          <p className={`${styles.post}font-playfair italic font-medium text-xl `}>{member.post}</p>
+          <p className={`${styles.post}font-playfair italic font-medium text-white text-xl `}>{member.post}</p>
         </div>
       </div>
     </div>
@@ -68,8 +68,8 @@ const TeamMemberReveal = () => {
   const [flippedMember, setFlippedMember] = useState(null);
 
   return (
-    <div className="w-full bg-gray-100 bg-gradient-to-b from-richblack-5 to-white py-8 text-center">
-      <h2 className="text-7xl font-bold font-inter text-richblack-900 mb-5">
+    <div className="w-full bg-gray-100 bg-white py-8 text-center">
+      <h2 className="text-7xl font-extrabold font-playfair text-richblack-900 mb-5">
         Board of Directors
       </h2>
       <div className={styles.container}>
