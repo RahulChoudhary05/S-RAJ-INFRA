@@ -36,7 +36,7 @@ const ImageSlider = ({ slides }) => {
   const handleMouseLeave = () => setIsPaused(false);
 
   return (
-    <div className="w-full bg-gray-100 bg-gradient-to-b from-[#e7e5e4] to-[#d6d3d1] py-8 text-center">
+    <div className="w-full bg-gray-100 py-8 text-center">
       <h2 className="lg:text-7xl sm:text-4xl font-extrabold font-playfair text-richblack-900 mb-5">
         Explore projects that deliver tangible results.
       </h2>

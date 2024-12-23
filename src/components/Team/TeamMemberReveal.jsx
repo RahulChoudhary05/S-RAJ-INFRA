@@ -68,7 +68,7 @@ const TeamMemberReveal = () => {
   const [flippedMember, setFlippedMember] = useState(null);
 
   return (
-    <div className="w-full bg-gray-100 bg-white py-8 text-center">
+    <div className="w-full bg-gradient-to-b from-[#f3f1f1] to-[#d6d3d1] py-8 text-center">
       <h2 className="text-7xl font-extrabold font-playfair text-richblack-900 mb-5">
         Board of Directors
       </h2>
