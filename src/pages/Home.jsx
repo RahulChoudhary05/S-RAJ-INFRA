@@ -4,7 +4,6 @@ import { Hero } from './HeroSection';
 import { images } from "../components/data/HeroBg";
 import ImageSlider from '../components/HomeGallery/gallery';
 import { Link } from 'react-router-dom';
-import { HomeAbout } from '../components/HomeAbout/ui/animatedAbout';
 import slides from '../components/data/HomeGallery';
 import Home from '../components/Team/how';
 import HomeAboutUs from './HomeAbout';
@@ -23,7 +22,6 @@ const FuzzyOverlayExample = () => {
         </button>
         </div>
       </Hero>
-      {/* <HomeAbout/> */}
       <HomeAboutUs/>
       <ImageSlider slides={slides} />
       <Home/>
