@@ -30,10 +30,10 @@ export default function HomeAbout() {
   const [activeSection, setActiveSection] = useState('welcome');
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-16 bg-gradient-to-b from-[#e7e5e4] to-[#d6d3d1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-7xl font-extrabold font-playfair text-richblack-900 mb-5">
+          <h2 className="lg:text-7xl text-3xl font-extrabold font-playfair text-richblack-900 mb-5">
             Building Tomorrow's Infrastructure
           </h2>
           <p className="text-2xl text-zinc-700 font-playfair italic max-w-3xl mx-auto mb-2">
