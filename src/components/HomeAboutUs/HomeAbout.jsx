@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import img1 from "../../Assests/Bridge_1.jpg"
-import img2 from "../../Assests/Machine_1.jpg"
-import img3 from "../../Assests/Pillar_3.jpg"
+import AboutWelcome from "../../assets/About/AboutWelcome.jpg"
+import AboutVision from "../../assets/About/AboutVision.jpg"
+import AboutMission from "../../assets/About/AboutMission.jpg"
 
 const sections = [
   {
     id: 'welcome',
     title: 'Welcome to S Raj Infra Projects',
     content: 'We are dedicated to providing world-class engineering solutions, innovating and constructing bridges and other engineering marvels using cutting-edge technology and cost-efficient practices.',
-    image: img1
+    image: AboutWelcome
   },
   {
     id: 'vision',
     title: 'Our Vision',
     content: 'To innovate and construct world-class bridges and engineering marvels using cutting-edge technology and cost-efficient practices, aiming to become a leader in construction engineering.',
-    image: img2
+    image: AboutVision
   },
   {
     id: 'mission',
     title: 'Our Mission',
     content: 'To be a premier engineering organization, delivering signature bridges and engineering marvels both domestically and internationally, fostering innovation, creating value, and setting global benchmarks.',
-    image: img3
+    image: AboutMission
   }
 ];
 
@@ -96,6 +96,7 @@ export default function HomeAbout() {
                 className="absolute inset-0"
               >
                 <img
+                  className="h-[100%]"
                   src={sections.find(s => s.id === activeSection)?.image || sections[0].image}
                   alt={`S Raj Infra Projects - ${activeSection}`}
                   fill
