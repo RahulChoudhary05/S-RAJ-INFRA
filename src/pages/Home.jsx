@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import slides from '../components/data/HomeGallery';
 import Home from '../components/Team/how';
 import HomeAboutUs from './HomeAbout';
+import Example from '../components/HomeGallery/HorizontalScrollCarousel';
 
 const FuzzyOverlayExample = () => {
   return (
@@ -23,7 +24,7 @@ const FuzzyOverlayExample = () => {
         </div>
       </Hero>
       <HomeAboutUs/>
-      <ImageSlider slides={slides} />
+      <Example/>
       <Home/>
     </Layout>
   );
