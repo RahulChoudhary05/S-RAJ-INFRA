@@ -13,7 +13,7 @@ export const About = () => {
   return (
     <Layout>
       {loading && <Loader />}
-      <div className="bg-white">
+      <div className="bg-white pt-20">
         <TextParallaxContent
           id="history"
           imgUrl={Bridge5}
