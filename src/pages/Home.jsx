@@ -8,6 +8,7 @@ import slides from '../components/data/HomeGallery';
 import Home from '../components/Team/how';
 import HomeAboutUs from './HomeAbout';
 import { HomeContactCard } from './HomeContactCard/HomeContactCard';
+import HomeGallerySection from '../components/HomeGallery/HorizontalScrollCarousel';
 
 const FuzzyOverlayExample = () => {
   return (
@@ -24,7 +25,7 @@ const FuzzyOverlayExample = () => {
         </div>
       </Hero>
       <HomeAboutUs/>
-      <ImageSlider slides={slides} />
+      <HomeGallerySection/>
       <Home/>
       <HomeContactCard/>
     </Layout>
