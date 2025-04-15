@@ -8,6 +8,8 @@ import img5 from "../../Assests/Machine_5.jpg";
 import img6 from "../../Assests/Base_3.jpg";
 import img7 from "../../Assests/Pillar_4.jpg";
 import img8 from "../../Assests/Pillar_2.jpg";
+import { Link } from 'react-router-dom';
+
 
 const Card = ({ card }) => {
   return (
@@ -73,7 +75,7 @@ const HorizontalScrollCarousel = () => {
       <>
         <div className="absolute bottom-20 right-[25%] sm:hidden">
           <motion.a
-            href="/gallery"
+            href="/media"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: 50 }}
@@ -87,7 +89,7 @@ const HorizontalScrollCarousel = () => {
 
         <div className="absolute bottom-20 right-10 hidden sm:block md:hidden">
           <motion.a
-            href="/gallery"
+            href="/media"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: 70 }}
@@ -101,7 +103,7 @@ const HorizontalScrollCarousel = () => {
 
         <div className="absolute bottom-20 right-[45%] hidden md:block">
           <motion.a
-            href="/gallery"
+            href="/media"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: 100 }}
@@ -117,7 +119,7 @@ const HorizontalScrollCarousel = () => {
   );
 };
 
-const Example = () => {
+const HomeGallerySection = () => {
   return (
     <div className="bg-transparent px-4">
       <div className="flex items-center justify-center text-center">
@@ -133,7 +135,7 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default HomeGallerySection;
 
 const cards = [
   {
