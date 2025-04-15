@@ -1,144 +1,164 @@
-import { ReactLenis } from "lenis/dist/lenis-react";
-import {
-  motion,
-  useMotionTemplate,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 import Bridge_6 from "../../Assests/Bridge_6.jpg";
 import Machine_4 from "../../Assests/Machine_4.jpg";
+import Machine_7 from "../../Assests/Machine_7.jpg";
 import Inspection_1 from "../../Assests/Inspection_1.jpg";
 import Base_1 from "../../Assests/Base_1.jpg";
 
-
-
 export const ProjectHero = () => {
   return (
-    <div className="bg-zinc-800">
-      <ReactLenis
-        root
-        options={{
-          lerp: 0.05,
-          //   infinite: true,
-          //   syncTouch: true,
-        }}
-      >
-        <Hero />
-      </ReactLenis>
-    </div>
+    <section className="relative grid min-h-screen w-full place-content-center overflow-hidden bg-transparent">
+      <h2 className="relative z-0 text-[20vw] font-black text-neutral-500 md:text-[200px]">
+        PROJECTS<span className="text-indigo-500">.</span>
+      </h2>
+      <Cards />
+    </section>
   );
 };
 
-
-const SECTION_HEIGHT = 1500;
-
-const Hero = () => {
-  return (
-    <div
-      style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-      className="relative w-full"
-    >
-      <CenterImage />
-
-      <ParallaxImages />
-
-      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
-    </div>
-  );
-};
-
-const CenterImage = () => {
-  const { scrollY } = useScroll();
-
-  const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
-  const clip2 = useTransform(scrollY, [0, 1500], [75, 100]);
-
-  const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
-
-  const backgroundSize = useTransform(
-    scrollY,
-    [0, SECTION_HEIGHT + 500],
-    ["170%", "100%"]
-  );
-  const opacity = useTransform(
-    scrollY,
-    [SECTION_HEIGHT, SECTION_HEIGHT + 500],
-    [1, 0]
-  );
+const Cards = () => {
+  const containerRef = useRef(null);
 
   return (
-    <motion.div
-      className="sticky top-0 h-screen w-full"
-      style={{
-        clipPath,
-        backgroundSize,
-        opacity,
-        backgroundImage:
-          "url(https://srajinfra.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-29-at-8.10.02-PM.jpeg)",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    />
-  );
-};
-
-const ParallaxImages = () => {
-  return (
-    <div className="mx-auto max-w-5xl px-4 pt-[200px]">
-      <ParallaxImg
-        src={Machine_4}
-        alt="And example of a space launch"
-        start={-200}
-        end={200}
-        className="w-1/3"
-      />
-      <ParallaxImg
-        src={Inspection_1}
-        alt="An example of a space launch"
-        start={200}
-        end={-250}
-        className="mx-auto w-2/3"
-      />
-      <ParallaxImg
+    <div className="absolute inset-0 z-10" ref={containerRef}>
+      <Card
+        containerRef={containerRef}
         src={Bridge_6}
-        alt="Orbiting satellite"
-        start={-200}
-        end={200}
-        className="ml-auto w-1/3"
+        alt="Example image"
+        rotate="-16deg" 
+        top="20%"      
+        left="15%"     
+        className="w-36 md:w-56"
       />
-      <ParallaxImg
+      <Card
+        containerRef={containerRef}
+        src={Machine_4}
+        alt="Example image"
+        rotate="12deg"
+        top="45%"
+        left="20%"
+        className="w-24 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src={Machine_7}
+        alt="Example image"
+        rotate="15deg"
+        top="55%"
+        left="70%"
+        className="w-24 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src={Inspection_1}
+        alt="Example image"
+        rotate="-6deg"
+        top="20%"
+        left="40%"
+        className="w-52 md:w-80"
+      />
+      <Card
+        containerRef={containerRef}
         src={Base_1}
-        alt="Orbiting satellite"
-        start={0}
-        end={-500}
-        className="ml-24 w-5/12"
+        alt="Example image"
+        rotate="8deg"
+        top="50%"
+        left="40%"
+        className="w-48 md:w-72"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://srajinfra.com/wp-content/themes/sraj_wp/custom-assets/img/new_gal_4.jpeg"
+        alt="Example image"
+        rotate="18deg"
+        top="20%"
+        left="65%"
+        className="w-40 md:w-64"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://srajinfra.com/wp-content/themes/sraj_wp/custom-assets/img/new_gal_3.jpeg"
+        alt="Example image"
+        rotate="-3deg"
+        top="35%"
+        left="55%"
+        className="w-24 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://srajinfra.com/wp-content/themes/sraj_wp/custom-assets/img/new_gal_2.jpeg"
+        alt="Example image"
+        rotate="15deg"
+        top="60%"
+        left="55%"
+        className="w-24 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://srajinfra.com/wp-content/themes/sraj_wp/custom-assets/img/new_gal_1.jpeg"
+        alt="Example image"
+        rotate="-4deg"
+        top="20%"
+        left="30%"
+        className="w-24 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://srajinfra.com/wp-content/themes/sraj_wp/custom-assets/img/new_gal_5.jpeg"
+        alt="Example image"
+        rotate="-10deg"
+        top="80%"
+        left="30%"
+        className="w-24 md:w-48"
       />
     </div>
   );
+
 };
 
-const ParallaxImg = ({ className, alt, src, start, end }) => {
-  const ref = useRef(null);
+const Card = ({ containerRef, src, alt, top, left, rotate, className }) => {
+  const [zIndex, setZIndex] = useState(0);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: [`${start}px end`, `end ${end * -1}px`],
-  });
+  const updateZIndex = () => {
+    const els = document.querySelectorAll(".drag-elements");
 
-  const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0.75, 1], [1, 0.85]);
+    let maxZIndex = -Infinity;
 
-  const y = useTransform(scrollYProgress, [0, 1], [start, end]);
-  const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
+    els.forEach((el) => {
+      let zIndex = parseInt(
+        window.getComputedStyle(el).getPropertyValue("z-index")
+      );
+
+      if (!isNaN(zIndex) && zIndex > maxZIndex) {
+        maxZIndex = zIndex;
+      }
+    });
+
+    setZIndex(maxZIndex + 1);
+  };
 
   return (
     <motion.img
+      onMouseDown={updateZIndex}
+      style={{
+        top,
+        left,
+        rotate,
+        zIndex,
+      }}
+      className={twMerge(
+        "drag-elements absolute w-48 bg-neutral-200 p-1 pb-4",
+        className
+      )}
       src={src}
       alt={alt}
-      className={className}
-      ref={ref}
-      style={{ transform, opacity }}
+      drag
+      dragConstraints={containerRef}
+      // Uncomment below and remove dragElastic to remove movement after release
+      //   dragMomentum={false}
+      dragElastic={0.65}
     />
   );
 };

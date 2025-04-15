@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import slides from '../components/data/HomeGallery';
 import Home from '../components/Team/how';
 import HomeAboutUs from './HomeAbout';
+import { HomeContactCard } from './HomeContactCard/HomeContactCard';
 
 const FuzzyOverlayExample = () => {
   return (
@@ -25,6 +26,7 @@ const FuzzyOverlayExample = () => {
       <HomeAboutUs/>
       <ImageSlider slides={slides} />
       <Home/>
+      <HomeContactCard/>
     </Layout>
   );
 };

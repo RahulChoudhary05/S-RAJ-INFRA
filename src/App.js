@@ -7,6 +7,7 @@ import ApplyForm from './components/ApplyNow/ApplyForm';
 import ProjectShowcase from './components/Projects/ProjectShowcase';
 import { ContactForm } from './components/ContactUs/ContactForm';
 import NoPage from './pages/noPage/NoPage';
+import Media from './pages/Media';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/career" element={<ApplyForm/>} />
         <Route path="/projects" element={<ProjectShowcase/>} />
+        <Route path="/media" element={<Media/>}/>
         <Route path="/contactus" element={<ContactForm/>} />
         <Route path="/*" element={<NoPage/>}/>
       </Routes>
