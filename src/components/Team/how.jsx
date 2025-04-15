@@ -3,7 +3,7 @@ import TeamMemberReveal from '../Team/TeamMemberReveal';
 
 const Home = () => {
   return (
-    <main className="min-h-screen p-4">
+    <main className="min-h-screen">
       <TeamMemberReveal />
     </main>
   );
