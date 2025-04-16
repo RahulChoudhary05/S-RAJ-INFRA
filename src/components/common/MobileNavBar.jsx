@@ -12,38 +12,38 @@ export const HoverImageLinks = ({ onLinkClick }) => {
   const links = [
     { 
       heading: "Home", 
-      subheading: "Learn what we do here", 
+      // subheading: "Learn what we do here", 
       imgSrc: (Home), 
       href: "/" 
     },
     { 
       heading: "About Us", 
-      subheading: "We work with great people", 
+      // subheading: "We work with great people", 
       imgSrc: (AboutUs), 
       href: "/about" 
     },
     { 
       heading: "Projects", 
-      subheading: "Our work speaks for itself", 
+      // subheading: "Our work speaks for itself", 
       imgSrc: (Projects), 
       href: "/projects" 
     },
     { 
       heading: "Career", 
-      subheading: "We want cool people", 
+      // subheading: "We want cool people", 
       imgSrc: (Career), 
       href: "/career" 
     },
     { 
       heading: "Contact Us", 
-      subheading: "In case you're curious", 
+      // subheading: "In case you're curious", 
       imgSrc: (ContactUs), 
       href: "/contactus" 
     },
   ];
 
   return (
-    <section className="bg-zinc-800 p-4 md:p-8">
+    <section className="bg-[#001c24] p-4 md:p-8">
       <div className="mx-auto max-w-5xl">
         {links.map((link, index) => (
           <AnimatedLink key={index} {...link} onClick={onLinkClick} />
@@ -83,7 +83,7 @@ const AnimatedLink = ({ heading, imgSrc, subheading, href, onClick }) => {
         onMouseMove={handleMouseMove}
         initial="initial"
         whileHover="whileHover"
-        className="group relative flex items-center justify-between border-b-2 border-neutral-700 py-4 transition-colors duration-500 hover:border-neutral-50 md:py-8"
+        className="group relative flex items-center justify-between border-b-2 border-caribbeangreen-5 py-4 transition-colors duration-500 hover:border-neutral-50 md:py-8"
       >
         <div>
           <motion.span
@@ -96,7 +96,7 @@ const AnimatedLink = ({ heading, imgSrc, subheading, href, onClick }) => {
               staggerChildren: 0.075,
               delayChildren: 0.25,
             }}
-            className="relative z-10 block text-4xl font-bold text-neutral-500 transition-colors duration-500 group-hover:text-neutral-50 md:text-6xl"
+            className="relative z-10 block text-3xl font-bold font-playfair italic text-white transition-colors duration-500 group-hover:text-neutral-50 md:text-6xl"
           >
             {heading.split("").map((l, i) => (
               <motion.span
