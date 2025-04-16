@@ -1,3 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-color: #0a5a72;
+  --primary-light: #47a5c5;
+  --primary-dark: #053b48;
+  --secondary-color: #05a77b;
+  --secondary-light: #44e4bf;
+  --secondary-dark: #037957;
+  --accent-color: #d4af37;
+  --text-dark: #1f2937;
+  --text-light: #f9fafb;
+  --background-light: #f0f4f8;
+  --background-dark: #0c0c0c;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-dark);
+  background-color: var(--background-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+code {
+  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Custom shadow for gold accent elements */
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.shadow-glow-lg {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
