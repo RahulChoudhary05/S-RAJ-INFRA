@@ -75,9 +75,9 @@ export const NavBar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-y-0 right-0 w-full sm:w-85 bg-zinc-800 shadow-xl z-50 overflow-y-auto"
+            className="fixed inset-y-0 right-0 w-full sm:w-85 bg-[#001c24] shadow-xl z-50 overflow-y-auto"
           >
-            <div className="flex justify-between items-center p-4 border-b border-zinc-800">
+            <div className="flex justify-between items-center bg-white p-4 border-b border-zinc-800">
               <img src={logo} alt="Logo" className="h-8 w-auto" />
               <button
                 onClick={() => setIsOpen(false)}
