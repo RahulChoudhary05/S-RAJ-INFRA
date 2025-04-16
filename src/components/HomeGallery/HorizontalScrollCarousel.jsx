@@ -15,19 +15,23 @@ const Card = ({ card }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
+      className="group relative h-[450px] w-[450px] overflow-hidden rounded-2xl shadow-lg bg-neutral-200 hover:shadow-2xl transition-shadow duration-500"
     >
+      {/* Background Image */}
       <div
         style={{
           backgroundImage: `url(${card.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-      ></div>
+        className="absolute inset-0 z-0 transition-transform duration-500 group-hover:scale-110"
+      />
+      {/* Overlay Layer */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 transition-opacity duration-500 group-hover:opacity-100 opacity-0" />
     </div>
   );
 };
+
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef(null);
@@ -109,7 +113,7 @@ const HorizontalScrollCarousel = () => {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="rounded-xl bg-white px-6 py-3 font-semibold text-2xl font-playfair text-neutral-700 shadow-xl hover:bg-neutral-100 hover:text-black"
+            className="rounded-xl bg-white px-6 py-3 font-semibold text-2xl font-playfair text-[#294C60] shadow-xl hover:bg-neutral-100 hover:text-[#2A2F36]"
           >
             Visit Our Gallery
           </motion.a>
@@ -121,19 +125,35 @@ const HorizontalScrollCarousel = () => {
 
 const HomeGallerySection = () => {
   return (
-    <div className="bg-transparent px-4">
-      <div className="flex items-center justify-center text-center">
-        <h1 className="mt-16 text-3xl sm:text-6xl font-bold font-playfair text-[#000814] leading-tight">
-          Welcome to our <br className="sm:hidden" />
-          <span className="block sm:inline text-5xl sm:text-7xl font-playfair italic text-caribbeangreen-200 mt-0 -mb-32 sm:mt-0">
-            Project Gallery
-          </span>
+    <div className="bg-[#F5F7FA] px-4 py-20">
+      <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-4">
+        {/* Main Heading */}
+        <h1 className="text-4xl sm:text-6xl font-semibold font-[Rubik] text-[#2A2F36] leading-tight">
+          Welcome to our
         </h1>
+
+        {/* Gallery Highlight Text */}
+        <h2 className="mt-1 text-5xl sm:text-7xl font-bold font-[Playfair Display] italic text-[#294C60]">
+          Project Gallery
+        </h2>
+
+        {/* Optional Subtitle */}
+        <p className="mt-4 text-base sm:text-xl font-[Inter] text-[#5F6B7A] max-w-2xl">
+          Explore some of our landmark projects in railway bridges, stations, and core infrastructure.
+        </p>
+
+        {/* Decorative underline (optional) */}
+        <div className="w-20 h-1 bg-[#F4C430] mt-6 rounded-full -mb-8" />
       </div>
-      <HorizontalScrollCarousel />
+
+      {/* Carousel Component */}
+      <div className="mt-1">
+        <HorizontalScrollCarousel />
+      </div>
     </div>
   );
 };
+
 
 export default HomeGallerySection;
 
