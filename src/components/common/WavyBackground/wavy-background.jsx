@@ -1,7 +1,8 @@
-"use client";
-import { cn } from "../../../lib/utils";
-import React, { useEffect, useRef, useState } from "react";
-import { createNoise3D } from "simplex-noise";
+"use client"
+
+import { cn } from "../../../lib/utils"
+import { useEffect, useRef, useState } from "react"
+import { createNoise3D } from "simplex-noise"
 
 export const WavyBackground = ({
   children,
@@ -10,105 +11,120 @@ export const WavyBackground = ({
   colors,
   waveWidth,
   backgroundFill,
-  blur = 10,
+  blur = 12,
   speed = "fast",
-  waveOpacity = 0.5,
+  waveOpacity = 0.4,
   ...props
 }) => {
-  const noise = createNoise3D();
-  let w,
-    h,
-    nt,
-    i,
-    x,
-    ctx,
-    canvas;
-  const canvasRef = useRef(null);
+  const noise = createNoise3D()
+  let w, h, nt, i, x, ctx, canvas
+  const canvasRef = useRef(null)
+
   const getSpeed = () => {
     switch (speed) {
       case "slow":
-        return 0.001;
+        return 0.0005
       case "fast":
-        return 0.002;
+        return 0.001
       default:
-        return 0.001;
+        return 0.0008
     }
-  };
+  }
 
   const init = () => {
-    canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.innerWidth;
-    h = ctx.canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-    window.onresize = function () {
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
-      ctx.filter = `blur(${blur}px)`;
-    };
-    render();
-  };
+    canvas = canvasRef.current
+    if (!canvas) return
 
-  const waveColors = colors ?? [
-    "#38bdf8",
-    "#818cf8",
-    "#c084fc",
-    "#e879f9",
-    "#22d3ee",
-  ];
-  const drawWave = (n) => {
-    nt += getSpeed();
-    for (i = 0; i < n; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = waveWidth || 50;
-      ctx.strokeStyle = waveColors[i % waveColors.length];
-      for (x = 0; x < w; x += 5) {
-        var y = noise(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
-      }
-      ctx.stroke();
-      ctx.closePath();
+    ctx = canvas.getContext("2d")
+    w = ctx.canvas.width = window.innerWidth
+    h = ctx.canvas.height = window.innerHeight * 1.5 // Make canvas taller for better coverage
+    ctx.filter = `blur(${blur}px)`
+    nt = 0
+
+    const handleResize = () => {
+      w = ctx.canvas.width = window.innerWidth
+      h = ctx.canvas.height = window.innerHeight * 1.5
+      ctx.filter = `blur(${blur}px)`
     }
-  };
 
-  let animationId;
-  const render = () => {
-    ctx.fillStyle = backgroundFill || "black";
-    ctx.globalAlpha = waveOpacity || 0.5;
-    ctx.fillRect(0, 0, w, h);
-    drawWave(5);
-    animationId = requestAnimationFrame(render);
-  };
+    window.addEventListener("resize", handleResize)
+    render()
 
-  useEffect(() => {
-    init();
     return () => {
-      cancelAnimationFrame(animationId);
-    };
-  }, []);
+      window.removeEventListener("resize", handleResize)
+    }
+  }
 
-  const [isSafari, setIsSafari] = useState(false);
+  // Enhanced color palette that complements the form's design
+  const waveColors = colors ?? [
+    "#F1C40F", // primaryYellow
+    "#3498db", // blue
+    "#2980b9", // darker blue
+    "#e67e22", // orange
+    "#d35400", // darker orange
+  ]
+
+  const drawWave = (n) => {
+    nt += getSpeed()
+    for (i = 0; i < n; i++) {
+      ctx.beginPath()
+      ctx.lineWidth = waveWidth || 60 // Slightly thicker waves
+      ctx.strokeStyle = waveColors[i % waveColors.length]
+
+      // Create more natural wave patterns
+      for (x = 0; x < w; x += 5) {
+        const frequency = 0.8 - i * 0.1 // Varying frequencies for each wave
+        const amplitude = 100 + i * 10 // Varying amplitudes
+        const y = noise(x / 800, 0.3 * i, nt) * amplitude
+        ctx.lineTo(x, y + h * 0.45) // Position waves more toward the center
+      }
+
+      ctx.stroke()
+      ctx.closePath()
+    }
+  }
+
+  let animationId
+  const render = () => {
+    if (!ctx) return
+
+    ctx.fillStyle = backgroundFill || "rgba(44, 62, 80, 0.8)" // Darker blue background (Midnight Blue)
+    ctx.globalAlpha = waveOpacity || 0.4
+    ctx.fillRect(0, 0, w, h)
+    drawWave(5)
+    animationId = requestAnimationFrame(render)
+  }
+
   useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
-    setIsSafari(typeof window !== "undefined" &&
-      navigator.userAgent.includes("Safari") &&
-      !navigator.userAgent.includes("Chrome"));
-  }, []);
+    const cleanup = init()
+    return () => {
+      if (cleanup) cleanup()
+      if (animationId) cancelAnimationFrame(animationId)
+    }
+  }, [])
+
+  const [isSafari, setIsSafari] = useState(false)
+  useEffect(() => {
+    setIsSafari(
+      typeof window !== "undefined" &&
+        navigator.userAgent.includes("Safari") &&
+        !navigator.userAgent.includes("Chrome"),
+    )
+  }, [])
 
   return (
-    (<div
-      className={cn("h-screen flex flex-col items-center justify-center", containerClassName)}>
+    <div className={cn("h-full w-full overflow-hidden", containerClassName)}>
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}
         id="canvas"
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
-        }}></canvas>
+        }}
+      ></canvas>
       <div className={cn("relative z-10", className)} {...props}>
         {children}
       </div>
-    </div>)
-  );
-};
+    </div>
+  )
+}

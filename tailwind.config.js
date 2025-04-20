@@ -1,28 +1,26 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
-const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+const defaultTheme = require("tailwindcss/defaultTheme")
+const colors = require("tailwindcss/colors")
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // Specify the paths to all of the template files in your project
-  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
-  darkMode: "class",
-  
+  darkMode: ["class"],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}", "*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     // Custom font families
     fontFamily: {
-      body: ['Bodoni Moda', 'serif'],
-      playfair: ['Playfair Display', 'serif'],
+      body: ["Bodoni Moda", "serif"],
+      playfair: ["Playfair Display", "serif"],
       inter: ["Inter", "sans-serif"],
       "edu-sa": ["Edu SA Beginner", "cursive"],
       mono: ["Roboto Mono", "monospace"],
     },
-    
+
     // Custom color palette
     colors: {
-      black: '#000',
+      black: "#000",
       backgroundblack: "#0C0C0C",
-      white: '#fff',
+      white: "#fff",
       transparent: "#ffffff00",
       zinc: {
         300: "#d4d4d8",
@@ -145,11 +143,11 @@ module.exports = {
         800: "#171717",
         900: "#141414",
       },
-      primaryYellow: '#F1C40F',
-      primaryGray: '#7F8C8D',
-      lightGray: '#ECF0F1',
-      darkGray: '#2C3E50',
-      'neutral-950': '#111827',  // Dark background
+      primaryYellow: "#F1C40F",
+      primaryGray: "#7F8C8D",
+      lightGray: "#ECF0F1",
+      darkGray: "#2C3E50",
+      "neutral-950": "#111827", // Dark background
     },
 
     extend: {
@@ -161,19 +159,58 @@ module.exports = {
       boxShadow: {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
 
-  plugins: [addVariablesForColors],
-};
+  plugins: [addVariablesForColors, require("tailwindcss-animate")],
+}
 
 // Function to add custom color variables to CSS root
 function addVariablesForColors({ addBase, theme }) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]));
+  const allColors = flattenColorPalette(theme("colors"))
+  const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]))
 
   addBase({
     ":root": newVars,
-  });
+  })
 }
-
