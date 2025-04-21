@@ -106,14 +106,11 @@ function ApplyForm() {
         formData.append('upload_preset', 'my_upload_preset');
         formData.append('folder', 'SRajInfraProjectPrivateLimited');
         formData.append('resource_type', 'raw');
-
-        const response = await fetch(
-          'https://api.cloudinary.com/v1_1/dnlrwuxxs/raw/upload',
-          {
+        
+        const response = await fetch('https://api.cloudinary.com/v1_1/dnlrwuxxs/raw/upload', {
             method: 'POST',
             body: formData,
-          }
-        );
+        });
 
         if (!response.ok) {
           throw new Error('Failed to upload resume');
