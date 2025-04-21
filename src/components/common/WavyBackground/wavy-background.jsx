@@ -113,7 +113,7 @@ export const WavyBackground = ({
   }, [])
 
   return (
-    <div className={cn("h-full w-full overflow-hidden", containerClassName)}>
+    <div className={cn("w-full min-h-screen", containerClassName)}>
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}

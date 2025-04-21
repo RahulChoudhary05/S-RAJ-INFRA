@@ -10,7 +10,6 @@ import { HeroVideo } from "./HeroVideo";
 import Loader from "../Loader/Loader";
 import FAQSection from "../F&Q/FAQ";
 import { CheckCircle, AlertCircle, Upload, Briefcase, Send, FileText } from "lucide-react";
-import axios from 'axios';
 
 const BottomGradient = () => (
   <>
@@ -222,8 +221,8 @@ This application was submitted on ${new Date().toLocaleString()}
       {loading && <Loader />}
       <HeroVideo />
       <FAQSection />
-      <div className="relative min-h-screen flex items-center justify-center py-16">
-        <div className="absolute inset-0 h-full">
+      <div className="relative min-h-screen flex  items-center justify-center py-20 px-4">
+        <div className="absolute inset-0 h-full -z-10">
           <WavyBackground
             colors={["#F1C40F", "#3498db ", "#9b59b6", "#2ecc71"]}
             waveWidth={70}
