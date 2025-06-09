@@ -8,7 +8,7 @@ import { fireDB } from "../../firebase/FirebaseConfig";
 import { HeroVideo } from "./HeroVideo";
 import Loader from "../Loader/Loader";
 import FAQSection from "../F&Q/FAQ";
-import { CheckCircle, AlertCircle, Upload, Briefcase, Send, FileText } from "lucide-react";
+import { CheckCircle, AlertCircle, Upload, Briefcase, Send, FileText, User, Mail, Phone, MessageCircle } from "lucide-react";
 import { FormStepIndicator } from "./FormStepIndicator";
 import { StatusPopup } from "./StatusPopup";
 import Layout from "../layout/layout";
@@ -310,7 +310,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <LabelInputContainer>
-          <Label htmlFor="firstname">First name</Label>
+          <Label htmlFor="firstname" className="flex item-center"><User className="h-4 w-4 mr-2 text-primaryYellow" />First name</Label>
           <Input
             id="firstname"
             name="firstName"
@@ -327,7 +327,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
         </LabelInputContainer>
         
         <LabelInputContainer>
-          <Label htmlFor="lastname">Last name</Label>
+          <Label htmlFor="lastname" className="flex item-center"><User className="h-4 w-4 mr-2 text-primaryYellow" />Last name</Label>
           <Input
             id="lastname"
             name="lastName"
@@ -345,7 +345,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
       </div>
 
       <LabelInputContainer>
-        <Label htmlFor="email">Email Address</Label>
+        <Label htmlFor="email" className="flex item-center"><Mail className="h-4 w-4 mr-2 text-primaryYellow" />Email Address</Label>
         <Input
           id="email"
           name="email"
@@ -362,7 +362,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
       </LabelInputContainer>
 
       <LabelInputContainer>
-        <Label htmlFor="number">Contact No</Label>
+        <Label htmlFor="number" className="flex item-center"><Phone className="h-4 w-4 mr-2 text-primaryYellow" />Contact No</Label>
         <Input
           id="number"
           name="contactNo"
@@ -418,7 +418,8 @@ function ProfessionalDetailsStep({
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <LabelInputContainer>
-          <Label htmlFor="functionalArea" className="block text-gray-700 font-semibold">
+          <Label htmlFor="functionalArea" className="block text-gray-700 font-semibold flex item-center">
+            <Briefcase className="h-4 w-4 mr-2 text-primaryYellow" />
             Functional Area
           </Label>
           <select
@@ -444,7 +445,8 @@ function ProfessionalDetailsStep({
         </LabelInputContainer>
 
         <LabelInputContainer>
-          <Label htmlFor="careerLevel" className="block text-gray-700 font-semibold">
+          <Label htmlFor="careerLevel" className="block text-gray-700 font-semibold flex item-center">
+            <Send className="h-4 w-4 mr-2 text-primaryYellow" />
             Career Level
           </Label>
           <select
@@ -509,7 +511,9 @@ function ProfessionalDetailsStep({
       </LabelInputContainer>
 
       <LabelInputContainer>
-        <Label htmlFor="message">Why do you want to join our team?</Label>
+        <Label htmlFor="message" className="flex items-center">
+          <MessageCircle className="h-4 w-4 mr-2 text-primaryYellow" />
+          Why do you want to join our team?</Label>
         <textarea
           id="message"
           name="message"
