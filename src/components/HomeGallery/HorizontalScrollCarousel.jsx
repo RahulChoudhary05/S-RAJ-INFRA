@@ -62,7 +62,7 @@ const HorizontalScrollCarousel = () => {
   return (
     <section
       ref={targetRef}
-      className="relative min-h-[210vh] sm:min-h-[260vh] md:min-h-[280vh] lg:min-h-[180vh] bg-neutral-900"
+      className="relative min-h-[210vh] sm:min-h-[260vh] md:min-h-[280vh] lg:min-h-[180vh] bg-transparent"
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden -mt-10">
         <motion.div
@@ -125,7 +125,7 @@ const HorizontalScrollCarousel = () => {
 
 const HomeGallerySection = () => {
   return (
-    <div className="bg-[#F5F7FA] px-4 py-20">
+    <div className="bg-[#F5F7FA] px-4 py-5 mt-16">
       <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-4">
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-6xl font-semibold font-[Rubik] text-[#2A2F36] leading-tight">

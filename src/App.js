@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import FuzzyOverlayExample from './pages/Home';
 import ScrollTop from './components/scrollTop/ScrollTop';
 import { About } from './pages/About';
-import ApplyForm from './components/ApplyNow/ApplyForm';
+import {ApplyForm} from './components/ApplyNow/ApplyForm';
 import ProjectShowcase from './components/Projects/ProjectShowcase';
 import { ContactForm } from './components/ContactUs/ContactForm';
 import NoPage from './pages/noPage/NoPage';
@@ -26,3 +26,5 @@ function App() {
 }
 
 export default App;
+
+//rahul
