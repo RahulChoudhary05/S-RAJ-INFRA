@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Scrollbar Styling */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #afb2bf;
+}
+
+*::-webkit-scrollbar {
+  width: 0px;
+}
