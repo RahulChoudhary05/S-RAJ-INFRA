@@ -62,7 +62,7 @@ const HorizontalScrollCarousel = () => {
   return (
     <section
       ref={targetRef}
-      className="relative min-h-[210vh] sm:min-h-[260vh] md:min-h-[280vh] lg:min-h-[180vh] bg-neutral-900"
+      className="relative min-h-[210vh] sm:min-h-[260vh] md:min-h-[280vh] lg:min-h-[180vh] bg-transparent"
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden -mt-10">
         <motion.div
