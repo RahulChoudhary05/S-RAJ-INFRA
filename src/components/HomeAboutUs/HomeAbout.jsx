@@ -1,141 +1,165 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-import AboutWelcome from "../../assets/About/AboutWelcome.jpg";
-import AboutVision from "../../assets/About/AboutVision.jpg";
-import AboutMission from "../../assets/About/AboutMission.jpg";
+"use client";
 
-const sections = [
-  {
-    id: "welcome",
-    title: "Welcome to S Raj Infra Projects",
-    content:
-      "We are dedicated to providing world-class engineering solutions, innovating and constructing bridges and other engineering marvels using cutting-edge technology and cost-efficient practices.",
-    image: AboutWelcome,
-  },
-  {
-    id: "vision",
-    title: "Our Vision",
-    content:
-      "To innovate and construct world-class bridges and engineering marvels using cutting-edge technology and cost-efficient practices, aiming to become a leader in construction engineering.",
-    image: AboutVision,
-  },
-  {
-    id: "mission",
-    title: "Our Mission",
-    content:
-      "To be a premier engineering organization, delivering signature bridges and engineering marvels both domestically and internationally, fostering innovation, creating value, and setting global benchmarks.",
-    image: AboutMission,
-  },
-];
+import { useState } from "react";
+import about1 from "../../assets/OverMission.jpg";
+import about2 from "../../assets/OverVision.webp";
+import about3 from "../../assets/about.jpg";
 
 export default function HomeAbout() {
-  const [activeSection, setActiveSection] = useState("welcome");
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[#ECF0F1] to-[#7F8C8D]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="lg:text-7xl text-3xl font-extrabold font-playfair text-[#2C3E50] mb-5">
-            Building Tomorrow's Infrastructure
+    <section className="relative bg-white py-24 lg:pt-20 lg:pb-5 overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-[Playfair Display] italic text-slate-900 mb-6">
+            Building{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500">
+              Tomorrow's Infrastructure
+            </span>
           </h2>
-          <p className="text-2xl text-[#7F8C8D] font-playfair italic max-w-3xl mx-auto mb-2">
+          <p className="text-2xl text-slate-600 max-w-3xl font-playfair mx-auto leading-relaxed font-light">
             Discover how S Raj Infra Projects is shaping the future of
             engineering and construction
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            {sections.map((section) => (
-              <motion.div
-                key={section.id}
-                layout
-                className="bg-white rounded-xl shadow-md overflow-hidden"
-              >
-                <button
-                  onClick={() =>
-                    setActiveSection(
-                      activeSection === section.id ? "" : section.id
-                    )
-                  }
-                  className="w-full flex justify-between items-center p-6"
-                  aria-expanded={activeSection === section.id}
-                  aria-controls={`content-${section.id}`}
-                >
-                  <span className="text-2xl font-semibold font-body text-[#1B263B]">
-                    {section.title}
-                  </span>
-                  <ChevronRight
-                    className={`w-6 h-6 text-[#F1C40F] transform transition-transform ${
-                      activeSection === section.id ? "rotate-90" : ""
-                    }`}
-                  />
-                </button>
-                <AnimatePresence initial={false}>
-                  {activeSection === section.id && (
-                    <motion.div
-                      id={`content-${section.id}`}
-                      initial="collapsed"
-                      animate="open"
-                      exit="collapsed"
-                      variants={{
-                        open: { opacity: 1, height: "auto" },
-                        collapsed: { opacity: 0, height: 0 },
-                      }}
-                      transition={{
-                        duration: 0.8,
-                        ease: [0.04, 0.62, 0.23, 0.98],
-                      }}
-                    >
-                      <div className="px-6 pb-6">
-                        <p className="text-[#111111] text-justify font-playfair italic text-lg">
-                          {section.content}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+        {/* Main Content with Image - Split Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            {/* Welcome Card */}
+            <div className="group bg-gradient-to-br from-slate-50 to-white border-2 border-slate-200 rounded-2xl p-8 hover:border-amber-400 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+              <h3 className="text-3xl font-bold text-slate-900 mb-4 font-[Playfair Display] ">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500">
+                  Welcome
+                </span>{" "}
+                to S Raj Infra Projects
+              </h3>
+              <p className="text-slate-700 leading-relaxed text-base font-[Playfair Display] italic text-justify">
+                We are dedicated to providing{" "}
+                <span className="font-semibold text-slate-900">
+                  world-class engineering solutions
+                </span>
+                , innovating and constructing bridges and other engineering
+                marvels using{" "}
+                <span className="font-semibold text-amber-600">
+                  cutting-edge technology
+                </span>{" "}
+                and{" "}
+                <span className="font-semibold text-amber-600">
+                  cost-efficient practices
+                </span>
+                .
+              </p>
+            </div>
           </div>
 
-          <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
-            {/* Blurred background image layer */}
-            <div
-              className="absolute inset-0 z-0 blur-xl scale-110"
-              style={{
-                backgroundImage: `url(${
-                  sections.find((s) => s.id === activeSection)?.image ||
-                  sections[0].image
-                })`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                filter: "blur(20px)",
-                opacity: 0.6,
-              }}
+          {/* Right Image with Animation */}
+          <div className="relative h-96 lg:h-full min-h-96">
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-200 to-orange-300 rounded-3xl opacity-20 blur-2xl animate-pulse" />
+            <img
+              src={about3}
+              alt="Infrastructure Construction"
+              className="w-full h-full object-cover rounded-3xl shadow-2xl relative z-10 transform hover:scale-105 transition-transform duration-700"
             />
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-400 rounded-2xl blur-xl opacity-30 z-0" />
+          </div>
+        </div>
 
-            {/* Actual image layer */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSection}
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 z-10"
-              >
+        {/* Vision & Mission Section - Side by Side with Images */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+          {/* Vision Card with Image */}
+          <div
+            className="group relative"
+            onMouseEnter={() => setHoveredCard("vision")}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-orange-500 rounded-3xl opacity-0 group-hover:opacity-100 blur transition-all duration-500 -z-10" />
+
+            <div className="relative bg-white rounded-3xl overflow-hidden border-2 border-slate-200 group-hover:border-transparent transition-all duration-500">
+              {/* Image */}
+              <div className="relative h-72 overflow-hidden bg-slate-100">
                 <img
-                  className="w-full h-full object-cover rounded-xl shadow-xl"
-                  src={
-                    sections.find((s) => s.id === activeSection)?.image ||
-                    sections[0].image
-                  }
-                  alt={`S Raj Infra Projects - ${activeSection}`}
+                  src={about2}
+                  alt="Our Vision"
+                  className="w-full h-full object-fill transform group-hover:scale-110 transition-transform duration-700"
                 />
-              </motion.div>
-            </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              </div>
+
+              {/* Content */}
+              <div className="p-8">
+                <h3 className="text-3xl font-bold font-[Playfair Display] mb-4">
+                  Our{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500">
+                    Vision
+                  </span>
+                </h3>
+                <p className="text-slate-700 leading-relaxed font-[Playfair Display] italic text-justify">
+                  To innovate and construct{" "}
+                  <span className="font-semibold text-slate-900">
+                    world-class bridges
+                  </span>{" "}
+                  and engineering marvels using cutting-edge technology and
+                  cost-efficient practices, aiming to become a{" "}
+                  <span className="font-bold text-amber-600">
+                    globally recognized leader in construction engineering
+                  </span>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Mission Card with Image */}
+          <div
+            className="group relative"
+            onMouseEnter={() => setHoveredCard("mission")}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-orange-500 rounded-3xl opacity-0 group-hover:opacity-100 blur transition-all duration-500 -z-10" />
+
+            <div className="relative bg-white rounded-3xl overflow-hidden border-2 border-slate-200 group-hover:border-transparent transition-all duration-500">
+              {/* Image */}
+              <div className="relative h-72 overflow-hidden bg-slate-100">
+                <img
+                  src={about1}
+                  alt="Our Mission"
+                  className="w-full h-full object-fill transform group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              </div>
+
+              {/* Content */}
+              <div className="p-8">
+                <h3 className="text-3xl font-bold font-[Playfair Display] mb-4">
+                  Our{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500">
+                    Mission
+                  </span>
+                </h3>
+                <p className="text-slate-700 leading-relaxed font-[Playfair Display] italic text-justify">
+                  To be a{" "}
+                  <span className="font-semibold text-slate-900">
+                    premier engineering organization
+                  </span>
+                  , delivering signature bridges and engineering marvels both
+                  domestically and internationally,{" "}
+                  <span className="font-bold text-amber-600">
+                    fostering innovation
+                  </span>
+                  , creating value, and{" "}
+                  <span className="font-bold text-amber-600">
+                    setting global benchmarks
+                  </span>
+                  .
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
