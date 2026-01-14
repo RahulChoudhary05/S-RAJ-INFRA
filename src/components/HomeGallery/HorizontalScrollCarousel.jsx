@@ -124,34 +124,41 @@ const HorizontalScrollCarousel = () => {
 };
 
 const HomeGallerySection = () => {
-  return (
-    <div className="bg-[#F5F7FA] px-4 py-5 mt-16">
-      <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-4">
-        {/* Main Heading */}
-        <h1 className="text-4xl sm:text-6xl font-semibold font-[Rubik] text-[#2A2F36] leading-tight">
-          Welcome to our
-        </h1>
+ return (
+  <div className="bg-[#F5F7FA] px-4 py-5 mt-16">
+    <div className="flex flex-col items-center text-center max-w-5xl mx-auto px-4">
+      {/* Main Heading */}
+      <h1 className="text-4xl sm:text-6xl font-semibold font-[Rubik] text-[#2A2F36] leading-tight">
+        Welcome to our
+      </h1>
 
-        {/* Gallery Highlight Text */}
-        <h2 className="mt-1 text-5xl sm:text-7xl font-bold font-[Playfair Display] italic text-[#294C60]">
+      {/* Gallery Highlight Text */}
+      <h2 className="mt-1 text-5xl sm:text-7xl font-bold font-[Playfair Display] italic">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-500">
           Project Gallery
-        </h2>
+        </span>
+      </h2>
 
-        {/* Optional Subtitle */}
-        <p className="mt-4 text-base sm:text-xl font-[Inter] text-[#5F6B7A] max-w-2xl">
-          Explore some of our landmark projects in railway bridges, stations, and core infrastructure.
-        </p>
+      {/* Optional Subtitle with soft highlight */}
+      <p className="mt-4 text-base sm:text-xl font-[Inter] text-[#5F6B7A] max-w-2xl">
+        Explore some of our{" "}
+        <span className="font-semibold text-[#294C60]">
+          landmark projects
+        </span>{" "}
+        in railway bridges, stations, and core infrastructure.
+      </p>
 
-        {/* Decorative underline (optional) */}
-        <div className="w-20 h-1 bg-[#F4C430] mt-6 rounded-full -mb-8" />
-      </div>
-
-      {/* Carousel Component */}
-      <div className="mt-1">
-        <HorizontalScrollCarousel />
-      </div>
+      {/* Decorative underline */}
+      <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mt-6 rounded-full -mb-8" />
     </div>
-  );
+
+    {/* Carousel Component */}
+    <div className="mt-1">
+      <HorizontalScrollCarousel />
+    </div>
+  </div>
+);
+
 };
 
 
