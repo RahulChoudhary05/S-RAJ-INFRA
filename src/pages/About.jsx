@@ -8,7 +8,7 @@ import Loader from "../components/Loader/Loader";
 import Bibliography from "../components/Bibliography/Bibliography";
 
 export const About = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
 
   return (
     <Layout>

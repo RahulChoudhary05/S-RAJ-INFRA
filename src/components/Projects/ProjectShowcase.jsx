@@ -93,10 +93,10 @@ function Button({ variant = "default", className, children, ...props }) {
 
 // Main Component
 export default function ProjectShowcase() {
-  const [activeTab, setActiveTab] = useState("completed");
+  const [, setActiveTab] = useState("completed");
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedSubProject, setSelectedSubProject] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
