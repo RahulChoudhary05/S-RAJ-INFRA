@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiLock, FiMenu, FiX } from "react-icons/fi"; // Importing icons
 import { Link } from 'react-router-dom'
