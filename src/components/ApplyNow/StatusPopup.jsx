@@ -6,7 +6,7 @@ export function StatusPopup({ show, status, onClose }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 backdrop-blur-sm">
       <div 
-        className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-2xl transform transition-all ease-in-out duration-300 scale-100 opacity-100 max-w-md w-full mx-4 border-t-4 border-primaryYellow"
+        className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-2xl transform transition-all ease-in-out duration-300 scale-100 opacity-100 max-w-md w-full mx-4 border-t-4 border-[#866A04]"
       >
         <div className="text-center">
           <div
@@ -31,12 +31,12 @@ export function StatusPopup({ show, status, onClose }) {
           <div className="mt-6">
             <button
               type="button"
-              className={`inline-flex justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium ${
+              className={`inline-flex justify-center rounded-md border border-[#866A04] px-6 py-3 text-base font-medium ${
                 status.isError
                   ? "bg-red-600 text-white hover:bg-red-700"
-                  : "bg-primaryYellow text-white hover:bg-yellow-500"
+                  : "bg-gray-900 text-white hover:bg-gray-500"
               } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
-                status.isError ? "focus-visible:ring-red-500" : "focus-visible:ring-yellow-500"
+                status.isError ? "focus-visible:ring-red-500" : "focus-visible:ring-gray-500"
               } transition-colors duration-300 w-full`}
               onClick={onClose}
             >

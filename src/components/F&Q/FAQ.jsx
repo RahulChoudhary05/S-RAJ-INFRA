@@ -40,7 +40,7 @@ const FAQSection = () => {
   return (
     <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8 rounded-lg shadow-sm">
       <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primaryYellow bg-opacity-20 text-primaryYellow mb-4">
+        <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-zinc-800 bg-opacity-10 border border-[#866A04] text-zinc-800 mb-4">
           <span className="mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +78,8 @@ const FAQSection = () => {
               className="w-full text-left flex items-start justify-between focus:outline-none group"
             >
               <div className="flex items-start gap-4">
-                <span className="text-2xl font-playfair text-primaryYellow">{faq.id}</span>
-                <h3 className="text-xl font-medium text-neutral-950 group-hover:text-primaryYellow transition-colors">
+                <span className="text-2xl font-playfair text-zinc-800">{faq.id}</span>
+                <h3 className="text-xl font-medium text-neutral-950 group-hover:text-zinc-800 transition-colors">
                   {faq.question}
                 </h3>
               </div>
@@ -87,11 +87,11 @@ const FAQSection = () => {
                 className={`ml-6 flex-shrink-0 mt-1 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`}
               >
                 {openIndex === index ? (
-                  <div className="h-6 w-6 rounded-full bg-primaryYellow text-white flex items-center justify-center">
+                  <div className="h-6 w-6 rounded-full bg-zinc-800 text-white flex items-center justify-center">
                     <Minus size={14} />
                   </div>
                 ) : (
-                  <div className="h-6 w-6 rounded-full bg-neutral-200 text-neutral-700 flex items-center justify-center group-hover:bg-primaryYellow group-hover:text-white transition-colors">
+                  <div className="h-6 w-6 rounded-full bg-neutral-200 text-neutral-700 flex items-center justify-center group-hover:bg-zinc-800 group-hover:text-white transition-colors">
                     <Plus size={14} />
                   </div>
                 )}

@@ -17,7 +17,7 @@ import { functionalAreas } from "./functionalAreas";
 const BottomGradient = () => (
   <>
     <span className="group-hover/btn:opacity-100 block transition-opacity duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-    <span className="group-hover/btn:opacity-100 blur-sm block transition-opacity duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+    <span className="group-hover/btn:opacity-100 blur-sm block transition-opacity duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
   </>
 );
 
@@ -241,7 +241,7 @@ This application was submitted on ${new Date().toLocaleString()}
       <div className="relative min-h-screen flex items-center justify-center py-20 px-4">
         <div className="absolute inset-0 h-full -z-10">
           <WavyBackground
-            colors={["#F1C40F", "#3498db", "#9b59b6", "#2ecc71"]}
+            colors={["#27272a", "#3f3f46", "#52525b", "#71717a"]}
             waveWidth={70}
             blur={15}
             speed="slow"
@@ -257,12 +257,12 @@ This application was submitted on ${new Date().toLocaleString()}
             <h2 className="text-3xl font-extrabold text-neutral-800 text-center">
               {formStep === 1 ? (
                 <span className="flex items-center justify-center">
-                  <Briefcase className="mr-2 h-8 w-8 text-primaryYellow" />
+                  <Briefcase className="mr-2 h-8 w-8 text-zinc-800" />
                   Apply Now
                 </span>
               ) : (
                 <span className="flex items-center justify-center">
-                  <Send className="mr-2 h-8 w-8 text-primaryYellow" />
+                  <Send className="mr-2 h-8 w-8 text-zinc-800" />
                   Professional Details
                 </span>
               )}
@@ -310,7 +310,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <LabelInputContainer>
-          <Label htmlFor="firstname" className="flex item-center"><User className="h-4 w-4 mr-2 text-primaryYellow" />First name</Label>
+          <Label htmlFor="firstname" className="flex item-center"><User className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />First name</Label>
           <Input
             id="firstname"
             name="firstName"
@@ -318,7 +318,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
             type="text"
             value={formData.firstName}
             onChange={handleInputChange}
-            className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+            className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-gray-900 focus:outline-none ${
               formErrors.firstName ? "border-red-500" : ""
             }`}
             required
@@ -327,7 +327,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
         </LabelInputContainer>
         
         <LabelInputContainer>
-          <Label htmlFor="lastname" className="flex item-center"><User className="h-4 w-4 mr-2 text-primaryYellow" />Last name</Label>
+          <Label htmlFor="lastname" className="flex item-center"><User className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />Last name</Label>
           <Input
             id="lastname"
             name="lastName"
@@ -335,7 +335,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
             type="text"
             value={formData.lastName}
             onChange={handleInputChange}
-            className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+            className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-gray-900 focus:outline-none ${
               formErrors.lastName ? "border-red-500" : ""
             }`}
             required
@@ -345,7 +345,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
       </div>
 
       <LabelInputContainer>
-        <Label htmlFor="email" className="flex item-center"><Mail className="h-4 w-4 mr-2 text-primaryYellow" />Email Address</Label>
+        <Label htmlFor="email" className="flex item-center"><Mail className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />Email Address</Label>
         <Input
           id="email"
           name="email"
@@ -353,7 +353,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
           type="email"
           value={formData.email}
           onChange={handleInputChange}
-          className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+          className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-gray-900 focus:outline-none ${
             formErrors.email ? "border-red-500" : ""
           }`}
           required
@@ -362,7 +362,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
       </LabelInputContainer>
 
       <LabelInputContainer>
-        <Label htmlFor="number" className="flex item-center"><Phone className="h-4 w-4 mr-2 text-primaryYellow" />Contact No</Label>
+        <Label htmlFor="number" className="flex item-center"><Phone className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />Contact No</Label>
         <Input
           id="number"
           name="contactNo"
@@ -370,7 +370,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
           type="tel"
           value={formData.contactNo}
           onChange={handleInputChange}
-          className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+          className={`transition duration-300 ease-in-out focus:ring-2 focus:ring-gray-900 focus:outline-none ${
             formErrors.contactNo ? "border-red-500" : ""
           }`}
           required
@@ -380,7 +380,7 @@ function PersonalInfoStep({ formData, formErrors, handleInputChange }) {
 
       <div className="pt-4">
         <button
-          className="w-full bg-gradient-to-br from-primaryYellow to-yellow-500 text-white rounded-md py-3 px-6 font-medium shadow-md hover:opacity-90 transition duration-300 relative group/btn flex items-center justify-center"
+          className="w-full bg-gradient-to-br from-zinc-800 to-zinc-700 text-white rounded-lg py-4 px-6 font-semibold shadow-lg hover:shadow-xl hover:from-zinc-700 hover:to-zinc-800 transition-all duration-300 relative group/btn flex items-center justify-center text-lg disabled:opacity-50 disabled:cursor-not-allowed border border-zinc-800"
           type="submit"
         >
           Continue to Professional Details
@@ -419,7 +419,7 @@ function ProfessionalDetailsStep({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <LabelInputContainer>
           <Label htmlFor="functionalArea" className="block text-gray-700 font-semibold flex item-center">
-            <Briefcase className="h-4 w-4 mr-2 text-primaryYellow" />
+            <Briefcase className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />
             Functional Area
           </Label>
           <select
@@ -427,7 +427,7 @@ function ProfessionalDetailsStep({
             name="functionalArea"
             value={formData.functionalArea}
             onChange={handleInputChange}
-            className={`w-full p-3 rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-primaryYellow transition duration-300 ease-in-out ${
+            className={`w-full p-3 rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 transition duration-300 ease-in-out ${
               formErrors.functionalArea ? "border-red-500" : ""
             }`}
             required
@@ -446,7 +446,7 @@ function ProfessionalDetailsStep({
 
         <LabelInputContainer>
           <Label htmlFor="careerLevel" className="block text-gray-700 font-semibold flex item-center">
-            <Send className="h-4 w-4 mr-2 text-primaryYellow" />
+            <Send className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />
             Career Level
           </Label>
           <select
@@ -454,7 +454,7 @@ function ProfessionalDetailsStep({
             name="careerLevel"
             value={formData.careerLevel}
             onChange={handleInputChange}
-            className={`w-full p-3 rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-primaryYellow transition duration-300 ease-in-out ${
+            className={`w-full p-3 rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 transition duration-300 ease-in-out ${
               formErrors.careerLevel ? "border-red-500" : ""
             }`}
             required
@@ -472,7 +472,7 @@ function ProfessionalDetailsStep({
 
       <LabelInputContainer>
         <Label htmlFor="resume" className="flex items-center">
-          <FileText className="h-4 w-4 mr-2 text-primaryYellow" />
+          <FileText className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />
           Upload Resume (PDF, DOC, DOCX)
         </Label>
         <div className="relative">
@@ -486,7 +486,7 @@ function ProfessionalDetailsStep({
           />
           <label
             htmlFor="resume"
-            className="flex items-center justify-center w-full p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primaryYellow transition-colors bg-gray-50 dark:bg-zinc-800"
+            className="flex items-center justify-center w-full p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-gray-900 transition-colors bg-gray-50 dark:bg-zinc-800"
           >
             <div className="flex flex-col items-center">
               <Upload className="h-8 w-8 text-gray-400 mb-2" />
@@ -512,7 +512,7 @@ function ProfessionalDetailsStep({
 
       <LabelInputContainer>
         <Label htmlFor="message" className="flex items-center">
-          <MessageCircle className="h-4 w-4 mr-2 text-primaryYellow" />
+          <MessageCircle className="h-4 w-4 mr-2 text-gray-900 dark:text-white" />
           Why do you want to join our team?</Label>
         <textarea
           id="message"
@@ -520,7 +520,7 @@ function ProfessionalDetailsStep({
           placeholder="Tell us why you're interested in joining S Raj Infra Projects and what you can bring to our team..."
           value={formData.message}
           onChange={handleInputChange}
-          className={`w-full h-24 p-3 border rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-primaryYellow transition duration-300 ease-in-out ${
+          className={`w-full h-24 p-3 border rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-gray-900 transition duration-300 ease-in-out ${
             formErrors.message ? "border-red-500" : ""
           }`}
           required
@@ -551,7 +551,7 @@ function ProfessionalDetailsStep({
           Back
         </button>
         <button
-          className="sm:w-2/3 bg-gradient-to-br from-primaryYellow to-yellow-500 text-white rounded-md py-3 px-6 font-medium shadow-md hover:opacity-90 transition duration-300 relative group/btn flex items-center justify-center"
+          className="sm:w-2/3 bg-gradient-to-br from-zinc-800 to-zinc-700 text-white rounded-lg py-4 px-6 font-semibold shadow-lg hover:shadow-xl hover:from-zinc-700 hover:to-zinc-800 transition-all duration-300 relative group/btn flex items-center justify-center text-lg disabled:opacity-50 disabled:cursor-not-allowed border border-zinc-800"
           type="submit"
           disabled={loading}
         >

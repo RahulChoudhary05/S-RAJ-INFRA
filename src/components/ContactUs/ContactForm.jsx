@@ -16,7 +16,7 @@ import { Mail, Phone, MessageSquare, User, Send, CheckCircle, AlertCircle } from
 const BottomGradient = () => (
   <>
     <span className="group-hover/btn:opacity-100 block transition-opacity duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-    <span className="group-hover/btn:opacity-100 blur-sm block transition-opacity duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-primaryYellow to-transparent" />
+    <span className="group-hover/btn:opacity-100 blur-sm block transition-opacity duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
   </>
 )
 
@@ -197,7 +197,7 @@ export function ContactForm() {
       <div className="relative min-h-screen flex items-center justify-center py-20 px-4">
         <div className="absolute inset-0 -z-10">
           <WavyBackground
-            colors={["#F1C40F", "#3498db", "#9b59b6", "#2ecc71"]}
+            colors={["#27272a", "#3f3f46", "#52525b", "#71717a"]}
             waveWidth={70}
             blur={15}
             speed="slow"
@@ -209,8 +209,8 @@ export function ContactForm() {
         <div className="relative z-10 max-w-2xl w-full mx-auto rounded-none md:rounded-2xl p-6 md:p-10 shadow-2xl bg-white bg-opacity-95 backdrop-blur-lg dark:bg-black dark:bg-opacity-90 border border-gray-200 dark:border-gray-700">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
-              <div className="bg-primaryYellow bg-opacity-20 p-3 rounded-full">
-                <MessageSquare className="h-8 w-8 text-primaryYellow" />
+              <div className="bg-zinc-800 bg-opacity-10 border border-zinc-800 p-3 rounded-full">
+                <MessageSquare className="h-8 w-8 text-zinc-800" />
               </div>
             </div>
             <h2 className="text-3xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">Get In Touch</h2>
@@ -224,7 +224,7 @@ export function ContactForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <LabelInputContainer>
                 <Label htmlFor="firstname" className="flex items-center">
-                  <User className="h-4 w-4 mr-2 text-primaryYellow" />
+                  <User className="h-4 w-4 mr-2 text-zinc-800" />
                   First Name
                 </Label>
                 <Input
@@ -234,7 +234,7 @@ export function ContactForm() {
                   type="text"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+                  className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-zinc-800 focus:outline-none ${
                     formErrors.firstName ? "border-red-500 bg-red-50" : ""
                   }`}
                   required
@@ -249,7 +249,7 @@ export function ContactForm() {
 
               <LabelInputContainer>
                 <Label htmlFor="lastname" className="flex items-center">
-                  <User className="h-4 w-4 mr-2 text-primaryYellow" />
+                  <User className="h-4 w-4 mr-2 text-zinc-800" />
                   Last Name
                 </Label>
                 <Input
@@ -259,7 +259,7 @@ export function ContactForm() {
                   type="text"
                   value={formData.lastName}
                   onChange={handleInputChange}
-                  className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+                  className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-zinc-800 focus:outline-none ${
                     formErrors.lastName ? "border-red-500 bg-red-50" : ""
                   }`}
                   required
@@ -275,7 +275,7 @@ export function ContactForm() {
 
             <LabelInputContainer>
               <Label htmlFor="email" className="flex items-center">
-                <Mail className="h-4 w-4 mr-2 text-primaryYellow" />
+                <Mail className="h-4 w-4 mr-2 text-zinc-800" />
                 Email Address
               </Label>
               <Input
@@ -285,7 +285,7 @@ export function ContactForm() {
                 type="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+                className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-zinc-800 focus:outline-none ${
                   formErrors.email ? "border-red-500 bg-red-50" : ""
                 }`}
                 required
@@ -300,7 +300,7 @@ export function ContactForm() {
 
             <LabelInputContainer>
               <Label htmlFor="number" className="flex items-center">
-                <Phone className="h-4 w-4 mr-2 text-primaryYellow" />
+                <Phone className="h-4 w-4 mr-2 text-zinc-800" />
                 Contact Number
               </Label>
               <Input
@@ -310,7 +310,7 @@ export function ContactForm() {
                 type="tel"
                 value={formData.contactNo}
                 onChange={handleInputChange}
-                className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-primaryYellow focus:outline-none ${
+                className={`transition-all duration-300 ease-in-out focus:ring-2 focus:ring-zinc-800 focus:outline-none ${
                   formErrors.contactNo ? "border-red-500 bg-red-50" : ""
                 }`}
                 required
@@ -325,7 +325,7 @@ export function ContactForm() {
 
             <LabelInputContainer>
               <Label htmlFor="message" className="flex items-center">
-                <MessageSquare className="h-4 w-4 mr-2 text-primaryYellow" />
+                <MessageSquare className="h-4 w-4 mr-2 text-zinc-800" />
                 Your Message
               </Label>
               <textarea
@@ -335,7 +335,7 @@ export function ContactForm() {
                 value={formData.message}
                 onChange={handleInputChange}
                 rows={5}
-                className={`w-full border rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input px-4 py-3 text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-primaryYellow transition-all duration-300 ease-in-out resize-none ${
+                className={`w-full border rounded-lg bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input px-4 py-3 text-sm placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-zinc-800 transition-all duration-300 ease-in-out resize-none ${
                   formErrors.message ? "border-red-500 bg-red-50" : "border-gray-200"
                 }`}
                 required
@@ -350,7 +350,7 @@ export function ContactForm() {
 
             <div className="pt-4">
               <button
-                className="w-full bg-gradient-to-br from-primaryYellow to-yellow-500 text-white rounded-lg py-4 px-6 font-semibold shadow-lg hover:shadow-xl hover:from-yellow-500 hover:to-primaryYellow transition-all duration-300 relative group/btn flex items-center justify-center text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-br from-zinc-800 to-zinc-700 text-white rounded-lg py-4 px-6 font-semibold shadow-lg hover:shadow-xl hover:from-zinc-700 hover:to-zinc-800 transition-all duration-300 relative group/btn flex items-center justify-center text-lg disabled:opacity-50 disabled:cursor-not-allowed border border-zinc-800"
                 type="submit"
                 disabled={loading}
               >
@@ -385,11 +385,11 @@ export function ContactForm() {
           <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
             <p className="text-center text-sm text-gray-600 dark:text-gray-400">
               Need immediate assistance? Call us at{" "}
-              <a href="tel:+918777806040" className="text-primaryYellow hover:underline font-medium">
+              <a href="tel:+918777806040" className="text-zinc-800 hover:underline font-medium">
                 +91-8777806040
               </a>{" "}
               or email{" "}
-              <a href="mailto:headoffice@srajinfra.com" className="text-primaryYellow hover:underline font-medium">
+              <a href="mailto:headoffice@srajinfra.com" className="text-zinc-800 hover:underline font-medium">
                 headoffice@srajinfra.com
               </a>
             </p>
