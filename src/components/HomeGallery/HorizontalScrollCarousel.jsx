@@ -8,7 +8,6 @@ import img5 from "../../Assests/Machine_5.jpg";
 import img6 from "../../Assests/Base_3.jpg";
 import img7 from "../../Assests/Pillar_4.jpg";
 import img8 from "../../Assests/Pillar_2.jpg";
-import { Link } from 'react-router-dom';
 
 
 const Card = ({ card }) => {

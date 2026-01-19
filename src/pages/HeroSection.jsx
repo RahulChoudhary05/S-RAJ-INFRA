@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import PropTypes from 'prop-types';
 
 export const Hero = ({
@@ -14,13 +14,13 @@ export const Hero = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1 === images.length ? 0 : prevIndex + 1));
-  };
+  }, [images.length]);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1));
-  };
+  }, [images.length]);
 
   useEffect(() => {
     const loadImages = () => {
@@ -56,7 +56,7 @@ export const Hero = ({
       window.removeEventListener("keydown", handleKeyDown);
       if (interval) clearInterval(interval);
     };
-  }, [autoplay]);
+  }, [autoplay, handleNext, handlePrevious]);
 
   const slideVariants = {
     initial: { scale: 0, opacity: 0, rotateX: 45 },

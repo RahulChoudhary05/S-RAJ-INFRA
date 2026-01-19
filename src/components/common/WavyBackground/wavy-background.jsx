@@ -73,7 +73,6 @@ export const WavyBackground = ({
 
       // Create more natural wave patterns
       for (x = 0; x < w; x += 5) {
-        const frequency = 0.8 - i * 0.1 // Varying frequencies for each wave
         const amplitude = 100 + i * 10 // Varying amplitudes
         const y = noise(x / 800, 0.3 * i, nt) * amplitude
         ctx.lineTo(x, y + h * 0.45) // Position waves more toward the center
@@ -101,6 +100,7 @@ export const WavyBackground = ({
       if (cleanup) cleanup()
       if (animationId) cancelAnimationFrame(animationId)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [isSafari, setIsSafari] = useState(false)

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiLock, FiMenu, FiX } from "react-icons/fi"; // Importing icons
 import { Link } from 'react-router-dom'
@@ -7,23 +7,8 @@ import { HoverImageLinks } from "./MobileNavBar";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false); // Sidebar visibility
-  const [isScrolled, setIsScrolled] = useState(false); // Navbar background change on scroll
 
-  useEffect(() => {
-    // Listen for scroll events
-    const handleScroll = () => {
-      if (window.scrollY > 150) { // Adjust scroll value for when the navbar should change
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll); // Cleanup event listener on unmount
-    };
-  }, []);
+  // Removed unused isScrolled state and scroll handler
 
   return (
     <div
@@ -96,17 +81,7 @@ export const NavBar = () => {
   );
 };
 
-// NavItem Component
-const NavItem = ({ children, onClick }) => {
-  return (
-    <li
-      onClick={onClick} // Close the sidebar on item click
-      className="cursor-pointer py-2 px-4 text-black hover:bg-zinc-800 w-full text-left"
-    >
-      {children}
-    </li>
-  );
-};
+// NavItem Component - Removed unused component
 
 const SlideTabs = () => {
   const [position, setPosition] = useState({

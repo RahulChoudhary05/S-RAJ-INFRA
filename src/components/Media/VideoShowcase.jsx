@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react"
 import video from "../../../src/assets/Video/S_RAJ_INFRA_VIDEO.mp4"
@@ -58,7 +58,7 @@ const VideoShowcase = () => {
   }
 
   // Update progress bar
-  const updateProgress = () => {
+  const updateProgress = useCallback(() => {
     if (videoRef.current) {
       const currentTime = videoRef.current.currentTime
       const duration = videoRef.current.duration
@@ -69,7 +69,7 @@ const VideoShowcase = () => {
         setDuration(formatTime(duration))
       }
     }
-  }
+  }, [])
 
   // Handle seeking
   const handleSeek = (e) => {
@@ -114,7 +114,7 @@ const VideoShowcase = () => {
         videoElement.removeEventListener("timeupdate", updateProgress)
       }
     }
-  }, [])
+  }, [updateProgress])
 
   return (
     <section className="py-16 px-4 relative overflow-hidden">

@@ -6,7 +6,7 @@ import about2 from "../../assets/OverVision.webp";
 import about3 from "../../assets/about.jpg";
 
 export default function HomeAbout() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [, setHoveredCard] = useState(null);
 
   return (
     <section className="relative bg-white py-24 lg:pt-20 lg:pb-5 overflow-hidden">
