@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Pause, Volume2, VolumeX, Maximize, Star } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
 import video from "../../../src/assets/Video/S_RAJ_INFRA_VIDEO.mp4";
 
 const VideoShowcase = () => {
