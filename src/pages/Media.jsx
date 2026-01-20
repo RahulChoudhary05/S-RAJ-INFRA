@@ -14,7 +14,7 @@ const Media = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-richblue-900 via-richblue-800 to-richblue-900">
+      <div className="min-h-screen bg-white">
         {/* Hero Header */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -28,7 +28,7 @@ const Media = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: "url('/placeholder.svg?height=1080&width=1920')" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-richblue-900/90 via-richblue-800/70 to-richblue-900/90" />
+            <div className="absolute inset-0 bg-gradient-to-b from-zinc-100/90 via-zinc-200/70 to-zinc-100/90" />
           </div>
 
           {/* Content */}
@@ -37,7 +37,7 @@ const Media = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold font-playfair text-white mb-6"
+              className="text-5xl md:text-7xl font-bold font-playfair text-black mb-6"
             >
               Media <span className="text-yellow-1 inline-block">Gallery</span>
             </motion.h1>
