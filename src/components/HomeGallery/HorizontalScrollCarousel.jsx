@@ -76,7 +76,7 @@ const HorizontalScrollCarousel = () => {
       </div>
 
       <>
-        <div className="absolute bottom-20 right-[25%] sm:hidden">
+        <div className="absolute bottom-28 right-[33%] sm:hidden">
           <motion.a
             href="/media"
             whileHover={{ scale: 1.05 }}
@@ -84,7 +84,7 @@ const HorizontalScrollCarousel = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="rounded-xl bg-white px-4 py-2 font-semibold text-lg font-playfair text-neutral-700 shadow-md hover:bg-neutral-100 hover:text-black"
+            className="rounded-xl bg-white px-4 py-2 font-semibold text-lg font-playfair text-orange-600 shadow-md hover:bg-neutral-100 hover:text-orange-500"
           >
             Visit Our Gallery
           </motion.a>
@@ -98,7 +98,7 @@ const HorizontalScrollCarousel = () => {
             initial={{ opacity: 0, x: 70 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="rounded-xl bg-white px-5 py-2.5 font-semibold text-xl font-playfair text-neutral-700 shadow-lg hover:bg-neutral-100 hover:text-black"
+            className="rounded-xl bg-white px-5 py-2.5 font-semibold text-xl font-playfair text-orange-600 shadow-lg hover:bg-neutral-100 hover:text-orange-500"
           >
             Visit Our Gallery
           </motion.a>
@@ -112,7 +112,7 @@ const HorizontalScrollCarousel = () => {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="rounded-xl bg-white px-6 py-3 font-semibold text-2xl font-playfair text-[#294C60] shadow-xl hover:bg-neutral-100 hover:text-[#2A2F36]"
+            className="rounded-xl bg-white px-6 py-3 font-semibold text-2xl font-playfair text-orange-600 shadow-xl hover:bg-neutral-100 hover:text-orange-500"
           >
             Visit Our Gallery
           </motion.a>
