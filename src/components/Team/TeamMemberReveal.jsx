@@ -48,16 +48,30 @@ const TeamMemberCard = ({ member, isFlipped, onFlip, onLeave }) => {
       onMouseLeave={onLeave}
       onClick={() => (window.location.href = member.link)}
     >
-      <div className={`${styles.cardInner} pt-3 pl-2 bg-[#d6d3d1] shadow-lg rounded-lg`}>
-      <div className={`${styles.cardFront} flex items-center justify-center bg-[#e7e5e4] text-richblack-900`}>
+      <div
+        className={`${styles.cardInner} pt-2 pl-2 shadow-lg rounded-lg bg-slate-200`}
+      >
+        <div className={`${styles.cardFront} flex items-center justify-cente`}>
           <div className={styles.imageWrapper}>
             <img src={member.image} alt={member.name} />
           </div>
-          <h2 className={`${styles.name} text-xl font-semibold font-playfair`}>{member.name}</h2>
-          <p className={`${styles.title} text-lg font-playfair italic font-medium`}>{member.title}</p>
+          <h2
+            className={`${styles.name} text-xl font-semibold font-playfair mb-[.05px]`}
+          >
+            {member.name}
+          </h2>
+          <p
+            className={`${styles.title} text-lg font-playfair italic font-medium text-orange-600`}
+          >
+            {member.title}
+          </p>
         </div>
         <div className={styles.cardBack}>
-          <p className={`${styles.post}font-playfair italic font-medium text-white text-xl `}>{member.post}</p>
+          <p
+            className={`${styles.post}font-playfair italic font-medium text-xl `}
+          >
+            {member.post}
+          </p>
         </div>
       </div>
     </div>
@@ -68,10 +82,15 @@ const TeamMemberReveal = () => {
   const [flippedMember, setFlippedMember] = useState(null);
 
   return (
-    <div className="w-full bg-gradient-to-b from-[#f3f1f1] to-[#d6d3d1] py-20 text-center">
-      <h2 className="text-7xl font-extrabold font-playfair text-richblack-900 mb-5">
-        Board of Directors
+    <div className="w-full py-24 text-center bg-gradient-to-b from-slate-200 via-white to-slate-100">
+      <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 font-[playfair] italic mb-5">
+        Board of{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-500">
+          Directors
+        </span>
       </h2>
+
+      <div className="w-32 h-1 mx-auto mb-11 bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
       <div className={styles.container}>
         <div className={styles.mainRow}>
           <TeamMemberCard

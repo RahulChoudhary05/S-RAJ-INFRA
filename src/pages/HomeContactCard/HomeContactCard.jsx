@@ -6,10 +6,10 @@ export const HomeContactCard = () => {
   return (
     <div className="flex items-center justify-center bg-white px-6 py-14 text-neutral-800">
       <BlockInTextCard
-        tag="/ Support"
+        tag="Support"
         text={
           <>
-            <strong>Have questions?</strong> We'd love to help! Contact support
+            <strong className="text-orange-600">Have questions?</strong> We'd love to help! Contact support
             for any issue you may face.
           </>
         }
@@ -26,12 +26,12 @@ export const HomeContactCard = () => {
 
 const BlockInTextCard = ({ tag, text, examples }) => {
   return (
-    <div className="w-full max-w-xl space-y-6">
+    <div className="w-full max-w-xl space-y-6 py-12">
       <div>
-        <p className="mb-1.5 text-sm font-light uppercase">{tag}</p>
+        <p className="mb-1.5 text-base font-light uppercase">{tag}</p>
         <hr className="border-neutral-700" />
       </div>
-      <p className="max-w-lg text-xl leading-relaxed">{text}</p>
+      <p className="max-w-lg text-xl leading-relaxed font-sans">{text}</p>
       <div>
         <Typewrite examples={examples} />
         <hr className="border-neutral-300" />
