@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import about1 from "../../assets/OverMission.jpg";
-import about2 from "../../assets/OverVision.webp";
 import about3 from "../../assets/about.jpg";
 
 function FeatureItem({ text, delay }) {
@@ -32,7 +30,6 @@ export default function HomeAbout() {
   const [isSplitReady, setIsSplitReady] = useState(false);
 
   const sectionRef = useRef(null);
-  const imageRef = useRef(null);
   const cardsContainerRef = useRef(null);
 
   useEffect(() => {
