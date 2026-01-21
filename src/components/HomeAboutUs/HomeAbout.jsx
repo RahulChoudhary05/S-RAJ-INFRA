@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import about1 from "../../assets/OverMission.jpg";
-import about2 from "../../assets/OverVision.webp";
 import about3 from "../../assets/about.jpg";
 
 function FeatureItem({ text, delay }) {
