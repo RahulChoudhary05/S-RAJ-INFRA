@@ -30,7 +30,6 @@ export default function HomeAbout() {
   const [isSplitReady, setIsSplitReady] = useState(false);
 
   const sectionRef = useRef(null);
-  const imageRef = useRef(null);
   const cardsContainerRef = useRef(null);
 
   useEffect(() => {
