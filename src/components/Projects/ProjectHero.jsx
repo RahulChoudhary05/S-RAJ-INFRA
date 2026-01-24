@@ -11,7 +11,7 @@ export const ProjectHero = () => {
   return (
     <section className="relative grid min-h-screen w-full place-content-center overflow-hidden bg-transparent">
       <h2 className="relative z-0 text-[20vw] font-black text-neutral-500 md:text-[200px]">
-        PROJECTS<span className="text-indigo-500">.</span>
+        PROJECTS<span className="text-neutral-500">.</span>
       </h2>
       <Cards />
     </section>
