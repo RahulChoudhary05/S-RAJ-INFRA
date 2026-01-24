@@ -189,7 +189,7 @@ const ContactUsButton = () => {
   };
 
   const stopScramble = () => {
-    clearInterval(intervalRef.current || undefined);
+    clearInterval(intervalRef.current );
     setText(TARGET_TEXT);
   };
 
@@ -203,7 +203,7 @@ const ContactUsButton = () => {
       }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="group relative overflow-hidden rounded-lg border-[2px] border-[#866A04] text-neutral-600 transparent px-6 py-2 font-mono font-medium uppercase transition-colors hover:bg-zinc-800 hover:text-white"
+      className="group relative overflow-hidden rounded-full border-[2px] border-[#866A04] text-neutral-600 transparent px-8 py-3 font-mono font-medium uppercase transition-colors hover:bg-zinc-800 hover:text-white"
     >
       <div className="relative z-10 flex items-center gap-2">
         <FiLock />
@@ -222,7 +222,7 @@ const ContactUsButton = () => {
           duration: 1,
           ease: "linear",
         }}
-        className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-indigo-400/0 from-40% via-indigo-400/100 to-indigo-400/0 to-60% opacity-0 transition-opacity group-hover:opacity-100"
+        className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-[#866A04]/0 from-40% via-[#866A04]/100 to-[#866A04]/0 to-60% opacity-0 transition-opacity group-hover:opacity-100"
       />
     </motion.button>
   );

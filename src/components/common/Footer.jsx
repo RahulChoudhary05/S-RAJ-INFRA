@@ -125,8 +125,13 @@ export default function Footer() {
               <span className="text-zinc-500">|</span>
               <Link to="/contactus" className="hover:text-white">Contact Us</Link>
             </nav>
-            <div className="text-sm text-zinc-500 text-center">
-              2022 S RAJ INFRA PROJECTS PRIVATE LIMITED. All Rights Reserved.
+            {/* Copyright */}
+            <div className="text-xs text-zinc-500 text-center leading-relaxed">
+              © {new Date().getFullYear()}{" "}
+              <span className="text-zinc-400 font-medium">
+                S RAJ INFRA PROJECTS PRIVATE LIMITED
+              </span>
+              . All Rights Reserved.
             </div>
           </div>
         </div>

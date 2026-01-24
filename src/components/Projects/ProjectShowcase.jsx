@@ -183,7 +183,7 @@ export default function ProjectShowcase() {
     return (
       <Layout>
         {loading && <Loader />}
-        <div className="w-full max-w-7xl mx-auto p-4">
+        <div className="w-full max-w-7xl mx-auto p-4 mt-7">
           <Button variant="ghost" className="mb-6" onClick={handleBackClick}>
             <ChevronLeft className="mr-2 h-4 w-5" />
             {selectedSubProject
